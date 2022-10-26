@@ -1,16 +1,11 @@
 extends KinematicBody2D
 
+export (float) var speed = 200.0
+var health = 3
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
-
-
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+func _physics_process(delta: float) -> void:
+	var movement_direction = Vector2(
+		Input.get_action_strength("right") - Input.get_action_strength("left"),
+		Input.get_action_strength("down") - Input.get_action_strength("up")).normalized()
+	
+	move_and_slide(movement_direction * speed)
