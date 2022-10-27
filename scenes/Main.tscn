@@ -1,10 +1,12 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://scripts/Console.gd" type="Script" id=1]
 [ext_resource path="res://icon.png" type="Texture" id=2]
 [ext_resource path="res://arts/shaders/vignette.shader" type="Shader" id=3]
 [ext_resource path="res://arts/shaders/vignette.png" type="Texture" id=4]
 [ext_resource path="res://scripts/CardMenu.gd" type="Script" id=5]
+[ext_resource path="res://Player.tscn" type="PackedScene" id=6]
+[ext_resource path="res://arts/shaders/screen_blur.tres" type="Shader" id=7]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 807.75, 49 )
@@ -12,6 +14,10 @@ extents = Vector2( 807.75, 49 )
 [sub_resource type="ShaderMaterial" id=2]
 shader = ExtResource( 3 )
 shader_param/vignette = ExtResource( 4 )
+
+[sub_resource type="ShaderMaterial" id=3]
+shader = ExtResource( 7 )
+shader_param/lod = 4.554
 
 [node name="Main" type="Node"]
 
@@ -50,22 +56,36 @@ rotation = 1.5708
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/Wall4"]
 shape = SubResource( 1 )
 
-[node name="Control" type="Control" parent="."]
+[node name="Camera2D" type="Camera2D" parent="Node2D"]
+current = true
+
+[node name="Player" parent="Node2D" instance=ExtResource( 6 )]
+position = Vector2( -128, -36 )
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="CanvasLayer"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 2
 
-[node name="Vignette" type="ColorRect" parent="Control"]
-modulate = Color( 1, 1, 1, 0.258824 )
+[node name="Vignette" type="ColorRect" parent="CanvasLayer/Control"]
+modulate = Color( 1, 1, 1, 0.294118 )
 material = SubResource( 2 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 2
 
-[node name="CardMenu" type="Control" parent="Control"]
+[node name="CardMenu" type="Control" parent="CanvasLayer/Control"]
 pause_mode = 2
-margin_right = 40.0
-margin_bottom = 40.0
+anchor_right = 1.0
+anchor_bottom = 1.0
 script = ExtResource( 5 )
 
-[connection signal="round_ended" from="Console" to="Control/CardMenu" method="_on_Console_round_ended"]
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer/Control/CardMenu"]
+modulate = Color( 0.568627, 0.568627, 0.568627, 1 )
+material = SubResource( 3 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[connection signal="round_ended" from="Console" to="CanvasLayer/Control/CardMenu" method="_on_Console_round_ended"]
