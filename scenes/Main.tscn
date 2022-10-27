@@ -50,22 +50,27 @@ rotation = 1.5708
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/Wall4"]
 shape = SubResource( 1 )
 
-[node name="Control" type="Control" parent="."]
+[node name="Camera2D" type="Camera2D" parent="Node2D"]
+current = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="CanvasLayer"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 2
 
-[node name="Vignette" type="ColorRect" parent="Control"]
+[node name="Vignette" type="ColorRect" parent="CanvasLayer/Control"]
 modulate = Color( 1, 1, 1, 0.258824 )
 material = SubResource( 2 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 2
 
-[node name="CardMenu" type="Control" parent="Control"]
+[node name="CardMenu" type="Control" parent="CanvasLayer/Control"]
 pause_mode = 2
 margin_right = 40.0
 margin_bottom = 40.0
 script = ExtResource( 5 )
 
-[connection signal="round_ended" from="Console" to="Control/CardMenu" method="_on_Console_round_ended"]
+[connection signal="round_ended" from="Console" to="CanvasLayer/Control/CardMenu" method="_on_Console_round_ended"]
