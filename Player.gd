@@ -1,15 +1,15 @@
 extends KinematicBody2D
 
 # Movement Variables
-var speed = 200
+export var speed = 200
 var dash_speed = 0
-var max_dash_speed = 600
-var acceleration = 2000
+export var max_dash_speed = 600
+export var acceleration = 2000
 var dash = false;
 var destination = Vector2()
 var dash_movement = Vector2()
 
-var health = 3
+export var health = 3
 
 onready var dash_cooldown = $DashCoolDown
 
@@ -39,3 +39,8 @@ func dash(delta):
 		dash_movement = move_and_slide(dash_movement)
 	else:
 		dash = false
+		
+func take_damage(damage):
+	health -= damage
+	if health <= 0:
+		print("game over!")
