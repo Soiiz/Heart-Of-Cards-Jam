@@ -8,6 +8,8 @@ var speed = 750
 func _ready():
 	pass # Replace with function body.
 
+# pos (Vector2): Initial spawn position of the projectile.
+# heading (Vector2): Vector representing the direction the projectile will fly. Should be normalized.
 func init(pos, heading):
 	position = pos
 	velocity = heading * speed

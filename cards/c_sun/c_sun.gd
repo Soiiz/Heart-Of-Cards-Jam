@@ -9,4 +9,4 @@ func _process(delta):
 
 func _on_TextureButton_pressed():
 	print("this is the sun!")
-	activate()
+	._on_TextureButton_pressed()

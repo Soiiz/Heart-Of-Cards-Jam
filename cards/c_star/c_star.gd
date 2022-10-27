@@ -18,7 +18,7 @@ func _process(delta):
 			
 func _on_TextureButton_pressed():
 	print("this is the star!")
-	activate()
+	._on_TextureButton_pressed()
 
 func fire(pos, heading):
 	var proj = proj_scene.instance()
