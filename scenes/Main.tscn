@@ -87,7 +87,11 @@ shape = SubResource( 1 )
 current = true
 
 [node name="Player" parent="Node2D" instance=ExtResource( 6 )]
-position = Vector2( -128, -36 )
+position = Vector2( -52, -27 )
+scale = Vector2( 2, 2 )
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Node2D/Player"]
+remote_path = NodePath(".")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
