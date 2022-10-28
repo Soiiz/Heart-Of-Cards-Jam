@@ -1,11 +1,10 @@
-extends Control
+extends TextureButton
 
 # This is the base class. Only edit this if you want all cards to share a certain functionality.
 
 # Declare member variables here. Examples:
 export var round_duration = 3
 var round_lifetime = 0
-onready var button = $TextureButton
 var active = false
 signal card_picked
 
@@ -15,7 +14,7 @@ func _ready():
 	main.connect("round_ended", self, "_on_round_ended")
 	main.connect("round_started", self, "_on_round_started")
 	
-	set_mouse_filter(Control.MOUSE_FILTER_IGNORE)
+	# set_mouse_filter(Control.MOUSE_FILTER_IGNORE)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -25,16 +24,16 @@ func _process(delta):
 		else:
 			pass
 
-func _on_TextureButton_pressed():
+func _pressed():
 	activate()
 
 func initialize(pos):
-	button.set_position(pos)
+	set_position(pos)
 
 func activate():
 	if (!active):
 		active = true
-		button.disabled = true
+		disabled = true
 		emit_signal("card_picked")
 
 func deactivate():
@@ -49,4 +48,4 @@ func _on_round_started():
 	if (!active):
 		deactivate()
 	else:
-		button.self_modulate.a = 0 # hide button
+		self_modulate.a = 0 # hide button

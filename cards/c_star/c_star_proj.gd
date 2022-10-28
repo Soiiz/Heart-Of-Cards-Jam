@@ -25,6 +25,5 @@ func _on_projectile_area_entered(area):
 		area.take_damage(1)
 		queue_free()
 
-
-func _on_VisibilityNotifier2D_screen_exited():
+func _on_VisibilityNotifier2D_viewport_exited(viewport):
 	queue_free()

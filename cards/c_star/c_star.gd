@@ -16,9 +16,9 @@ func _process(delta):
 					for i in range(0, spawn_array.size()):
 						fire(spawn_array[i].position, Vector2.DOWN)
 			
-func _on_TextureButton_pressed():
+func _pressed():
 	print("this is the star!")
-	._on_TextureButton_pressed()
+	._pressed()
 
 func fire(pos, heading):
 	var proj = proj_scene.instance()

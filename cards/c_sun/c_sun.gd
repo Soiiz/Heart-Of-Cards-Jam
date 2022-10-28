@@ -7,6 +7,6 @@ func _process(delta):
 		else:
 			pass
 
-func _on_TextureButton_pressed():
+func _pressed():
 	print("this is the sun!")
-	._on_TextureButton_pressed()
+	._pressed()

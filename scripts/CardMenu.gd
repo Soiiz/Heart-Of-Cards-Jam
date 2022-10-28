@@ -6,6 +6,7 @@ var cards_picked = 0
 var screen_size
 var card_list = ["c_star", "c_sun"]
 var card
+onready var container = $CenterContainer/HBoxContainer
 signal selection_completed
 
 # Called when the node enters the scene tree for the first time.
@@ -13,10 +14,11 @@ func _ready():
 	randomize()
 	screen_size = get_viewport_rect().size
 	for i in range(0, cards_to_spawn):
+		# make this alg better later
 		var card_name = card_list[(randi() % card_list.size())]
 		var c = spawn_card(card_name)
-		var pos = Vector2(i * (screen_size.x / cards_to_spawn), screen_size.y / 4)
-		c.initialize(pos)
+		# var pos = Vector2(i * (screen_size.x / cards_to_spawn), screen_size.y / 4)
+		# c.initialize(pos)
 		c.connect("card_picked", self, "_on_card_picked")
 
 
@@ -28,7 +30,7 @@ func _process(delta):
 func spawn_card(card_name):
 	card = load("res://cards/" + card_name + "/" + card_name + ".tscn")
 	var instance = card.instance()
-	add_child(instance)
+	container.add_child(instance)
 	return instance
 
 func _on_card_picked():
@@ -54,3 +56,7 @@ func _on_Console_round_ended():
 		var pos = Vector2(i * (screen_size.x / cards_to_spawn), screen_size.y / 4)
 		c.initialize(pos)
 		c.connect("card_picked", self, "_on_card_picked")
+
+
+func _on_Console_round_started():
+	pass # Replace with function body.

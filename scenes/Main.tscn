@@ -158,6 +158,16 @@ margin_right = 116.0
 margin_bottom = -242.0
 mouse_filter = 2
 
+[node name="CenterContainer" type="CenterContainer" parent="CanvasLayer/Control/CardMenu"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Control/CardMenu/CenterContainer"]
+margin_left = 960.0
+margin_top = 540.0
+margin_right = 960.0
+margin_bottom = 540.0
+
 [node name="CanvasLayer2" type="CanvasLayer" parent="."]
 layer = 2
 
@@ -182,13 +192,23 @@ layer = 5
 anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 2
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="Vignette" type="ColorRect" parent="CanvasLayer3/Control"]
 modulate = Color( 1, 1, 1, 0.270588 )
 material = SubResource( 2 )
 anchor_right = 1.0
 anchor_bottom = 1.0
+margin_left = -33.0
+margin_top = -5.0
+margin_right = -33.0
+margin_bottom = -5.0
 mouse_filter = 2
+__meta__ = {
+"_edit_lock_": true
+}
 
 [connection signal="round_ended" from="Console" to="CanvasLayer/Control/CardMenu" method="_on_Console_round_ended"]
 [connection signal="selection_completed" from="CanvasLayer/Control/CardMenu" to="Console" method="_on_CardMenu_selection_completed"]
