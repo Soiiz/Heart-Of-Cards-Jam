@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/waterComp.png-96cfdeafc1286f4d04ce83f67971e293.stex"
+path="res://.import/waterGradient.png-8fe0ddf9a63ce4b5b537754365916774.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Asset/shaders/waterComp.png"
-dest_files=[ "res://.import/waterComp.png-96cfdeafc1286f4d04ce83f67971e293.stex" ]
+source_file="res://arts/shaders/waterGradient.png"
+dest_files=[ "res://.import/waterGradient.png-8fe0ddf9a63ce4b5b537754365916774.stex" ]
 
 [params]
 
@@ -19,7 +19,7 @@ compress/lossy_quality=0.7
 compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
-flags/repeat=1
+flags/repeat=0
 flags/filter=true
 flags/mipmaps=false
 flags/anisotropic=false

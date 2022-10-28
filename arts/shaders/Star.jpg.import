@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/background.png-027c80bc4c1020d0e3e446820378bbdd.stex"
+path="res://.import/Star.jpg-b42fb46cede51d264a922ddbd2aa58b0.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Asset/background.png"
-dest_files=[ "res://.import/background.png-027c80bc4c1020d0e3e446820378bbdd.stex" ]
+source_file="res://arts/shaders/Star.jpg"
+dest_files=[ "res://.import/Star.jpg-b42fb46cede51d264a922ddbd2aa58b0.stex" ]
 
 [params]
 
@@ -19,7 +19,7 @@ compress/lossy_quality=0.7
 compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
-flags/repeat=0
+flags/repeat=1
 flags/filter=true
 flags/mipmaps=false
 flags/anisotropic=false

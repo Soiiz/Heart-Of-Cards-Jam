@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/WaterNoise.png-7e86783018d7440b3cf9465f5a5dcc27.stex"
+path="res://.import/waterComp.png-12e30acc4484f4c6708ad571e6cfec06.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Asset/shaders/WaterNoise.png"
-dest_files=[ "res://.import/WaterNoise.png-7e86783018d7440b3cf9465f5a5dcc27.stex" ]
+source_file="res://arts/shaders/waterComp.png"
+dest_files=[ "res://.import/waterComp.png-12e30acc4484f4c6708ad571e6cfec06.stex" ]
 
 [params]
 
