@@ -35,12 +35,18 @@ func _on_card_picked():
 	cards_picked += 1
 	if (cards_picked >= cards_to_pick):
 		get_tree().paused = false
+		
+		# hide the ui and the effects
 		hide()
+		$"../../../CanvasLayer2".hide()
+		
 		emit_signal("selection_completed")
 
 
 func _on_Console_round_ended():
 	show()
+	$"../../../CanvasLayer2".show()
+	
 	cards_picked = 0
 	for i in range(0, cards_to_spawn):
 		var card_name = card_list[(randi() % card_list.size())]

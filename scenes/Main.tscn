@@ -13,6 +13,10 @@
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 807.75, 49 )
 
+[sub_resource type="ShaderMaterial" id=3]
+shader = ExtResource( 7 )
+shader_param/lod = 4.554
+
 [sub_resource type="ShaderMaterial" id=4]
 shader = ExtResource( 8 )
 shader_param/Distortion = 0.056
@@ -24,11 +28,7 @@ shader_param/Blur_Amount = 1.377
 shader_param/Base_Color_Mod = Color( 0.154843, 0.370437, 0.492083, 1 )
 shader_param/Star_Speed = 0.02
 shader_param/Water_Speed = 0.05
-shader_param/Surface_Light = 1.0
-
-[sub_resource type="ShaderMaterial" id=3]
-shader = ExtResource( 7 )
-shader_param/lod = 4.554
+shader_param/Surface_Light = 0.197
 
 [sub_resource type="ShaderMaterial" id=5]
 shader = ExtResource( 8 )
@@ -41,7 +41,7 @@ shader_param/Blur_Amount = 1.377
 shader_param/Base_Color_Mod = Color( 0.154843, 0.370437, 0.492083, 1 )
 shader_param/Star_Speed = 0.02
 shader_param/Water_Speed = 0.05
-shader_param/Surface_Light = 1.0
+shader_param/Surface_Light = 0.197
 
 [sub_resource type="ShaderMaterial" id=2]
 shader = ExtResource( 3 )
@@ -106,31 +106,6 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 2
 
-[node name="Water2" type="ColorRect" parent="CanvasLayer/Control"]
-visible = false
-material = SubResource( 4 )
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = -118.0
-margin_top = 722.0
-margin_right = 116.0
-margin_bottom = -242.0
-mouse_filter = 2
-
-[node name="CardMenu" type="Control" parent="CanvasLayer/Control"]
-pause_mode = 2
-anchor_right = 1.0
-anchor_bottom = 1.0
-mouse_filter = 2
-script = ExtResource( 5 )
-
-[node name="ColorRect" type="ColorRect" parent="CanvasLayer/Control/CardMenu"]
-modulate = Color( 0.568627, 0.568627, 0.568627, 1 )
-material = SubResource( 3 )
-anchor_right = 1.0
-anchor_bottom = 1.0
-mouse_filter = 2
-
 [node name="CenterContainer" type="CenterContainer" parent="CanvasLayer/Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -158,9 +133,33 @@ margin_right = 308.0
 margin_bottom = 100.0
 texture = ExtResource( 9 )
 
+[node name="CardMenu" type="Control" parent="CanvasLayer/Control"]
+pause_mode = 2
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+script = ExtResource( 5 )
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer/Control/CardMenu"]
+modulate = Color( 0.568627, 0.568627, 0.568627, 1 )
+material = SubResource( 3 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_bottom = -358.0
+mouse_filter = 2
+
+[node name="Water2" type="ColorRect" parent="CanvasLayer/Control/CardMenu"]
+material = SubResource( 4 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -118.0
+margin_top = 722.0
+margin_right = 116.0
+margin_bottom = -242.0
+mouse_filter = 2
+
 [node name="CanvasLayer2" type="CanvasLayer" parent="."]
 layer = 2
-visible = false
 
 [node name="Control" type="Control" parent="CanvasLayer2"]
 anchor_right = 1.0
