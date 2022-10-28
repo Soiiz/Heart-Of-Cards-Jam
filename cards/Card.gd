@@ -11,11 +11,11 @@ signal card_picked
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	var main = get_node("/root/Main/Console")
+	var main = Global.console
 	main.connect("round_ended", self, "_on_round_ended")
 	main.connect("round_started", self, "_on_round_started")
-	pass # Replace with function body.
-
+	
+	set_mouse_filter(Control.MOUSE_FILTER_IGNORE)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
