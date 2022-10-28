@@ -8,25 +8,30 @@ export var acceleration = 600
 var dash = false;
 var destination = Vector2()
 var dash_movement = Vector2()
-
+var test = 0.0
 export var health = 3
 
 onready var dash_cooldown = $DashCoolDown
-export var dash_delay: float = 5
+export var dash_delay: float = .5
 
 func _unhandled_input(event):
-	if event.is_action_pressed("Click") && dash_cooldown.is_stopped():
+	if event.is_action_pressed("Click") and dash == false:
 		dash = true;
 		dash_speed = 400
 		destination = get_global_mouse_position()
 		print("pressed")
-	
+
+# func _process(delta):
+#	test += delta
+
+
 func _physics_process(delta: float) -> void:
 	var movement_direction = Vector2(
 		Input.get_action_strength("right") - Input.get_action_strength("left"),
 		Input.get_action_strength("down") - Input.get_action_strength("up")).normalized()
 		
-	move_and_slide(movement_direction * speed)
+	if dash == false:
+		move_and_slide(movement_direction * speed)
 	dash(delta)
 
 func dash(delta):

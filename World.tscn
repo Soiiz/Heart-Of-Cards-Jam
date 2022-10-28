@@ -9,4 +9,4 @@ position = Vector2( 31, 421 )
 dash_delay = 0.1
 
 [node name="DashCoolDown" type="Timer" parent="."]
-autostart = true
+one_shot = true
