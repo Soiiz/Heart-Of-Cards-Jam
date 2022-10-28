@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/waterGradient.png-8ef676ba5d7b82b4849e1ad629d3aa11.stex"
+path="res://.import/background.png-027c80bc4c1020d0e3e446820378bbdd.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Asset/shaders/waterGradient.png"
-dest_files=[ "res://.import/waterGradient.png-8ef676ba5d7b82b4849e1ad629d3aa11.stex" ]
+source_file="res://Asset/background.png"
+dest_files=[ "res://.import/background.png-027c80bc4c1020d0e3e446820378bbdd.stex" ]
 
 [params]
 

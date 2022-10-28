@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/waterComp.png-12e30acc4484f4c6708ad571e6cfec06.stex"
+path="res://.import/waterComp.png-96cfdeafc1286f4d04ce83f67971e293.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://arts/shaders/waterComp.png"
-dest_files=[ "res://.import/waterComp.png-12e30acc4484f4c6708ad571e6cfec06.stex" ]
+source_file="res://Asset/shaders/waterComp.png"
+dest_files=[ "res://.import/waterComp.png-96cfdeafc1286f4d04ce83f67971e293.stex" ]
 
 [params]
 
