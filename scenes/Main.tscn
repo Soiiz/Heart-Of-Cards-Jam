@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://scripts/Console.gd" type="Script" id=1]
 [ext_resource path="res://arts/background.png" type="Texture" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://Player.tscn" type="PackedScene" id=6]
 [ext_resource path="res://arts/shaders/screen_blur.tres" type="Shader" id=7]
 [ext_resource path="res://arts/shaders/water_shader.tres" type="Shader" id=8]
+[ext_resource path="res://arts/ui/heart.png" type="Texture" id=9]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 807.75, 49 )
@@ -126,6 +127,33 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 2
 
+[node name="CenterContainer" type="CenterContainer" parent="CanvasLayer/Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 980.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Control/CenterContainer"]
+margin_left = 806.0
+margin_right = 1114.0
+margin_bottom = 100.0
+
+[node name="Heart1" type="TextureRect" parent="CanvasLayer/Control/CenterContainer/HBoxContainer"]
+margin_right = 100.0
+margin_bottom = 100.0
+texture = ExtResource( 9 )
+
+[node name="Heart2" type="TextureRect" parent="CanvasLayer/Control/CenterContainer/HBoxContainer"]
+margin_left = 104.0
+margin_right = 204.0
+margin_bottom = 100.0
+texture = ExtResource( 9 )
+
+[node name="Heart3" type="TextureRect" parent="CanvasLayer/Control/CenterContainer/HBoxContainer"]
+margin_left = 208.0
+margin_right = 308.0
+margin_bottom = 100.0
+texture = ExtResource( 9 )
+
 [node name="CanvasLayer2" type="CanvasLayer" parent="."]
 layer = 2
 visible = false
@@ -153,7 +181,7 @@ anchor_bottom = 1.0
 mouse_filter = 2
 
 [node name="Vignette" type="ColorRect" parent="CanvasLayer3/Control"]
-modulate = Color( 1, 1, 1, 0.294118 )
+modulate = Color( 1, 1, 1, 0.270588 )
 material = SubResource( 2 )
 anchor_right = 1.0
 anchor_bottom = 1.0

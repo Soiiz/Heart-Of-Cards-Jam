@@ -23,3 +23,7 @@ func _process(delta):
 
 func _on_Cards_selection_completed():
 	emit_signal("round_started")
+
+
+func update_health():
+	pass
