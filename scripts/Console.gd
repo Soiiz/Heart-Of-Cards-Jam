@@ -21,5 +21,5 @@ func _process(delta):
 		get_tree().paused = true
 
 
-func _on_Cards_selection_completed():
+func _on_CardMenu_selection_completed():
 	emit_signal("round_started")
