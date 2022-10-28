@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://scripts/Console.gd" type="Script" id=1]
 [ext_resource path="res://icon.png" type="Texture" id=2]
@@ -7,17 +7,42 @@
 [ext_resource path="res://scripts/CardMenu.gd" type="Script" id=5]
 [ext_resource path="res://Player.tscn" type="PackedScene" id=6]
 [ext_resource path="res://arts/shaders/screen_blur.tres" type="Shader" id=7]
+[ext_resource path="res://arts/shaders/water_shader.tres" type="Shader" id=8]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 807.75, 49 )
+
+[sub_resource type="ShaderMaterial" id=3]
+shader = ExtResource( 7 )
+shader_param/lod = 4.554
+
+[sub_resource type="ShaderMaterial" id=4]
+shader = ExtResource( 8 )
+shader_param/Distortion = 0.056
+shader_param/Side_Speed = 0.015
+shader_param/Horizontal_Strength = -0.697
+shader_param/Speed = 0.037
+shader_param/Vertical_Strength = 0.821
+shader_param/Blur_Amount = 1.377
+shader_param/Base_Color_Mod = Color( 0.154843, 0.370437, 0.492083, 1 )
+shader_param/Star_Speed = 0.02
+shader_param/Water_Speed = 0.05
 
 [sub_resource type="ShaderMaterial" id=2]
 shader = ExtResource( 3 )
 shader_param/vignette = ExtResource( 4 )
 
-[sub_resource type="ShaderMaterial" id=3]
-shader = ExtResource( 7 )
-shader_param/lod = 4.554
+[sub_resource type="ShaderMaterial" id=5]
+shader = ExtResource( 8 )
+shader_param/Distortion = 0.056
+shader_param/Side_Speed = 0.015
+shader_param/Horizontal_Strength = -0.697
+shader_param/Speed = 0.037
+shader_param/Vertical_Strength = 0.821
+shader_param/Blur_Amount = 1.377
+shader_param/Base_Color_Mod = Color( 0.368627, 0.192157, 0.223529, 1 )
+shader_param/Star_Speed = 0.02
+shader_param/Water_Speed = 0.05
 
 [node name="Main" type="Node"]
 
@@ -69,6 +94,31 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 2
 
+[node name="CardMenu" type="Control" parent="CanvasLayer/Control"]
+pause_mode = 2
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+script = ExtResource( 5 )
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer/Control/CardMenu"]
+visible = false
+modulate = Color( 0.568627, 0.568627, 0.568627, 1 )
+material = SubResource( 3 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+
+[node name="Water2" type="ColorRect" parent="CanvasLayer/Control"]
+visible = false
+material = SubResource( 4 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -118.0
+margin_top = 722.0
+margin_right = 116.0
+mouse_filter = 2
+
 [node name="Vignette" type="ColorRect" parent="CanvasLayer/Control"]
 modulate = Color( 1, 1, 1, 0.294118 )
 material = SubResource( 2 )
@@ -76,16 +126,22 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 2
 
-[node name="CardMenu" type="Control" parent="CanvasLayer/Control"]
-pause_mode = 2
-anchor_right = 1.0
-anchor_bottom = 1.0
-script = ExtResource( 5 )
+[node name="CanvasLayer2" type="CanvasLayer" parent="."]
+layer = 2
+visible = false
 
-[node name="ColorRect" type="ColorRect" parent="CanvasLayer/Control/CardMenu"]
-modulate = Color( 0.568627, 0.568627, 0.568627, 1 )
-material = SubResource( 3 )
+[node name="Control" type="Control" parent="CanvasLayer2"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+mouse_filter = 2
+
+[node name="Water" type="ColorRect" parent="CanvasLayer2/Control"]
+material = SubResource( 5 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -118.0
+margin_top = 820.0
+margin_right = 116.0
+mouse_filter = 2
 
 [connection signal="round_ended" from="Console" to="CanvasLayer/Control/CardMenu" method="_on_Console_round_ended"]
