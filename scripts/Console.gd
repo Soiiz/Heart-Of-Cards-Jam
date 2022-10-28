@@ -21,5 +21,14 @@ func _process(delta):
 		get_tree().paused = true
 
 
-func _on_Cards_selection_completed():
+func _on_CardMenu_selection_completed():
 	emit_signal("round_started")
+
+
+func _on_health_updated(new_health):
+	for i in range(3):
+		var heart = get_node("../CanvasLayer/Control/CenterContainer/HBoxContainer/Heart%d" % [i + 1])
+		if i < new_health:
+			heart.set_modulate(Color.red)
+		else:
+			heart.set_modulate(Color.white)

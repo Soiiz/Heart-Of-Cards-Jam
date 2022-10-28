@@ -1,13 +1,14 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://scripts/Console.gd" type="Script" id=1]
-[ext_resource path="res://icon.png" type="Texture" id=2]
+[ext_resource path="res://arts/background.png" type="Texture" id=2]
 [ext_resource path="res://arts/shaders/vignette.shader" type="Shader" id=3]
 [ext_resource path="res://arts/shaders/vignette.png" type="Texture" id=4]
 [ext_resource path="res://scripts/CardMenu.gd" type="Script" id=5]
 [ext_resource path="res://Player.tscn" type="PackedScene" id=6]
 [ext_resource path="res://arts/shaders/screen_blur.tres" type="Shader" id=7]
 [ext_resource path="res://arts/shaders/water_shader.tres" type="Shader" id=8]
+[ext_resource path="res://arts/ui/heart.png" type="Texture" id=9]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 807.75, 49 )
@@ -23,7 +24,7 @@ shader_param/Blur_Amount = 1.377
 shader_param/Base_Color_Mod = Color( 0.154843, 0.370437, 0.492083, 1 )
 shader_param/Star_Speed = 0.02
 shader_param/Water_Speed = 0.05
-shader_param/Surface_Light = 0.0
+shader_param/Surface_Light = 1.0
 
 [sub_resource type="ShaderMaterial" id=3]
 shader = ExtResource( 7 )
@@ -40,7 +41,7 @@ shader_param/Blur_Amount = 1.377
 shader_param/Base_Color_Mod = Color( 0.154843, 0.370437, 0.492083, 1 )
 shader_param/Star_Speed = 0.02
 shader_param/Water_Speed = 0.05
-shader_param/Surface_Light = 0.0
+shader_param/Surface_Light = 1.0
 
 [sub_resource type="ShaderMaterial" id=2]
 shader = ExtResource( 3 )
@@ -53,8 +54,8 @@ script = ExtResource( 1 )
 
 [node name="Node2D" type="Node2D" parent="."]
 
-[node name="Icon" type="Sprite" parent="Node2D"]
-scale = Vector2( 22.4922, 13.4063 )
+[node name="BG" type="Sprite" parent="Node2D"]
+scale = Vector2( 2.27768, 1.92943 )
 texture = ExtResource( 2 )
 
 [node name="Wall" type="StaticBody2D" parent="Node2D"]
@@ -126,6 +127,33 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 2
 
+[node name="CenterContainer" type="CenterContainer" parent="CanvasLayer/Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 980.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Control/CenterContainer"]
+margin_left = 806.0
+margin_right = 1114.0
+margin_bottom = 100.0
+
+[node name="Heart1" type="TextureRect" parent="CanvasLayer/Control/CenterContainer/HBoxContainer"]
+margin_right = 100.0
+margin_bottom = 100.0
+texture = ExtResource( 9 )
+
+[node name="Heart2" type="TextureRect" parent="CanvasLayer/Control/CenterContainer/HBoxContainer"]
+margin_left = 104.0
+margin_right = 204.0
+margin_bottom = 100.0
+texture = ExtResource( 9 )
+
+[node name="Heart3" type="TextureRect" parent="CanvasLayer/Control/CenterContainer/HBoxContainer"]
+margin_left = 208.0
+margin_right = 308.0
+margin_bottom = 100.0
+texture = ExtResource( 9 )
+
 [node name="CanvasLayer2" type="CanvasLayer" parent="."]
 layer = 2
 visible = false
@@ -153,10 +181,11 @@ anchor_bottom = 1.0
 mouse_filter = 2
 
 [node name="Vignette" type="ColorRect" parent="CanvasLayer3/Control"]
-modulate = Color( 1, 1, 1, 0.294118 )
+modulate = Color( 1, 1, 1, 0.270588 )
 material = SubResource( 2 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 2
 
 [connection signal="round_ended" from="Console" to="CanvasLayer/Control/CardMenu" method="_on_Console_round_ended"]
+[connection signal="selection_completed" from="CanvasLayer/Control/CardMenu" to="Console" method="_on_CardMenu_selection_completed"]

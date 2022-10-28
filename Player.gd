@@ -1,5 +1,7 @@
 extends KinematicBody2D
 
+signal health_updated
+
 # Movement Variables
 export var speed = 200
 var dash_speed = 0
@@ -12,6 +14,11 @@ var dash_movement = Vector2()
 export var health = 3
 
 onready var dash_cooldown = $DashCoolDown
+
+func _ready():
+	Global.player = self
+	connect("health_updated", Global.console, "_on_health_updated")
+	emit_signal("health_updated", health)
 
 func _unhandled_input(event):
 	if event.is_action_pressed("Click"):
@@ -42,5 +49,7 @@ func dash(delta):
 		
 func take_damage(damage):
 	health -= damage
+	emit_signal("health_updated", health)
+	
 	if health <= 0:
 		print("game over!")
