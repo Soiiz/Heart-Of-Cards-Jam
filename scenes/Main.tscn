@@ -60,12 +60,16 @@ texture = ExtResource( 2 )
 
 [node name="Wall" type="StaticBody2D" parent="Node2D"]
 position = Vector2( 0, -467 )
+collision_layer = 2
+collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/Wall"]
 shape = SubResource( 1 )
 
 [node name="Wall2" type="StaticBody2D" parent="Node2D"]
 position = Vector2( 0, 478 )
+collision_layer = 2
+collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/Wall2"]
 shape = SubResource( 1 )
@@ -73,6 +77,8 @@ shape = SubResource( 1 )
 [node name="Wall3" type="StaticBody2D" parent="Node2D"]
 position = Vector2( -769, 0 )
 rotation = 1.5708
+collision_layer = 2
+collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/Wall3"]
 shape = SubResource( 1 )
@@ -80,6 +86,8 @@ shape = SubResource( 1 )
 [node name="Wall4" type="StaticBody2D" parent="Node2D"]
 position = Vector2( 770, 0 )
 rotation = 1.5708
+collision_layer = 2
+collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/Wall4"]
 shape = SubResource( 1 )
@@ -90,9 +98,6 @@ current = true
 [node name="Player" parent="Node2D" instance=ExtResource( 6 )]
 position = Vector2( -52, -27 )
 scale = Vector2( 2, 2 )
-
-[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Node2D/Player"]
-remote_path = NodePath(".")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
