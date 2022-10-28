@@ -211,4 +211,5 @@ __meta__ = {
 }
 
 [connection signal="round_ended" from="Console" to="CanvasLayer/Control/CardMenu" method="_on_Console_round_ended"]
+[connection signal="round_started" from="Console" to="CanvasLayer/Control/CardMenu" method="_on_Console_round_started"]
 [connection signal="selection_completed" from="CanvasLayer/Control/CardMenu" to="Console" method="_on_CardMenu_selection_completed"]

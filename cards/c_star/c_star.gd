@@ -2,6 +2,7 @@ extends "res://cards/Card.gd"
 
 export(PackedScene) var proj_scene
 var ticks = 0
+var console = Global.console
 onready var spawn_array = $SpawnPoints.get_children()
 export var fire_rate = 30
 
@@ -23,4 +24,4 @@ func _pressed():
 func fire(pos, heading):
 	var proj = proj_scene.instance()
 	proj.init(pos, heading)
-	get_parent().add_child(proj)
+	console.get_parent().get_node("Node2D").add_child(proj)

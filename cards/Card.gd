@@ -49,3 +49,7 @@ func _on_round_started():
 		deactivate()
 	else:
 		self_modulate.a = 0 # hide button
+		var p = get_parent().get_parent()
+		get_parent().remove_child(self)
+		p.add_child(self)
+		self.set_owner(p)
