@@ -29,3 +29,4 @@ shape = SubResource( 2 )
 
 [node name="DashCoolDown" type="Timer" parent="."]
 wait_time = 0.881
+one_shot = true
