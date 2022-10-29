@@ -3,7 +3,7 @@ extends "res://cards/Card.gd"
 export(PackedScene) var proj_scene
 var ticks = 0
 var console = Global.console
-onready var spawn_array = $SpawnPoints.get_children()
+onready var spawn_array = console.get_upper_spawns().get_children()
 export var fire_rate = 30
 
 func _process(delta):

@@ -35,7 +35,7 @@ func _on_health_updated(new_health):
 			heart.set_modulate(Color.white)
 
 func get_upper_spawns():
-	return get_node("../Upper_Spawns")
+	return get_node("../Node2D/Upper_Spawns")
 
 func get_lower_spawns():
-	return get_node("../Lower_Spawns")
+	return get_node("../Node2D/Lower_Spawns")
