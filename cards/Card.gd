@@ -50,6 +50,7 @@ func _on_round_started():
 		deactivate()
 	else:
 		self_modulate.a = 0 # hide button
+		set_mouse_filter(Control.MOUSE_FILTER_IGNORE)
 		var p = get_parent().get_parent()
 		get_parent().remove_child(self)
 		p.add_child(self)
