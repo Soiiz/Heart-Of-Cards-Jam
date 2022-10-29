@@ -3,7 +3,6 @@ extends Control
 export var cards_to_spawn = 3
 export var cards_to_pick = 2
 var cards_picked = 0
-var screen_size
 var card_list = ["c_star", "c_sun"]
 var card
 onready var container = $CenterContainer/HBoxContainer
@@ -12,14 +11,7 @@ signal selection_completed
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	randomize()
-	screen_size = get_viewport_rect().size
-	for i in range(0, cards_to_spawn):
-		# make this alg better later
-		var card_name = card_list[(randi() % card_list.size())]
-		var c = spawn_card(card_name)
-		# var pos = Vector2(i * (screen_size.x / cards_to_spawn), screen_size.y / 4)
-		# c.initialize(pos)
-		c.connect("card_picked", self, "_on_card_picked")
+	spawn_card_array()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -32,6 +24,12 @@ func spawn_card(card_name):
 	var instance = card.instance()
 	container.add_child(instance)
 	return instance
+	
+func spawn_card_array():
+	for i in range(0, cards_to_spawn):
+		var card_name = card_list[(randi() % card_list.size())]
+		var c = spawn_card(card_name)
+		c.connect("card_picked", self, "_on_card_picked")
 
 func _on_card_picked():
 	cards_picked += 1
@@ -50,12 +48,7 @@ func _on_Console_round_ended():
 	$"../../../CanvasLayer2".show()
 	
 	cards_picked = 0
-	for i in range(0, cards_to_spawn):
-		var card_name = card_list[(randi() % card_list.size())]
-		var c = spawn_card(card_name)
-		var pos = Vector2(i * (screen_size.x / cards_to_spawn), screen_size.y / 4)
-		c.initialize(pos)
-		c.connect("card_picked", self, "_on_card_picked")
+	spawn_card_array()
 
 
 func _on_Console_round_started():

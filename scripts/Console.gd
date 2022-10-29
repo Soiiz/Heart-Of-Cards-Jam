@@ -2,7 +2,7 @@ extends Node
 
 # use for scene dependent logics
 var ticks = 0
-var round_timer = 600
+var round_timer = 6
 signal round_ended
 signal round_started
 
@@ -14,8 +14,9 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	ticks += 1
-	if (ticks % round_timer == 0):
+	ticks += delta
+	if (ticks >= round_timer):
+		ticks = 0
 		print("thats a round!")
 		emit_signal("round_ended")
 		get_tree().paused = true
@@ -32,3 +33,9 @@ func _on_health_updated(new_health):
 			heart.set_modulate(Color.red)
 		else:
 			heart.set_modulate(Color.white)
+
+func get_upper_spawns():
+	return get_node("../Upper_Spawns")
+
+func get_lower_spawns():
+	return get_node("../Lower_Spawns")

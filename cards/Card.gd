@@ -25,6 +25,7 @@ func _process(delta):
 			pass
 
 func _pressed():
+	print("click!")
 	activate()
 
 func initialize(pos):

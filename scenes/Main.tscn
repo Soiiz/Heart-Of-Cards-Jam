@@ -13,23 +13,6 @@
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 807.75, 49 )
 
-[sub_resource type="ShaderMaterial" id=3]
-shader = ExtResource( 7 )
-shader_param/lod = 4.554
-
-[sub_resource type="ShaderMaterial" id=4]
-shader = ExtResource( 8 )
-shader_param/Distortion = 0.056
-shader_param/Side_Speed = 0.015
-shader_param/Horizontal_Strength = -0.697
-shader_param/Speed = 0.037
-shader_param/Vertical_Strength = 0.821
-shader_param/Blur_Amount = 1.377
-shader_param/Base_Color_Mod = Color( 0.154843, 0.370437, 0.492083, 1 )
-shader_param/Star_Speed = 0.02
-shader_param/Water_Speed = 0.05
-shader_param/Surface_Light = 0.197
-
 [sub_resource type="ShaderMaterial" id=5]
 shader = ExtResource( 8 )
 shader_param/Distortion = 0.056
@@ -46,6 +29,23 @@ shader_param/Surface_Light = 0.197
 [sub_resource type="ShaderMaterial" id=2]
 shader = ExtResource( 3 )
 shader_param/vignette = ExtResource( 4 )
+
+[sub_resource type="ShaderMaterial" id=3]
+shader = ExtResource( 7 )
+shader_param/lod = 4.554
+
+[sub_resource type="ShaderMaterial" id=4]
+shader = ExtResource( 8 )
+shader_param/Distortion = 0.056
+shader_param/Side_Speed = 0.015
+shader_param/Horizontal_Strength = -0.697
+shader_param/Speed = 0.037
+shader_param/Vertical_Strength = 0.821
+shader_param/Blur_Amount = 1.377
+shader_param/Base_Color_Mod = Color( 0.154843, 0.370437, 0.492083, 1 )
+shader_param/Star_Speed = 0.02
+shader_param/Water_Speed = 0.05
+shader_param/Surface_Light = 0.197
 
 [node name="Main" type="Node"]
 
@@ -98,6 +98,70 @@ current = true
 [node name="Player" parent="Node2D" instance=ExtResource( 6 )]
 position = Vector2( -52, -27 )
 scale = Vector2( 2, 2 )
+
+[node name="Upper_Spawns" type="Node" parent="Node2D"]
+
+[node name="Node2D" type="Node2D" parent="Node2D/Upper_Spawns"]
+position = Vector2( -512, -544 )
+
+[node name="Node2D2" type="Node2D" parent="Node2D/Upper_Spawns"]
+position = Vector2( 0, -544 )
+
+[node name="Node2D3" type="Node2D" parent="Node2D/Upper_Spawns"]
+position = Vector2( 512, -544 )
+
+[node name="Lower_Spawns" type="Node" parent="Node2D"]
+
+[node name="Node2D" type="Node2D" parent="Node2D/Lower_Spawns"]
+position = Vector2( -512, 544 )
+
+[node name="Node2D2" type="Node2D" parent="Node2D/Lower_Spawns"]
+position = Vector2( 0, 544 )
+
+[node name="Node2D3" type="Node2D" parent="Node2D/Lower_Spawns"]
+position = Vector2( 512, 544 )
+
+[node name="CanvasLayer2" type="CanvasLayer" parent="."]
+layer = 2
+
+[node name="Control" type="Control" parent="CanvasLayer2"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+
+[node name="Water" type="ColorRect" parent="CanvasLayer2/Control"]
+material = SubResource( 5 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -118.0
+margin_top = 838.0
+margin_right = 116.0
+mouse_filter = 2
+
+[node name="CanvasLayer3" type="CanvasLayer" parent="."]
+layer = 5
+
+[node name="Control" type="Control" parent="CanvasLayer3"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Vignette" type="ColorRect" parent="CanvasLayer3/Control"]
+modulate = Color( 1, 1, 1, 0.270588 )
+material = SubResource( 2 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -33.0
+margin_top = -5.0
+margin_right = -33.0
+margin_bottom = -5.0
+mouse_filter = 2
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -167,48 +231,6 @@ margin_left = 960.0
 margin_top = 540.0
 margin_right = 960.0
 margin_bottom = 540.0
-
-[node name="CanvasLayer2" type="CanvasLayer" parent="."]
-layer = 2
-
-[node name="Control" type="Control" parent="CanvasLayer2"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-mouse_filter = 2
-
-[node name="Water" type="ColorRect" parent="CanvasLayer2/Control"]
-material = SubResource( 5 )
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = -118.0
-margin_top = 838.0
-margin_right = 116.0
-mouse_filter = 2
-
-[node name="CanvasLayer3" type="CanvasLayer" parent="."]
-layer = 5
-
-[node name="Control" type="Control" parent="CanvasLayer3"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-mouse_filter = 2
-__meta__ = {
-"_edit_lock_": true
-}
-
-[node name="Vignette" type="ColorRect" parent="CanvasLayer3/Control"]
-modulate = Color( 1, 1, 1, 0.270588 )
-material = SubResource( 2 )
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = -33.0
-margin_top = -5.0
-margin_right = -33.0
-margin_bottom = -5.0
-mouse_filter = 2
-__meta__ = {
-"_edit_lock_": true
-}
 
 [connection signal="round_ended" from="Console" to="CanvasLayer/Control/CardMenu" method="_on_Console_round_ended"]
 [connection signal="round_started" from="Console" to="CanvasLayer/Control/CardMenu" method="_on_Console_round_started"]
