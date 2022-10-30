@@ -31,6 +31,8 @@ func _on_health_updated(new_health):
 		var heart = get_node("../CanvasLayer/Control/CenterContainer/HBoxContainer/Heart%d" % [i + 1])
 		if i < new_health:
 			heart.set_modulate(Color.red)
+		elif i > new_health:
+			heart.set_modulate(Color.green)
 		else:
 			heart.set_modulate(Color.white)
 
