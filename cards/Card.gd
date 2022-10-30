@@ -4,6 +4,7 @@ extends TextureButton
 
 # Declare member variables here. Examples:
 export var round_duration = 3
+var console = Global.console
 var round_lifetime = 0
 var active = false
 signal card_picked
