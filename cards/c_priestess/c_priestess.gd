@@ -2,8 +2,9 @@ extends "res://cards/Card.gd"
 
 var player = console.get_player()
 
-func _ready():
-	._ready()
+
+func activate():
+	player.gain_hp(1)
 	
 
 func _pressed():

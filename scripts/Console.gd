@@ -2,7 +2,7 @@ extends Node
 
 # use for scene dependent logics
 var ticks = 0
-var round_timer = 6
+var round_timer = 10
 signal round_ended
 signal round_started
 
@@ -47,3 +47,6 @@ func get_lower_spawns():
 	
 func get_player():
 	return get_node("../Node2D/Player")
+
+func get_devil_spawn():
+	return get_node("../Node2D/devil_spawn")
