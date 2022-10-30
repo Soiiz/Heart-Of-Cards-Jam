@@ -41,8 +41,6 @@ func _physics_process(delta: float) -> void:
 	if dash == false:
 		move_and_slide(movement_direction * speed)
 	dash(delta)
-	
-	print(dash_cooldown)
 
 func dash(delta):
 	if dash == false:
