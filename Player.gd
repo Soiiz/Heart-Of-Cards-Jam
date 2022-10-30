@@ -10,8 +10,10 @@ export var acceleration = 600
 var dash = false;
 var destination = Vector2()
 var dash_movement = Vector2()
-var dash_cooldown = 20
+var dash_cooldown = 2
 export var health = 3
+var slow = false
+var accelerate = false
 
 export var dash_delay: float = 20
 
@@ -31,7 +33,7 @@ func _unhandled_input(event):
 
 func _process(delta):
 	dash_cooldown += delta
-
+	
 
 func _physics_process(delta: float) -> void:
 	var movement_direction = Vector2(
@@ -39,7 +41,13 @@ func _physics_process(delta: float) -> void:
 		Input.get_action_strength("down") - Input.get_action_strength("up")).normalized()
 		
 	if dash == false:
-		move_and_slide(movement_direction * speed)
+		if slow == true:
+			move_and_slide(movement_direction * speed * 0.7)
+		elif accelerate == true:
+			move_and_slide(movement_direction * speed * 2)
+		else:
+			move_and_slide(movement_direction * speed)
+			
 	dash(delta)
 
 func dash(delta):
@@ -63,3 +71,9 @@ func take_damage(damage):
 	print("yeowch")
 	if health <= 0:
 		print("game over!")
+
+func slow(b):
+	slow = b
+	
+func accelerate(b):
+	accelerate = b

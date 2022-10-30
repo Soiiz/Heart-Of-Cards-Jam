@@ -3,7 +3,7 @@ extends Control
 export var cards_to_spawn = 3
 export var cards_to_pick = 2
 var cards_picked = 0
-var card_list = ["c_star", "c_sun"]
+var card_list = ["c_star", "c_sun", "c_fool", "c_chariot"]
 var card
 onready var container = $CenterContainer/HBoxContainer
 signal selection_completed
