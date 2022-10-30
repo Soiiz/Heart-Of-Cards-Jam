@@ -8,12 +8,12 @@ export var fire_rate = 0.15
 
 func _process(delta):
 	if (active):
-		fire_time += delta
-		time += delta
 		if (round_lifetime >= round_duration):
 			deactivate()
 		else:
 			if !(get_tree().paused):
+				fire_time += delta
+				time += delta
 				if (fire_time >= fire_rate):
 					fire_time = 0
 					for i in range(0, spawn_array.size()):

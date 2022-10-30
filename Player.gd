@@ -60,5 +60,6 @@ func take_damage(damage):
 	health -= damage
 	emit_signal("health_updated", health)
 	
+	print("yeowch")
 	if health <= 0:
 		print("game over!")
