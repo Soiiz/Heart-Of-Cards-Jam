@@ -19,11 +19,11 @@ func init(pos, heading):
 func _physics_process(delta):
 	position += velocity * delta
 
-
-func _on_projectile_area_entered(area):
-	if area.is_in_group("player"):
-		area.take_damage(1)
-		queue_free()
-
 func _on_VisibilityNotifier2D_viewport_exited(viewport):
 	queue_free()
+
+
+func _on_projectile_body_entered(body):
+	if body.is_in_group("player"):
+		body.take_damage(1)
+		queue_free()

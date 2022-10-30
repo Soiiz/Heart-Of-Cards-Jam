@@ -4,6 +4,7 @@ var player = console.get_player()
 
 
 func activate():
+	.activate()
 	player.gain_hp(1)
 	
 
