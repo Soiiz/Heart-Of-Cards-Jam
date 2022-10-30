@@ -4,6 +4,8 @@ extends TextureButton
 
 # Declare member variables here. Examples:
 export var round_duration = 3
+export var float_height = -0.1
+export var float_easing = .05
 var console = Global.console
 var round_lifetime = 0
 var active = false
@@ -19,11 +21,15 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	if (is_hovered() && !active):
+		anchor_bottom = lerp(anchor_bottom, float_height, float_easing)
+	elif !active:
+		anchor_top= lerp(anchor_top, 0, float_easing)
 	if (active):
 		if (round_lifetime >= round_duration):
 			deactivate()
 		else:
-			pass
+			anchor_bottom = lerp(anchor_bottom, -3, 0.1)
 
 func _pressed():
 	print("click!")
