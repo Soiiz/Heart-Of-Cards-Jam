@@ -2,15 +2,11 @@ extends "res://cards/Card.gd"
 
 var player = console.get_player()
 
-func activate():
-	.activate()
-	player.slow(true)
-	
-func deactivate():
-	player.slow(false)
-	.deactivate()
 
+func activate():
+	player.gain_hp(1)
+	
 
 func _pressed():
-	print("this is the fool!")
+	print("this is the high priestess!")
 	._pressed()

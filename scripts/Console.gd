@@ -2,7 +2,7 @@ extends Node
 
 # use for scene dependent logics
 var ticks = 0
-var round_timer = 6
+var round_timer = 10
 signal round_ended
 signal round_started
 
@@ -31,6 +31,8 @@ func _on_health_updated(new_health):
 		var heart = get_node("../CanvasLayer/Control/CenterContainer/HBoxContainer/Heart%d" % [i + 1])
 		if i < new_health:
 			heart.set_modulate(Color.red)
+		elif i > new_health:
+			heart.set_modulate(Color.green)
 		else:
 			heart.set_modulate(Color.white)
 
@@ -45,3 +47,6 @@ func get_lower_spawns():
 	
 func get_player():
 	return get_node("../Node2D/Player")
+
+func get_devil_spawn():
+	return get_node("../Node2D/devil_spawn")

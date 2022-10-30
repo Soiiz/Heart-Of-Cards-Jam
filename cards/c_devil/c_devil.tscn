@@ -1,0 +1,17 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://cards/c_devil/damagecircle.png" type="Texture" id=1]
+[ext_resource path="res://cards/Card.tscn" type="PackedScene" id=2]
+[ext_resource path="res://cards/c_devil/c_devil.gd" type="Script" id=3]
+[ext_resource path="res://cards/c_devil/c_devil_circle.tscn" type="PackedScene" id=4]
+
+[node name="TextureButton" instance=ExtResource( 2 )]
+texture_normal = ExtResource( 1 )
+texture_pressed = ExtResource( 1 )
+texture_hover = ExtResource( 1 )
+texture_disabled = ExtResource( 1 )
+texture_focused = ExtResource( 1 )
+script = ExtResource( 3 )
+round_duration = 1
+last_time = 10
+circle_scene = ExtResource( 4 )

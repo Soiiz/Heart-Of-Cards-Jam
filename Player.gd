@@ -72,6 +72,10 @@ func take_damage(damage):
 	if health <= 0:
 		print("game over!")
 
+func gain_hp(hp):
+	health += hp
+	emit_signal("health_updated", health)
+
 func slow(b):
 	slow = b
 	
