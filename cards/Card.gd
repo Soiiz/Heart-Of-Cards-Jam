@@ -11,6 +11,9 @@ var round_lifetime = 0
 var active = false
 signal card_picked
 
+var wave_vfx_scene = preload("res://arts/vfx/wave_ring.tscn")
+var wave_vfx
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	var main = Global.console
@@ -18,6 +21,11 @@ func _ready():
 	main.connect("round_started", self, "_on_round_started")
 	
 	# set_mouse_filter(Control.MOUSE_FILTER_IGNORE)
+	
+	# adding the wave animation in code
+	wave_vfx = wave_vfx_scene.instance()
+	add_child(wave_vfx)
+	wave_vfx.set_emitting(true)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
