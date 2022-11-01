@@ -16,6 +16,7 @@ var slow = false
 var accelerate = false
 var bigger = false
 var smaller = false
+
 onready var sprite = get_node("Torso")
 onready var collision = get_node("CollisionShape2D")
 
@@ -56,17 +57,17 @@ func _physics_process(delta: float) -> void:
 	
 	# change in scale
 	if bigger == false:
-		sprite.scale.x = 1
-		sprite.scale.y = 1
+		self.scale.x = 1
+		self.scale.y = 1
 	else:
-		sprite.scale.x = 2
-		sprite.scale.y = 2
+		self.scale.x = 2
+		self.scale.y = 2
 	if smaller == false:
-		sprite.scale.x = 1
-		sprite.scale.y = 1
+		self.scale.x = 1
+		self.scale.y = 1
 	else:
-		sprite.scale.x = 0.4
-		sprite.scale.y = 0.4
+		self.scale.x = 0.4
+		self.scale.y = 0.4
 	
 	# change animations
 	if abs(movement_direction.y) == 0:
