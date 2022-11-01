@@ -47,8 +47,17 @@ func _physics_process(delta: float) -> void:
 			move_and_slide(movement_direction * speed * 2)
 		else:
 			move_and_slide(movement_direction * speed)
-			
+	
 	dash(delta)
+	
+	# change animations
+	if abs(movement_direction.y) == 0:
+		if movement_direction.x == 0:
+			$AnimationPlayer.play("idle")
+		elif movement_direction.x > 0:
+			$AnimationPlayer.play("run_right")
+		else:
+			$AnimationPlayer.play("run_left")
 
 func dash(delta):
 	if dash == false:
