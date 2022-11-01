@@ -1,0 +1,13 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://cards/c_emperor/RWS_Tarot_04_Emperor.jpg" type="Texture" id=1]
+[ext_resource path="res://cards/Card.tscn" type="PackedScene" id=2]
+[ext_resource path="res://cards/c_emperor/c_emperor.gd" type="Script" id=3]
+
+[node name="TextureButton" instance=ExtResource( 2 )]
+texture_normal = ExtResource( 1 )
+texture_pressed = ExtResource( 1 )
+texture_hover = ExtResource( 1 )
+texture_disabled = ExtResource( 1 )
+texture_focused = ExtResource( 1 )
+script = ExtResource( 3 )
