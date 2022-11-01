@@ -14,6 +14,10 @@ var dash_cooldown = 2
 export var health = 3
 var slow = false
 var accelerate = false
+var bigger = false
+var smaller = false
+onready var sprite = get_node("Torso")
+onready var collision = get_node("CollisionShape2D")
 
 export var dash_delay: float = 20
 
@@ -49,6 +53,20 @@ func _physics_process(delta: float) -> void:
 			move_and_slide(movement_direction * speed)
 	
 	dash(delta)
+	
+	# change in scale
+	if bigger == false:
+		sprite.scale.x = 1
+		sprite.scale.y = 1
+	else:
+		sprite.scale.x = 2
+		sprite.scale.y = 2
+	if smaller == false:
+		sprite.scale.x = 1
+		sprite.scale.y = 1
+	else:
+		sprite.scale.x = 0.4
+		sprite.scale.y = 0.4
 	
 	# change animations
 	if abs(movement_direction.y) == 0:
@@ -90,3 +108,9 @@ func slow(b):
 	
 func accelerate(b):
 	accelerate = b
+
+func bigger(b):
+	bigger = b
+	
+func smaller(b):
+	smaller = b
