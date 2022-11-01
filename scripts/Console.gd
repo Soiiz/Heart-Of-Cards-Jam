@@ -18,7 +18,10 @@ func _process(delta):
 	if (ticks >= round_timer):
 		ticks = 0
 		print("thats a round!")
+		
 		MusicPlayer.fade_out()
+		$"../Sounds/Water".play()
+		$"../UIAnim".play("fade_in")
 		
 		emit_signal("round_ended")
 		get_tree().paused = true
@@ -26,6 +29,7 @@ func _process(delta):
 
 func _on_CardMenu_selection_completed():
 	MusicPlayer.fade_in()
+	$"../Sounds/Water2".play()
 	
 	emit_signal("round_started")
 	
