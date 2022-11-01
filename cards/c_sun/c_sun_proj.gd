@@ -4,6 +4,7 @@ extends Area2D
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
+var console = Global.console
 var target_scale
 export var first_active_time = 1
 export var active_time = 1 / 60
@@ -14,13 +15,14 @@ var active = false
 var ready = false
 var startup = 0
 var startup_time = 0
-var hit_player
+var hit_player = false
+var touching_player = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	if (startup <= 0):
 		ready = true
-	hit_player = false
+		
 func init(pos, _scale, rot, _startup):
 	position = pos
 	scale = Vector2(0, _scale.y)
@@ -40,10 +42,11 @@ func _physics_process(delta):
 			s.x = lerp(s.x, target_scale.x, 1)
 		else:
 			s.x = lerp(s.x, 0, 0.2)
-		if (lifetime >= first_active_time && lifetime < first_active_time + active_time):
-			active = true
-		else:
-			active = false
+			
+		if touching_player && !hit_player:
+			console.get_player().take_damage(1)
+			hit_player = true
+		
 		
 		scale = s
 		
@@ -57,8 +60,11 @@ func _physics_process(delta):
 		if (startup_time >= startup):
 			ready = true
 
+func _on_Area2D_body_entered(body):
+	if body.is_in_group("player"):
+		touching_player = true
 
-func _on_Area2D_area_entered(area):
-	if area.is_in_group("player") && active && !hit_player:
-		area.take_damage(1)
-		hit_player = true
+
+func _on_Area2D_body_exited(body):
+	if body.is_in_group("player"):
+		touching_player = false
