@@ -61,10 +61,7 @@ func fade_in():
 	tween.parallel().tween_property($BGM, "pitch_scale", 1.0, 0.5)
 	
 	# audiobus EQ
-	tween.parallel().tween_method(self, "update_EQ2", -12.4, 0, 0.5)
-	tween.parallel().tween_method(self, "update_EQ3", -49.8, 0, 0.5)
-	tween.parallel().tween_method(self, "update_EQ4", -60.0, 0, 0.5)
-	tween.parallel().tween_method(self, "update_EQ5", -60.0, 0, 0.5)
+	AudioServer.set_bus_effect_enabled(1, 0, false)
 	return tween
 
 
@@ -74,8 +71,5 @@ func fade_out():
 	tween.parallel().tween_property($BGM, "pitch_scale", 0.5, 0.5)
 	
 	# audiobus EQ
-	tween.parallel().tween_method(self, "update_EQ2", 0, -12.4, 0.5)
-	tween.parallel().tween_method(self, "update_EQ3", 0, -49.8, 0.5)
-	tween.parallel().tween_method(self, "update_EQ4", 0, -60.0, 0.5)
-	tween.parallel().tween_method(self, "update_EQ5", 0, -60.0, 0.5)
+	AudioServer.set_bus_effect_enabled(1, 0, true)
 	return tween
