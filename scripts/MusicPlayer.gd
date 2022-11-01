@@ -1,25 +1,21 @@
 extends Node
 
-var default_volume = -5.0
+var default_volume = -10.0
 
-var song1 = preload("res://sounds/bgm.ogg")
-var playlist = [song1]
+var bgm = preload("res://sounds/moon_tower.ogg")
 var last_played 
 
 
 func _ready():
-	# dynamically download music for HTML5
+	set_pause_mode(Node.PAUSE_MODE_PROCESS)
 	
 	var a = AudioStreamPlayer.new()
 	
-	# pick a random song
-	randomize()
-	last_played = randi() % playlist.size()
-	a.set_stream(playlist[last_played])
+	a.set_stream(bgm)
 	
-	a.set_volume_db(-80)
+	a.set_volume_db(-50)
 	a.set_bus("Music")
-	#a.set_autoplay(true)
+	a.set_autoplay(true)
 	a.set_name("BGM")
 	#a.connect("finished", self, "_on_finished")
 	add_child(a)
@@ -27,35 +23,59 @@ func _ready():
 	var t = Tween.new()
 	t.set_name("Tween")
 	add_child(t)
-
-
-func _on_finished():
-	# non repeating random playlist
-	var next = randi() % playlist.size()
-	while next == last_played:
-		next = randi() % playlist.size()
 	
-	$BGM.set_stream(playlist[next])
-	$BGM.play()
+	# play autostart
+	fade_out()
+	play_music()
 
 
 func play_music():
 	if not $BGM.is_playing():
 		$BGM.play()
 
+
 func stop_music():
 	$BGM.stop();
+
+
+func update_EQ2(value):
+	var EQ = AudioServer.get_bus_effect(1, 0)
+	EQ.set_band_gain_db(2, value)
+
+func update_EQ3(value):
+	var EQ = AudioServer.get_bus_effect(1, 0)
+	EQ.set_band_gain_db(3, value)
+
+func update_EQ4(value):
+	var EQ = AudioServer.get_bus_effect(1, 0)
+	EQ.set_band_gain_db(4, value)
+
+func update_EQ5(value):
+	var EQ = AudioServer.get_bus_effect(1, 0)
+	EQ.set_band_gain_db(5, value)
+
 
 func fade_in():
 	var tween = create_tween().set_trans(Tween.TRANS_LINEAR)
 	tween.tween_property($BGM, "volume_db", default_volume, 0.5)
-	return tween;
+	tween.parallel().tween_property($BGM, "pitch_scale", 1.0, 0.5)
+	
+	# audiobus EQ
+	tween.parallel().tween_method(self, "update_EQ2", -12.4, 0, 0.5)
+	tween.parallel().tween_method(self, "update_EQ3", -49.8, 0, 0.5)
+	tween.parallel().tween_method(self, "update_EQ4", -60.0, 0, 0.5)
+	tween.parallel().tween_method(self, "update_EQ5", -60.0, 0, 0.5)
+	return tween
 
-func fade_out(stop=false):
-	var tween = get_node("Tween")
-	tween.interpolate_property($BGM, "volume_db",
-			default_volume, -80, 1,
-			Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
-	tween.start()
-	if stop:
-		tween.interpolate_callback(self, 3, "stop_music")
+
+func fade_out():
+	var tween = create_tween().set_trans(Tween.TRANS_LINEAR)
+	tween.tween_property($BGM, "volume_db", default_volume, 0.5)
+	tween.parallel().tween_property($BGM, "pitch_scale", 0.5, 0.5)
+	
+	# audiobus EQ
+	tween.parallel().tween_method(self, "update_EQ2", 0, -12.4, 0.5)
+	tween.parallel().tween_method(self, "update_EQ3", 0, -49.8, 0.5)
+	tween.parallel().tween_method(self, "update_EQ4", 0, -60.0, 0.5)
+	tween.parallel().tween_method(self, "update_EQ5", 0, -60.0, 0.5)
+	return tween
