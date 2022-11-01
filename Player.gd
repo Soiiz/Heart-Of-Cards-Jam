@@ -17,10 +17,9 @@ var accelerate = false
 var bigger = false
 var smaller = false
 
-onready var sprite = get_node("Torso")
 onready var collision = get_node("CollisionShape2D")
 
-export var dash_delay: float = 20
+export var dash_delay: float = 2
 
 func _ready():
 	Global.player = self
@@ -54,15 +53,15 @@ func _physics_process(delta: float) -> void:
 			move_and_slide(movement_direction * speed)
 	
 	dash(delta)
-	
+
 	# change in scale
-	if bigger == false:
+	if (bigger == false):
 		self.scale.x = 1
 		self.scale.y = 1
 	else:
 		self.scale.x = 2
 		self.scale.y = 2
-	if smaller == false:
+	if (smaller == false):
 		self.scale.x = 1
 		self.scale.y = 1
 	else:
