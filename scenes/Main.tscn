@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://scripts/Console.gd" type="Script" id=1]
 [ext_resource path="res://arts/background.png" type="Texture" id=2]
@@ -9,6 +9,9 @@
 [ext_resource path="res://arts/shaders/screen_blur.tres" type="Shader" id=7]
 [ext_resource path="res://arts/shaders/water_shader.tres" type="Shader" id=8]
 [ext_resource path="res://arts/ui/heart.png" type="Texture" id=9]
+[ext_resource path="res://sounds/water.wav" type="AudioStream" id=10]
+[ext_resource path="res://sounds/water3.wav" type="AudioStream" id=11]
+[ext_resource path="res://sounds/water2.wav" type="AudioStream" id=12]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 807.75, 49 )
@@ -46,6 +49,121 @@ shader_param/Surface_Light = 0.197
 [sub_resource type="ShaderMaterial" id=2]
 shader = ExtResource( 3 )
 shader_param/vignette = ExtResource( 4 )
+
+[sub_resource type="Animation" id=6]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("CanvasLayer2/Control/Water:rect_size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 2154, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("CanvasLayer/Control/CardMenu/Water2:rect_position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( -118, 838 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("CanvasLayer/Control/CardMenu/Water2:rect_size")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 2154, 0 ) ]
+}
+
+[sub_resource type="Animation" id=7]
+resource_name = "fade_in"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("CanvasLayer/Control/CardMenu/ColorRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( -2, 1 ),
+"update": 0,
+"values": [ Color( 0.568627, 0.568627, 0.568627, 0 ), Color( 0.568627, 0.568627, 0.568627, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("CanvasLayer/Control/CardMenu/Water2:rect_position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.2, 0.5 ),
+"transitions": PoolRealArray( 1, 0.5, 1 ),
+"update": 0,
+"values": [ Vector2( -118, 838 ), Vector2( -118, 838 ), Vector2( -118, 722 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("CanvasLayer/Control/CardMenu/Water2:rect_size")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.2, 0.5 ),
+"transitions": PoolRealArray( 1, 0.5, 1 ),
+"update": 0,
+"values": [ Vector2( 2154, 0 ), Vector2( 2154, 0 ), Vector2( 2154, 116 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("CanvasLayer2/Control/Water:rect_size")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.2, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 2154, 0 ), Vector2( 2154, 275 ), Vector2( 2154, 242 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("CanvasLayer2/Control/Water:rect_position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 0.2, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( -118, 1080 ), Vector2( -118, 838 ), Vector2( -118, 838 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("CanvasLayer/Control/CardMenu/ColorRect:rect_size")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1920, 1080 ), Vector2( 1920, 722 ) ]
+}
 
 [node name="Main" type="Node"]
 
@@ -195,7 +313,7 @@ material = SubResource( 4 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = -118.0
-margin_top = 722.0
+margin_top = 838.0
 margin_right = 116.0
 margin_bottom = -242.0
 mouse_filter = 2
@@ -226,6 +344,7 @@ anchor_bottom = 1.0
 margin_left = -118.0
 margin_top = 838.0
 margin_right = 116.0
+margin_bottom = -242.0
 mouse_filter = 2
 
 [node name="CanvasLayer3" type="CanvasLayer" parent="."]
@@ -248,6 +367,28 @@ mouse_filter = 2
 __meta__ = {
 "_edit_lock_": true
 }
+
+[node name="Sounds" type="Node" parent="."]
+pause_mode = 2
+
+[node name="Water" type="AudioStreamPlayer" parent="Sounds"]
+stream = ExtResource( 10 )
+autoplay = true
+bus = "Sound"
+
+[node name="Water2" type="AudioStreamPlayer" parent="Sounds"]
+stream = ExtResource( 12 )
+bus = "Sound"
+
+[node name="Water3" type="AudioStreamPlayer" parent="Sounds"]
+stream = ExtResource( 11 )
+bus = "Sound"
+
+[node name="UIAnim" type="AnimationPlayer" parent="."]
+pause_mode = 2
+autoplay = "fade_in"
+anims/RESET = SubResource( 6 )
+anims/fade_in = SubResource( 7 )
 
 [connection signal="round_ended" from="Console" to="CanvasLayer/Control/CardMenu" method="_on_Console_round_ended"]
 [connection signal="round_started" from="Console" to="CanvasLayer/Control/CardMenu" method="_on_Console_round_started"]

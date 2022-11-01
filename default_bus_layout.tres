@@ -1,4 +1,4 @@
-[gd_resource type="AudioBusLayout" load_steps=2 format=2]
+[gd_resource type="AudioBusLayout" load_steps=3 format=2]
 
 [sub_resource type="AudioEffectEQ6" id=3]
 resource_name = "EQ6"
@@ -7,6 +7,15 @@ band_db/320_hz = -12.4
 band_db/1000_hz = -49.8
 band_db/3200_hz = -60.0
 band_db/10000_hz = -60.0
+
+[sub_resource type="AudioEffectReverb" id=4]
+resource_name = "Reverb"
+room_size = 0.67
+damping = 0.19
+spread = 0.74
+hipass = 0.46
+dry = 0.88
+wet = 0.37
 
 [resource]
 bus/1/name = "Music"
@@ -23,3 +32,5 @@ bus/2/mute = false
 bus/2/bypass_fx = false
 bus/2/volume_db = 0.0
 bus/2/send = "Master"
+bus/2/effect/0/effect = SubResource( 4 )
+bus/2/effect/0/enabled = true
