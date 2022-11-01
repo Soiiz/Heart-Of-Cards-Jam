@@ -2086,6 +2086,7 @@ speed = 400
 
 [node name="Torso" type="Sprite" parent="."]
 position = Vector2( 0, 1 )
+scale = Vector2( 0.964052, 0.909039 )
 z_index = 5
 texture = ExtResource( 4 )
 region_enabled = true

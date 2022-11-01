@@ -97,7 +97,6 @@ current = true
 
 [node name="Player" parent="Node2D" instance=ExtResource( 6 )]
 position = Vector2( -52, -27 )
-dash_delay = 2.0
 
 [node name="Lower_Spawns" type="Node" parent="Node2D"]
 

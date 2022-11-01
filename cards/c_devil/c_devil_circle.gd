@@ -6,10 +6,14 @@ var inside = false
 var inside_time = 0
 var lifetime = 0
 var lifetime_max = 10
+export var grow_speed = 4.0
 export var damage_time = 1
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _ready():
+	scale = Vector2(0,0)
+
 func _process(delta):
+	scale = scale.linear_interpolate( Vector2(1, 1), grow_speed * delta )
 	lifetime += delta
 	if lifetime >= lifetime_max:
 		queue_free()
