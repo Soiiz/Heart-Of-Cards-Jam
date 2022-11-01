@@ -2174,6 +2174,7 @@ region_enabled = true
 region_rect = Rect2( 34.7594, 4.00152, 20.7087, 33.8674 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 0, 8 )
 shape = SubResource( 6 )
 
 [node name="DashCoolDown" type="Timer" parent="."]

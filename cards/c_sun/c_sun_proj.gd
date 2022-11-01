@@ -11,7 +11,6 @@ export var active_time = 1 / 60
 var lifetime_max = first_active_time + active_time + 0.5
 var lifetime = 0
 var active_ratio = 1 / first_active_time
-var active = false
 var ready = false
 var startup = 0
 var startup_time = 0
@@ -37,7 +36,7 @@ func _physics_process(delta):
 		lifetime += delta
 		var s = scale
 		if (lifetime < first_active_time):
-			s.x = lerp(s.x, target_scale.x / 2, active_ratio)
+			s.x = lerp(s.x, target_scale.x / 2, 16 * delta)
 		elif (lifetime < first_active_time + active_time):
 			s.x = lerp(s.x, target_scale.x, 1)
 		else:
@@ -55,7 +54,7 @@ func _physics_process(delta):
 	else:
 		startup_time += delta
 		var s = scale
-		s.x = lerp(s.x, 0.1, 0.2)
+		s.x = lerp(s.x, 0.2, 0.2)
 		scale = s
 		if (startup_time >= startup):
 			ready = true

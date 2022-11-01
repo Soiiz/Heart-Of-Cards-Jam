@@ -3,14 +3,13 @@ extends Area2D
 
 # Declare member variables here. Examples:
 var velocity = Vector2(0, 0)
-var speed = 750
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
 
 # pos (Vector2): Initial spawn position of the projectile.
 # heading (Vector2): Vector representing the direction the projectile will fly. Should be normalized.
-func init(pos, heading):
+func init(pos, heading, speed = 750):
 	position = pos
 	velocity = heading * speed
 	

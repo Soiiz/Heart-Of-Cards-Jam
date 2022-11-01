@@ -10,7 +10,7 @@ extends "res://cards/c_star/c_star_proj.gd"
 func _ready():
 	pass # Replace with function body.
 
-func init(pos, _scale):
+func init(pos, _scale, speed = 0):
 	position = pos
 	scale = _scale
 # Called every frame. 'delta' is the elapsed time since the previous frame.

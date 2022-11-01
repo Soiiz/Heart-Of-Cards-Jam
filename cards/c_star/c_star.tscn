@@ -14,6 +14,7 @@ texture_focused = ExtResource( 4 )
 script = ExtResource( 2 )
 proj_scene = ExtResource( 3 )
 fire_rate = 0.15
+proj_speed = 750
 
 [node name="SpawnPoints" type="Node2D" parent="." index="0"]
 

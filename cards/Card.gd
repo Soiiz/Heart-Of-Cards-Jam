@@ -32,7 +32,7 @@ func _process(delta):
 	if (is_hovered() && !active):
 		anchor_bottom = lerp(anchor_bottom, float_height, float_easing)
 	elif !active:
-		anchor_top= lerp(anchor_top, 0, float_easing)
+		anchor_top = lerp(anchor_top, 0, float_easing)
 	if (active):
 		if (round_lifetime >= round_duration):
 			deactivate()
