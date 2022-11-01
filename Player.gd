@@ -77,6 +77,11 @@ func _physics_process(delta: float) -> void:
 			$AnimationPlayer.play("run_right")
 		else:
 			$AnimationPlayer.play("run_left")
+	else:
+		if movement_direction.y > 0:
+			$AnimationPlayer.play("run_down")
+		else:
+			$AnimationPlayer.play("run_up")
 
 func dash(delta):
 	if dash == false:
