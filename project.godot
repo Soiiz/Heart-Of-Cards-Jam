@@ -17,6 +17,7 @@ config/icon="res://icon.png"
 [autoload]
 
 Global="*res://scripts/Global.gd"
+MusicPlayer="*res://scripts/MusicPlayer.gd"
 
 [display]
 
