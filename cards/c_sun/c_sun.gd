@@ -9,8 +9,8 @@ export var radius = 150
 export var fire_rate = 0.4
 var fire_time = 0
 
-func _ready():
-	._ready()
+func activate():
+	.activate()
 	rotater = Node2D.new()
 	console.get_center().add_child(rotater)
 	rotater.position = Vector2(0, 0)
@@ -37,3 +37,9 @@ func fire(pos, scale, rot, startup):
 	var proj = proj_scene.instance()
 	proj.init(pos, scale, rot, startup)
 	console.get_center().add_child(proj)
+	
+func deactivate():
+	if (rotater):
+		rotater.queue_free()
+	.deactivate()
+	

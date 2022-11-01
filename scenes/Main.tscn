@@ -142,6 +142,20 @@ position = Vector2( -451, -214 )
 [node name="Node2D6" type="Node2D" parent="Node2D/devil_spawn"]
 position = Vector2( -555, 115 )
 
+[node name="Magician_Spawns" type="Node" parent="Node2D"]
+
+[node name="Node2D" type="Node2D" parent="Node2D/Magician_Spawns"]
+position = Vector2( 0, -576 )
+
+[node name="Node2D2" type="Node2D" parent="Node2D/Magician_Spawns"]
+position = Vector2( 0, 576 )
+
+[node name="Node2D3" type="Node2D" parent="Node2D/Magician_Spawns"]
+position = Vector2( -960, 0 )
+
+[node name="Node2D4" type="Node2D" parent="Node2D/Magician_Spawns"]
+position = Vector2( 960, 0 )
+
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="Control" type="Control" parent="CanvasLayer"]

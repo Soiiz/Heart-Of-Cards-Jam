@@ -45,6 +45,9 @@ func get_upper_spawns():
 func get_lower_spawns():
 	return get_node("../Node2D/Lower_Spawns")
 	
+func get_magician_spawns():
+	return get_node("../Node2D/Magician_Spawns")
+	
 func get_player():
 	return get_node("../Node2D/Player")
 
