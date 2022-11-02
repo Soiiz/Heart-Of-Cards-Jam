@@ -3,6 +3,8 @@ extends Area2D
 
 # Declare member variables here. Examples:
 var velocity = Vector2(0, 0)
+var slow = false
+export var slow_fac = 0.7
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
@@ -16,7 +18,7 @@ func init(pos, heading, speed = 750):
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
-	position += velocity * delta
+	position += (velocity * delta if (!slow) else velocity * delta * slow_fac)
 
 func _on_VisibilityNotifier2D_viewport_exited(viewport):
 	queue_free()

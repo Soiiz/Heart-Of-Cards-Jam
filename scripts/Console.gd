@@ -73,6 +73,9 @@ func get_player():
 
 func get_devil_spawn():
 	return get_node("../Node2D/devil_spawn")
+	
+func get_priestess_spawns():
+	return get_node("../Node2D/Priestess_Spawns")
 
 
 func _on_UIAnim_animation_finished(anim_name):
