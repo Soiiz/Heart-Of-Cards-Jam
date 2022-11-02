@@ -7,6 +7,6 @@
 [node name="TextureButton" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
 proj_scene = ExtResource( 3 )
-speed = 1.5708
+speed = 0.779
 radius = 150
-fire_rate = 0.4
+fire_rate = 0.8

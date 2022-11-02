@@ -6,6 +6,7 @@ var player = console.get_player()
 var rotater
 var orb
 var time = 0
+export var slow_fac = 0.7
 export var speed = PI/1.5
 export var radius = 150
 export var proj_scale = 5
@@ -26,7 +27,7 @@ func _process(delta):
 		if (round_lifetime >= round_duration):
 			deactivate()
 		elif !(get_tree().paused):
-				rotater.rotation += speed * delta
+				rotater.rotation += (speed * delta if (!orb.slow) else speed * delta * slow_fac)
 				orb.position = Vector2(radius + sin(time * 1.2) * radius/3, 0)
 
 func _pressed():

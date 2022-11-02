@@ -8,6 +8,6 @@
 modulate = Color( 1, 0.552941, 0.552941, 1 )
 script = ExtResource( 2 )
 proj_scene = ExtResource( 3 )
-fire_rate = 0.15
+fire_rate = 0.65
 proj_count = 5
 proj_speed = 450
