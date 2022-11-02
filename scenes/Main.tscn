@@ -327,8 +327,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = -118.0
 margin_top = 838.0
-margin_right = 116.0
-margin_bottom = -242.0
+margin_right = 2036.0
+margin_bottom = 838.0
 mouse_filter = 2
 
 [node name="CenterContainer" type="CenterContainer" parent="CanvasLayer/Control/CardMenu"]
@@ -356,8 +356,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = -118.0
 margin_top = 838.0
-margin_right = 116.0
-margin_bottom = -242.0
+margin_right = 2036.0
+margin_bottom = 838.0
 mouse_filter = 2
 
 [node name="CanvasLayer3" type="CanvasLayer" parent="."]
