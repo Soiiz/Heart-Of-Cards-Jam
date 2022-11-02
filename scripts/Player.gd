@@ -17,6 +17,7 @@ var accelerate = false
 var bigger = false
 var smaller = false
 var hurt = false
+var iframe = false
 onready var collision = get_node("CollisionShape2D")
 
 export var dash_delay: float = 2
@@ -25,6 +26,8 @@ func _ready():
 	Global.player = self
 	connect("health_updated", Global.console, "_on_health_updated")
 	emit_signal("health_updated", health)
+	var test = get_tree().get_root().find_node("Console", true, false)
+	test.connect("round_started", Global.player, "_on_round_started")
 
 func _unhandled_input(event):
 	if event.is_action_pressed("Click") and dash == false and dash_cooldown >= dash_delay:
@@ -107,7 +110,7 @@ func dash(delta):
 		dash = false
 		
 func take_damage(damage):
-	if hurt == false && dash == false:
+	if hurt == false && dash == false && iframe == false:
 		modulate.a = 0.5
 		$IframeTimer.start()
 		print("Before: " + str(health))
@@ -135,5 +138,12 @@ func smaller(b):
 	smaller = b
 
 func _on_IframeTimer_timeout():
-	hurt = false;
+	hurt = false
 	modulate.a = 1
+	if iframe == true:
+		iframe = false
+
+func _on_round_started():
+	iframe = true
+	$IframeTimer.start()
+	
