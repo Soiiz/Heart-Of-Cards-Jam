@@ -56,17 +56,21 @@ func _physics_process(delta: float) -> void:
 
 	# change in scale
 	if (bigger == false):
-		self.scale.x = 1
-		self.scale.y = 1
+		if (smaller == false):
+			self.scale.x = 1
+			self.scale.y = 1
+		else:
+			self.scale.x = 0.4
+			self.scale.y = 0.4
 	else:
-		self.scale.x = 2
-		self.scale.y = 2
-	if (smaller == false):
-		self.scale.x = 1
-		self.scale.y = 1
-	else:
-		self.scale.x = 0.4
-		self.scale.y = 0.4
+		if (smaller == true):
+			# This is when player have both emperor and empress, temp effect right now
+			self.scale.x = 0.2
+			self.scale.y = 0.2
+		else:
+			self.scale.x = 2
+			self.scale.y = 2
+
 	
 	# change animations
 	if abs(movement_direction.y) == 0:
