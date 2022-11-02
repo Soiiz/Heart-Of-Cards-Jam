@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=2]
+[gd_scene load_steps=48 format=2]
 
 [ext_resource path="res://scripts/Console.gd" type="Script" id=1]
 [ext_resource path="res://arts/background.png" type="Texture" id=2]
@@ -13,6 +13,10 @@
 [ext_resource path="res://sounds/water3.wav" type="AudioStream" id=11]
 [ext_resource path="res://sounds/water2.wav" type="AudioStream" id=12]
 [ext_resource path="res://arts/ui/Ball.png" type="Texture" id=13]
+[ext_resource path="res://arts/ui/Clouds.png" type="Texture" id=14]
+[ext_resource path="res://arts/shaders/Voronoi.png" type="Texture" id=15]
+[ext_resource path="res://arts/ui/Hand (1).png" type="Texture" id=16]
+[ext_resource path="res://arts/ui/head.png" type="Texture" id=17]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 807.75, 49 )
@@ -44,6 +48,210 @@ shader_param/Blur_Amount = 1.377
 shader_param/Star_Speed = 0.02
 shader_param/Water_Speed = 0.05
 shader_param/Surface_Light = 0.197
+
+[sub_resource type="VisualShaderNodeInput" id=9]
+input_name = "time"
+
+[sub_resource type="VisualShaderNodeVectorOp" id=10]
+operator = 2
+
+[sub_resource type="VisualShaderNodeScalarConstant" id=11]
+constant = 0.021
+
+[sub_resource type="VisualShaderNodeScalarOp" id=12]
+default_input_values = [ 0, 0.0, 1, 0.1 ]
+operator = 2
+
+[sub_resource type="VisualShaderNodeTexture" id=13]
+texture = ExtResource( 15 )
+
+[sub_resource type="VisualShaderNodeInput" id=14]
+input_name = "screen_uv"
+
+[sub_resource type="VisualShaderNodeVectorDecompose" id=15]
+
+[sub_resource type="VisualShaderNodeVectorCompose" id=16]
+
+[sub_resource type="VisualShaderNodeScalarOp" id=17]
+
+[sub_resource type="VisualShaderNodeInput" id=18]
+input_name = "time"
+
+[sub_resource type="VisualShaderNodeTexture" id=19]
+texture = ExtResource( 14 )
+
+[sub_resource type="VisualShaderNodeScalarOp" id=20]
+default_input_values = [ 0, 0.0, 1, 0.05 ]
+operator = 2
+
+[sub_resource type="VisualShaderNodeVectorOp" id=21]
+operator = 2
+
+[sub_resource type="VisualShaderNodeTexture" id=22]
+texture = ExtResource( 15 )
+
+[sub_resource type="VisualShaderNodeInput" id=23]
+input_name = "uv"
+
+[sub_resource type="VisualShaderNodeVectorOp" id=24]
+
+[sub_resource type="VisualShaderNodeInput" id=25]
+input_name = "screen_uv"
+
+[sub_resource type="VisualShaderNodeVectorDecompose" id=26]
+
+[sub_resource type="VisualShaderNodeVectorCompose" id=27]
+
+[sub_resource type="VisualShaderNodeScalarOp" id=28]
+operator = 1
+
+[sub_resource type="VisualShader" id=29]
+code = "shader_type canvas_item;
+uniform sampler2D tex_frg_3;
+uniform sampler2D tex_frg_14;
+uniform sampler2D tex_frg_2;
+
+
+
+void vertex() {
+// Output:0
+
+}
+
+void fragment() {
+// Input:4
+	vec3 n_out4p0 = vec3(UV, 0.0);
+
+// Input:6
+	vec3 n_out6p0 = vec3(SCREEN_UV, 0.0);
+
+// VectorDecompose:7
+	float n_out7p0 = n_out6p0.x;
+	float n_out7p1 = n_out6p0.y;
+	float n_out7p2 = n_out6p0.z;
+
+// Input:10
+	float n_out10p0 = TIME;
+
+// ScalarOp:13
+	float n_in13p1 = 0.10000;
+	float n_out13p0 = n_out10p0 * n_in13p1;
+
+// ScalarOp:9
+	float n_out9p0 = n_out7p1 - n_out13p0;
+
+// VectorCompose:8
+	float n_in8p2 = 0.00000;
+	vec3 n_out8p0 = vec3(n_out7p0, n_out9p0, n_in8p2);
+
+// Texture:3
+	vec4 tex_frg_3_read = texture(tex_frg_3, n_out8p0.xy);
+	vec3 n_out3p0 = tex_frg_3_read.rgb;
+	float n_out3p1 = tex_frg_3_read.a;
+
+// Input:15
+	vec3 n_out15p0 = vec3(SCREEN_UV, 0.0);
+
+// VectorDecompose:16
+	float n_out16p0 = n_out15p0.x;
+	float n_out16p1 = n_out15p0.y;
+	float n_out16p2 = n_out15p0.z;
+
+// Input:19
+	float n_out19p0 = TIME;
+
+// ScalarOp:20
+	float n_in20p1 = 0.05000;
+	float n_out20p0 = n_out19p0 * n_in20p1;
+
+// ScalarOp:18
+	float n_out18p0 = n_out16p0 + n_out20p0;
+
+// VectorCompose:17
+	float n_in17p2 = 0.00000;
+	vec3 n_out17p0 = vec3(n_out18p0, n_out16p1, n_in17p2);
+
+// Texture:14
+	vec4 tex_frg_14_read = texture(tex_frg_14, n_out17p0.xy);
+	vec3 n_out14p0 = tex_frg_14_read.rgb;
+	float n_out14p1 = tex_frg_14_read.a;
+
+// VectorOp:21
+	vec3 n_out21p0 = n_out3p0 * n_out14p0;
+
+// Scalar:12
+	float n_out12p0 = 0.021000;
+
+// VectorOp:11
+	vec3 n_out11p0 = n_out21p0 * vec3(n_out12p0);
+
+// VectorOp:5
+	vec3 n_out5p0 = n_out4p0 + n_out11p0;
+
+// Texture:2
+	vec4 tex_frg_2_read = texture(tex_frg_2, n_out5p0.xy);
+	vec3 n_out2p0 = tex_frg_2_read.rgb;
+	float n_out2p1 = tex_frg_2_read.a;
+
+// Output:0
+	COLOR.rgb = n_out2p0;
+	COLOR.a = n_out2p1;
+
+}
+
+void light() {
+// Output:0
+
+}
+"
+graph_offset = Vector2( -562.997, -38.6893 )
+mode = 1
+flags/light_only = false
+nodes/fragment/0/position = Vector2( 580, 160 )
+nodes/fragment/2/node = SubResource( 19 )
+nodes/fragment/2/position = Vector2( 40, 40 )
+nodes/fragment/3/node = SubResource( 22 )
+nodes/fragment/3/position = Vector2( -1460, 60 )
+nodes/fragment/4/node = SubResource( 23 )
+nodes/fragment/4/position = Vector2( -460, 20 )
+nodes/fragment/5/node = SubResource( 24 )
+nodes/fragment/5/position = Vector2( -220, 140 )
+nodes/fragment/6/node = SubResource( 25 )
+nodes/fragment/6/position = Vector2( -2500, 180 )
+nodes/fragment/7/node = SubResource( 26 )
+nodes/fragment/7/position = Vector2( -2260, 180 )
+nodes/fragment/8/node = SubResource( 27 )
+nodes/fragment/8/position = Vector2( -1780, 200 )
+nodes/fragment/9/node = SubResource( 28 )
+nodes/fragment/9/position = Vector2( -2020, 240 )
+nodes/fragment/10/node = SubResource( 9 )
+nodes/fragment/10/position = Vector2( -2460, 320 )
+nodes/fragment/11/node = SubResource( 10 )
+nodes/fragment/11/position = Vector2( -560, 160 )
+nodes/fragment/12/node = SubResource( 11 )
+nodes/fragment/12/position = Vector2( -800, 300 )
+nodes/fragment/13/node = SubResource( 12 )
+nodes/fragment/13/position = Vector2( -2240, 300 )
+nodes/fragment/14/node = SubResource( 13 )
+nodes/fragment/14/position = Vector2( -1380, 480 )
+nodes/fragment/15/node = SubResource( 14 )
+nodes/fragment/15/position = Vector2( -2420, 600 )
+nodes/fragment/16/node = SubResource( 15 )
+nodes/fragment/16/position = Vector2( -2180, 600 )
+nodes/fragment/17/node = SubResource( 16 )
+nodes/fragment/17/position = Vector2( -1700, 620 )
+nodes/fragment/18/node = SubResource( 17 )
+nodes/fragment/18/position = Vector2( -1900, 580 )
+nodes/fragment/19/node = SubResource( 18 )
+nodes/fragment/19/position = Vector2( -2380, 740 )
+nodes/fragment/20/node = SubResource( 20 )
+nodes/fragment/20/position = Vector2( -2160, 720 )
+nodes/fragment/21/node = SubResource( 21 )
+nodes/fragment/21/position = Vector2( -1060, 160 )
+nodes/fragment/connections = PoolIntArray( 2, 1, 0, 1, 4, 0, 5, 0, 5, 0, 2, 0, 6, 0, 7, 0, 8, 0, 3, 0, 7, 0, 8, 0, 7, 1, 9, 0, 9, 0, 8, 1, 11, 0, 5, 1, 12, 0, 11, 1, 10, 0, 13, 0, 13, 0, 9, 1, 15, 0, 16, 0, 17, 0, 14, 0, 19, 0, 20, 0, 20, 0, 18, 1, 3, 0, 21, 0, 14, 0, 21, 1, 21, 0, 11, 0, 16, 0, 18, 0, 16, 1, 17, 1, 18, 0, 17, 0, 2, 0, 0, 0 )
+
+[sub_resource type="ShaderMaterial" id=30]
+shader = SubResource( 29 )
 
 [sub_resource type="ShaderMaterial" id=2]
 shader = ExtResource( 3 )
@@ -86,6 +294,66 @@ tracks/2/keys = {
 "transitions": PoolRealArray( 1 ),
 "update": 0,
 "values": [ Vector2( 2154, 0 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("CanvasLayer2/Control/Hand2:rect_position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 80, 44 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("CanvasLayer2/Control/Hand:rect_position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 1348, 44 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("CanvasLayer/Control/CardMenu/Head:rect_position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 681, 0 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("CanvasLayer/Control/CardMenu/Head:rect_size")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 570, 377 ) ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("CanvasLayer/Control/CardMenu/Head:rect_scale")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 1.51902, 1.51902 ) ]
 }
 
 [sub_resource type="Animation" id=7]
@@ -171,10 +439,10 @@ tracks/6/loop_wrap = true
 tracks/6/imported = false
 tracks/6/enabled = true
 tracks/6/keys = {
-"times": PoolRealArray( 0, 0.5 ),
-"transitions": PoolRealArray( 0.5, 1 ),
+"times": PoolRealArray( 0, 0.33, 0.5 ),
+"transitions": PoolRealArray( 0.5, 1, 1 ),
 "update": 0,
-"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+"values": [ Color( 0, 0, 0, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ) ]
 }
 tracks/7/type = "value"
 tracks/7/path = NodePath("CanvasLayer/Control/CardMenu/Circle:rect_scale")
@@ -183,10 +451,10 @@ tracks/7/loop_wrap = true
 tracks/7/imported = false
 tracks/7/enabled = true
 tracks/7/keys = {
-"times": PoolRealArray( 0, 0.5 ),
-"transitions": PoolRealArray( 0.5, 1 ),
+"times": PoolRealArray( 0, 0.33, 0.5 ),
+"transitions": PoolRealArray( 0.5, 1, 1 ),
 "update": 0,
-"values": [ Vector2( 0.5, 0.5 ), Vector2( 1, 1 ) ]
+"values": [ Vector2( 0.5, 0.5 ), Vector2( 1, 1 ), Vector2( 1, 1 ) ]
 }
 tracks/8/type = "value"
 tracks/8/path = NodePath("CanvasLayer/Control/CardMenu/Circle:rect_position")
@@ -195,15 +463,136 @@ tracks/8/loop_wrap = true
 tracks/8/imported = false
 tracks/8/enabled = true
 tracks/8/keys = {
+"times": PoolRealArray( 0, 0.33, 0.5 ),
+"transitions": PoolRealArray( 0.5, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 300, -200 ), Vector2( 300, 0 ), Vector2( 300, 0 ) ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("CanvasLayer2/Control/Cloud:modulate")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0, 0.43 ),
+"transitions": PoolRealArray( 0.5, 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/10/type = "value"
+tracks/10/path = NodePath("CanvasLayer2/Control/Hand:modulate")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 0.5, 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/11/type = "value"
+tracks/11/path = NodePath("CanvasLayer2/Control/Hand2:modulate")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 0.5, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/12/type = "value"
+tracks/12/path = NodePath("CanvasLayer2/Control/Hand2:rect_scale")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/keys = {
+"times": PoolRealArray( 0, 0.34 ),
+"transitions": PoolRealArray( 0.5, 1 ),
+"update": 0,
+"values": [ Vector2( 1.2, 1.2 ), Vector2( 1, 1 ) ]
+}
+tracks/13/type = "value"
+tracks/13/path = NodePath("CanvasLayer2/Control/Hand:rect_scale")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/keys = {
+"times": PoolRealArray( 0, 0.34 ),
+"transitions": PoolRealArray( 0.5, 1 ),
+"update": 0,
+"values": [ Vector2( 1.2, 1.2 ), Vector2( 1, 1 ) ]
+}
+tracks/14/type = "value"
+tracks/14/path = NodePath("CanvasLayer2/Control/Hand2:rect_position")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/keys = {
+"times": PoolRealArray( 0, 0.34 ),
+"transitions": PoolRealArray( 0.5, 1 ),
+"update": 0,
+"values": [ Vector2( -118, -66 ), Vector2( 80, 44 ) ]
+}
+tracks/15/type = "value"
+tracks/15/path = NodePath("CanvasLayer2/Control/Hand:rect_position")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/keys = {
+"times": PoolRealArray( 0, 0.34 ),
+"transitions": PoolRealArray( 0.5, 1 ),
+"update": 0,
+"values": [ Vector2( 1651, -214 ), Vector2( 1348, 44 ) ]
+}
+tracks/16/type = "value"
+tracks/16/path = NodePath("CanvasLayer/Control/CardMenu/Head:rect_position")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/keys = {
 "times": PoolRealArray( 0, 0.5 ),
 "transitions": PoolRealArray( 0.5, 1 ),
 "update": 0,
-"values": [ Vector2( 300, -200 ), Vector2( 300, 0 ) ]
+"values": [ Vector2( 681, -412 ), Vector2( 681, 0 ) ]
+}
+tracks/17/type = "value"
+tracks/17/path = NodePath("CanvasLayer/Control/CardMenu/Head:rect_scale")
+tracks/17/interp = 1
+tracks/17/loop_wrap = true
+tracks/17/imported = false
+tracks/17/enabled = true
+tracks/17/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 0.5, 1 ),
+"update": 0,
+"values": [ Vector2( 1.51902, 1.51902 ), Vector2( 1, 1 ) ]
+}
+tracks/18/type = "value"
+tracks/18/path = NodePath("CanvasLayer/Control/CardMenu/Head:modulate")
+tracks/18/interp = 1
+tracks/18/loop_wrap = true
+tracks/18/imported = false
+tracks/18/enabled = true
+tracks/18/keys = {
+"times": PoolRealArray( 0, 0.49 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 0 ), Color( 1, 1, 1, 1 ) ]
 }
 
 [sub_resource type="Animation" id=8]
 resource_name = "idle"
 length = 3.0
+loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath("CanvasLayer/Control/CardMenu/Circle:rect_scale")
 tracks/0/interp = 1
@@ -212,9 +601,45 @@ tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
 "times": PoolRealArray( 0, 1.5, 3 ),
-"transitions": PoolRealArray( -2, -2, 1 ),
+"transitions": PoolRealArray( -2, -2, -2 ),
 "update": 0,
 "values": [ Vector2( 1, 1 ), Vector2( 1.1, 1.1 ), Vector2( 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("CanvasLayer2/Control/Hand:rect_position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.7, 1.5, 2.3, 3 ),
+"transitions": PoolRealArray( 0.5, 0.5, 0.5, 0.5, -2 ),
+"update": 0,
+"values": [ Vector2( 1348, 44 ), Vector2( 1363, 90 ), Vector2( 1321, 99 ), Vector2( 1299, 20 ), Vector2( 1348, 44 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("CanvasLayer2/Control/Hand2:rect_position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.7, 1.5, 2.3, 3 ),
+"transitions": PoolRealArray( 0.5, 0.5, 0.5, 0.5, -2 ),
+"update": 0,
+"values": [ Vector2( 80, 44 ), Vector2( 119, 28 ), Vector2( 132, 93 ), Vector2( 81, 106 ), Vector2( 80, 44 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("CanvasLayer/Control/CardMenu/Head:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 1.5, 3 ),
+"transitions": PoolRealArray( -2, -2, -2 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 0.12549, 0.12549, 0.12549, 1 ), Color( 1, 1, 1, 1 ) ]
 }
 
 [node name="Main" type="Node"]
@@ -383,6 +808,14 @@ margin_right = 116.0
 margin_bottom = -242.0
 mouse_filter = 2
 
+[node name="Head" type="TextureRect" parent="CanvasLayer/Control/CardMenu"]
+margin_left = 681.0
+margin_right = 1251.0
+margin_bottom = 377.0
+rect_scale = Vector2( 1.51902, 1.51902 )
+rect_pivot_offset = Vector2( 275, 129 )
+texture = ExtResource( 17 )
+
 [node name="Circle" type="TextureRect" parent="CanvasLayer/Control/CardMenu"]
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -422,6 +855,37 @@ margin_top = 838.0
 margin_right = 116.0
 margin_bottom = -242.0
 mouse_filter = 2
+
+[node name="Hand" type="TextureRect" parent="CanvasLayer2/Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 1348.0
+margin_top = 44.0
+margin_right = -89.9995
+margin_bottom = -85.9998
+rect_pivot_offset = Vector2( 285, 277 )
+mouse_filter = 2
+texture = ExtResource( 16 )
+
+[node name="Hand2" type="TextureRect" parent="CanvasLayer2/Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 80.0
+margin_top = 44.0
+margin_right = -1358.0
+margin_bottom = -85.9941
+rect_pivot_offset = Vector2( 285, 277 )
+mouse_filter = 2
+texture = ExtResource( 16 )
+flip_h = true
+
+[node name="Cloud" type="TextureRect" parent="CanvasLayer2/Control"]
+material = SubResource( 30 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+texture = ExtResource( 14 )
+stretch_mode = 3
 
 [node name="CanvasLayer3" type="CanvasLayer" parent="."]
 layer = 5
