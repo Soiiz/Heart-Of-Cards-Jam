@@ -1,10 +1,11 @@
-[gd_resource type="VisualShader" load_steps=102 format=2]
+[gd_resource type="VisualShader" load_steps=108 format=2]
 
 [ext_resource path="res://arts/shaders/WaterNoise.png" type="Texture" id=1]
 [ext_resource path="res://arts/shaders/waterComp.png" type="Texture" id=2]
 [ext_resource path="res://arts/shaders/waterGradient.png" type="Texture" id=3]
 [ext_resource path="res://arts/shaders/Star.jpg" type="Texture" id=4]
 [ext_resource path="res://arts/shaders/Gradient.png" type="Texture" id=5]
+[ext_resource path="res://arts/ui/Illustration2.png" type="Texture" id=6]
 
 [sub_resource type="VisualShaderNodeScalarOp" id=1]
 operator = 3
@@ -42,6 +43,19 @@ output_port_for_preview = 0
 [sub_resource type="VisualShaderNodeVectorDecompose" id=103]
 
 [sub_resource type="VisualShaderNodeScalarFunc" id=104]
+function = 31
+
+[sub_resource type="VisualShaderNodeColorOp" id=105]
+operator = 7
+
+[sub_resource type="VisualShaderNodeTexture" id=106]
+texture = ExtResource( 6 )
+
+[sub_resource type="VisualShaderNodeVectorDecompose" id=107]
+
+[sub_resource type="VisualShaderNodeVectorCompose" id=108]
+
+[sub_resource type="VisualShaderNodeScalarFunc" id=109]
 function = 31
 
 [sub_resource type="VisualShaderNodeScalarOp" id=3]
@@ -298,9 +312,9 @@ uniform float Speed;
 uniform sampler2D tex_frg_21;
 uniform float Vertical_Strength = 1;
 uniform sampler2D tex_frg_62;
+uniform sampler2D tex_frg_114;
 uniform float Blur_Amount = 0;
 uniform sampler2D tex_frg_51;
-uniform vec4 Base_Color_Mod : hint_color = vec4(0.154843, 0.370437, 0.492083, 1.000000);
 uniform float Star_Speed = 0.02;
 uniform sampler2D tex_frg_84;
 uniform float Water_Speed = 0.05;
@@ -463,6 +477,23 @@ void fragment() {
 	float n_in11p2 = 0.00000;
 	vec3 n_out11p0 = vec3(n_out22p0, n_out12p0, n_in11p2);
 
+// VectorDecompose:115
+	float n_out115p0 = n_out11p0.x;
+	float n_out115p1 = n_out11p0.y;
+	float n_out115p2 = n_out11p0.z;
+
+// ScalarFunc:117
+	float n_out117p0 = 1.0 - n_out115p1;
+
+// VectorCompose:116
+	float n_in116p2 = 0.00000;
+	vec3 n_out116p0 = vec3(n_out115p0, n_out117p0, n_in116p2);
+
+// Texture:114
+	vec4 tex_frg_114_read = texture(tex_frg_114, n_out116p0.xy);
+	vec3 n_out114p0 = tex_frg_114_read.rgb;
+	float n_out114p1 = tex_frg_114_read.a;
+
 // ScalarUniform:33
 	float n_out33p0 = Blur_Amount;
 
@@ -486,12 +517,35 @@ void fragment() {
 		n_out4p1 = _tex_read.a;
 	}
 
-// ColorUniform:97
-	vec3 n_out97p0 = Base_Color_Mod.rgb;
-	float n_out97p1 = Base_Color_Mod.a;
-
-// VectorOp:100
-	vec3 n_out100p0 = n_out4p0 * n_out97p0;
+// ColorOp:113
+	vec3 n_out113p0;
+	{
+		float base = n_out114p0.x;
+		float blend = n_out4p0.x;
+		if (base < 0.5) {
+			n_out113p0.x = (base * (blend + 0.5));
+		} else {
+			n_out113p0.x = (1.0 - (1.0 - base) * (1.0 - (blend - 0.5)));
+		}
+	}
+	{
+		float base = n_out114p0.y;
+		float blend = n_out4p0.y;
+		if (base < 0.5) {
+			n_out113p0.y = (base * (blend + 0.5));
+		} else {
+			n_out113p0.y = (1.0 - (1.0 - base) * (1.0 - (blend - 0.5)));
+		}
+	}
+	{
+		float base = n_out114p0.z;
+		float blend = n_out4p0.z;
+		if (base < 0.5) {
+			n_out113p0.z = (base * (blend + 0.5));
+		} else {
+			n_out113p0.z = (1.0 - (1.0 - base) * (1.0 - (blend - 0.5)));
+		}
+	}
 
 // Input:85
 	vec3 n_out85p0 = vec3(SCREEN_UV, 0.0);
@@ -599,7 +653,7 @@ void fragment() {
 	vec3 n_out74p0 = n_out91p0 * n_out70p0;
 
 // VectorOp:69
-	vec3 n_out69p0 = n_out100p0 - n_out74p0;
+	vec3 n_out69p0 = n_out113p0 - n_out74p0;
 
 // Output:0
 	COLOR.rgb = n_out69p0;
@@ -611,7 +665,7 @@ void light() {
 
 }
 "
-graph_offset = Vector2( -1293.15, -48.4083 )
+graph_offset = Vector2( -476.2, -25.5014 )
 mode = 1
 flags/light_only = false
 nodes/fragment/0/position = Vector2( 2600, 380 )
@@ -644,7 +698,7 @@ nodes/fragment/17/position = Vector2( -1320, 420 )
 nodes/fragment/18/node = SubResource( 9 )
 nodes/fragment/18/position = Vector2( -1080, 420 )
 nodes/fragment/19/node = SubResource( 10 )
-nodes/fragment/19/position = Vector2( 160, 160 )
+nodes/fragment/19/position = Vector2( 500, -40 )
 nodes/fragment/21/node = SubResource( 12 )
 nodes/fragment/21/position = Vector2( -1720, -120 )
 nodes/fragment/22/node = SubResource( 13 )
@@ -778,7 +832,7 @@ nodes/fragment/94/position = Vector2( -520, 1240 )
 nodes/fragment/95/node = SubResource( 88 )
 nodes/fragment/95/position = Vector2( -420, 1640 )
 nodes/fragment/96/node = SubResource( 89 )
-nodes/fragment/96/position = Vector2( 480, 180 )
+nodes/fragment/96/position = Vector2( 820, -20 )
 nodes/fragment/97/node = SubResource( 90 )
 nodes/fragment/97/position = Vector2( 0, 540 )
 nodes/fragment/99/node = SubResource( 91 )
@@ -807,4 +861,14 @@ nodes/fragment/111/node = SubResource( 103 )
 nodes/fragment/111/position = Vector2( -420, 1880 )
 nodes/fragment/112/node = SubResource( 104 )
 nodes/fragment/112/position = Vector2( -160, 1920 )
-nodes/fragment/connections = PoolIntArray( 6, 0, 7, 0, 8, 0, 9, 0, 7, 1, 10, 0, 9, 1, 10, 1, 12, 0, 11, 1, 10, 0, 13, 0, 14, 0, 15, 0, 15, 1, 13, 1, 13, 0, 16, 0, 16, 0, 12, 1, 18, 1, 12, 0, 18, 0, 22, 0, 22, 0, 11, 0, 23, 0, 22, 1, 25, 0, 23, 0, 27, 0, 28, 0, 26, 0, 30, 0, 31, 0, 30, 1, 30, 0, 29, 1, 6, 0, 7, 0, 8, 0, 9, 0, 7, 1, 10, 0, 9, 1, 10, 1, 12, 0, 11, 1, 10, 0, 13, 0, 14, 0, 15, 0, 15, 1, 13, 1, 13, 0, 16, 0, 16, 0, 12, 1, 18, 1, 12, 0, 18, 0, 22, 0, 22, 0, 11, 0, 23, 0, 22, 1, 24, 0, 23, 1, 25, 0, 23, 0, 27, 0, 28, 0, 26, 0, 30, 0, 31, 0, 30, 1, 30, 0, 29, 1, 32, 0, 21, 0, 28, 0, 32, 0, 28, 1, 29, 0, 29, 0, 32, 1, 39, 0, 40, 0, 39, 0, 40, 0, 42, 0, 38, 0, 40, 0, 41, 0, 40, 1, 42, 1, 41, 0, 42, 0, 38, 0, 43, 0, 44, 0, 45, 0, 45, 0, 46, 0, 46, 0, 47, 0, 50, 0, 48, 0, 49, 0, 48, 1, 50, 0, 48, 0, 49, 0, 48, 1, 48, 0, 41, 1, 51, 0, 53, 0, 59, 0, 57, 1, 60, 0, 59, 1, 33, 0, 61, 0, 53, 0, 61, 1, 61, 0, 4, 1, 62, 0, 63, 0, 11, 0, 4, 0, 37, 0, 64, 0, 63, 0, 64, 1, 43, 0, 37, 0, 65, 0, 43, 1, 21, 0, 66, 0, 66, 0, 37, 1, 67, 0, 66, 1, 68, 0, 72, 0, 72, 0, 70, 0, 70, 0, 74, 1, 81, 0, 79, 0, 81, 0, 79, 0, 79, 0, 77, 1, 78, 0, 73, 0, 75, 0, 76, 0, 73, 0, 82, 0, 83, 0, 82, 1, 90, 0, 89, 0, 90, 0, 89, 0, 89, 0, 87, 1, 85, 0, 86, 0, 88, 0, 84, 0, 82, 0, 91, 1, 91, 0, 74, 0, 74, 0, 69, 1, 86, 0, 88, 0, 86, 1, 87, 0, 87, 0, 88, 1, 76, 0, 78, 0, 76, 1, 77, 0, 77, 0, 78, 1, 84, 0, 92, 0, 92, 0, 91, 0, 93, 0, 92, 1, 94, 0, 89, 1, 95, 0, 79, 1, 69, 0, 0, 0, 19, 0, 96, 0, 4, 0, 99, 0, 97, 0, 100, 1, 4, 0, 100, 0, 102, 0, 103, 0, 103, 0, 104, 0, 103, 1, 105, 0, 105, 0, 106, 0, 106, 0, 104, 1, 107, 0, 106, 1, 100, 0, 69, 0, 17, 0, 18, 0, 64, 0, 24, 0, 108, 0, 70, 1, 109, 0, 111, 0, 111, 0, 110, 0, 110, 0, 68, 0, 111, 1, 112, 0, 112, 0, 110, 1 )
+nodes/fragment/113/node = SubResource( 105 )
+nodes/fragment/113/position = Vector2( 380, 180 )
+nodes/fragment/114/node = SubResource( 106 )
+nodes/fragment/114/position = Vector2( 180, -60 )
+nodes/fragment/115/node = SubResource( 107 )
+nodes/fragment/115/position = Vector2( -500, 80 )
+nodes/fragment/116/node = SubResource( 108 )
+nodes/fragment/116/position = Vector2( -40, 80 )
+nodes/fragment/117/node = SubResource( 109 )
+nodes/fragment/117/position = Vector2( -260, 120 )
+nodes/fragment/connections = PoolIntArray( 6, 0, 7, 0, 8, 0, 9, 0, 7, 1, 10, 0, 9, 1, 10, 1, 12, 0, 11, 1, 10, 0, 13, 0, 14, 0, 15, 0, 15, 1, 13, 1, 13, 0, 16, 0, 16, 0, 12, 1, 18, 1, 12, 0, 18, 0, 22, 0, 22, 0, 11, 0, 23, 0, 22, 1, 25, 0, 23, 0, 27, 0, 28, 0, 26, 0, 30, 0, 31, 0, 30, 1, 30, 0, 29, 1, 6, 0, 7, 0, 8, 0, 9, 0, 7, 1, 10, 0, 9, 1, 10, 1, 12, 0, 11, 1, 10, 0, 13, 0, 14, 0, 15, 0, 15, 1, 13, 1, 13, 0, 16, 0, 16, 0, 12, 1, 18, 1, 12, 0, 18, 0, 22, 0, 22, 0, 11, 0, 23, 0, 22, 1, 24, 0, 23, 1, 25, 0, 23, 0, 27, 0, 28, 0, 26, 0, 30, 0, 31, 0, 30, 1, 30, 0, 29, 1, 32, 0, 21, 0, 28, 0, 32, 0, 28, 1, 29, 0, 29, 0, 32, 1, 39, 0, 40, 0, 39, 0, 40, 0, 42, 0, 38, 0, 40, 0, 41, 0, 40, 1, 42, 1, 41, 0, 42, 0, 38, 0, 43, 0, 44, 0, 45, 0, 45, 0, 46, 0, 46, 0, 47, 0, 50, 0, 48, 0, 49, 0, 48, 1, 50, 0, 48, 0, 49, 0, 48, 1, 48, 0, 41, 1, 51, 0, 53, 0, 59, 0, 57, 1, 60, 0, 59, 1, 33, 0, 61, 0, 53, 0, 61, 1, 61, 0, 4, 1, 62, 0, 63, 0, 11, 0, 4, 0, 37, 0, 64, 0, 63, 0, 64, 1, 43, 0, 37, 0, 65, 0, 43, 1, 21, 0, 66, 0, 66, 0, 37, 1, 67, 0, 66, 1, 68, 0, 72, 0, 72, 0, 70, 0, 70, 0, 74, 1, 81, 0, 79, 0, 81, 0, 79, 0, 79, 0, 77, 1, 78, 0, 73, 0, 75, 0, 76, 0, 73, 0, 82, 0, 83, 0, 82, 1, 90, 0, 89, 0, 90, 0, 89, 0, 89, 0, 87, 1, 85, 0, 86, 0, 88, 0, 84, 0, 82, 0, 91, 1, 91, 0, 74, 0, 74, 0, 69, 1, 86, 0, 88, 0, 86, 1, 87, 0, 87, 0, 88, 1, 76, 0, 78, 0, 76, 1, 77, 0, 77, 0, 78, 1, 84, 0, 92, 0, 92, 0, 91, 0, 93, 0, 92, 1, 94, 0, 89, 1, 95, 0, 79, 1, 69, 0, 0, 0, 19, 0, 96, 0, 4, 0, 99, 0, 97, 0, 100, 1, 4, 0, 100, 0, 102, 0, 103, 0, 103, 0, 104, 0, 103, 1, 105, 0, 105, 0, 106, 0, 106, 0, 104, 1, 107, 0, 106, 1, 17, 0, 18, 0, 64, 0, 24, 0, 108, 0, 70, 1, 109, 0, 111, 0, 111, 0, 110, 0, 110, 0, 68, 0, 111, 1, 112, 0, 112, 0, 110, 1, 114, 0, 113, 0, 4, 0, 113, 1, 113, 0, 69, 0, 11, 0, 115, 0, 116, 0, 114, 0, 115, 0, 116, 0, 115, 1, 117, 0, 117, 0, 116, 1 )

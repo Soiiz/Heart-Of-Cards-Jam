@@ -39,17 +39,10 @@ func _on_card_picked():
 	if (cards_picked >= cards_to_pick):
 		get_tree().paused = false
 		
-		# hide the ui and the effects
-		hide()
-		$"../../../CanvasLayer2".hide()
-		
 		emit_signal("selection_completed")
 
 
 func _on_Console_round_ended():
-	show()
-	$"../../../CanvasLayer2".show()
-	
 	cards_picked = 0
 	spawn_card_array()
 

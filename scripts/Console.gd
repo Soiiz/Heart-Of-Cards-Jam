@@ -23,6 +23,10 @@ func _process(delta):
 		$"../Sounds/Water".play()
 		$"../UIAnim".play("fade_in")
 		
+		# hide the ui and the effects
+		$"../CanvasLayer/Control/CardMenu".show()
+		$"../CanvasLayer2".show()
+		
 		emit_signal("round_ended")
 		get_tree().paused = true
 
@@ -30,8 +34,15 @@ func _process(delta):
 func _on_CardMenu_selection_completed():
 	MusicPlayer.fade_in()
 	$"../Sounds/Water2".play()
+	$"../UIAnim".play("fade_in", -1, -2, true)
 	
 	emit_signal("round_started")
+	
+	yield($"../UIAnim", "animation_finished")
+	# hide the ui and the effects
+	$"../CanvasLayer/Control/CardMenu".hide()
+	$"../CanvasLayer2".hide()
+	
 	
 
 
@@ -62,3 +73,7 @@ func get_player():
 
 func get_devil_spawn():
 	return get_node("../Node2D/devil_spawn")
+
+
+func _on_UIAnim_animation_finished(anim_name):
+	$"../UIAnim".play("idle")
