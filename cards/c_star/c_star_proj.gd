@@ -12,7 +12,7 @@ func _ready():
 func init(pos, heading, speed = 750):
 	position = pos
 	velocity = heading * speed
-	
+	rotation = atan2(heading.y, heading.x)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):

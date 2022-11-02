@@ -9,8 +9,8 @@ var orb_w
 export var orbit = 300
 export var anchor_speed = 4.0
 var time = 0
-export var lock_rate = 4
-export var unlock_rate = 2
+export var lock_rate = 4.0
+export var unlock_rate = 2.0
 var lock_time = 0
 export var rot_speed_max = 1 * PI
 var rot_speed = rot_speed_max
