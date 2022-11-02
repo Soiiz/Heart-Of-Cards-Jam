@@ -37,6 +37,8 @@ func _unhandled_input(event):
 
 		dash_cooldown = 0.0
 		print("pressed")
+		
+		$Torso/Trail.set_emitting(true)
 
 func _process(delta):
 	dash_cooldown += delta
@@ -97,6 +99,8 @@ func _physics_process(delta: float) -> void:
 func dash(delta):
 	if dash == false:
 		dash_speed = 0
+		
+		$Torso/Trail.set_emitting(false)
 	else:
 		dash_speed -= acceleration * delta
 		print(dash_speed)
@@ -108,6 +112,8 @@ func dash(delta):
 		dash_movement = move_and_slide(dash_movement)
 	else:
 		dash = false
+		
+		
 		
 func take_damage(damage):
 	if hurt == false && dash == false && iframe == false:

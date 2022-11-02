@@ -1,10 +1,18 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://scripts/Player.gd" type="Script" id=1]
 [ext_resource path="res://arts/light.png" type="Texture" id=2]
 [ext_resource path="res://arts/character/bunny_front_parts.png" type="Texture" id=3]
 [ext_resource path="res://arts/character/bunny_side_parts.png" type="Texture" id=4]
 [ext_resource path="res://arts/character/bunny_back_parts.png" type="Texture" id=5]
+[ext_resource path="res://arts/character/outline_front.png" type="Texture" id=6]
+
+[sub_resource type="Curve" id=11]
+_data = [ Vector2( 0, 1 ), 0.0, 1.21149, 0, 0, Vector2( 1, 1 ), 0.0148098, 0.0, 0, 0 ]
+
+[sub_resource type="Gradient" id=12]
+offsets = PoolRealArray( 0, 0.111732, 1 )
+colors = PoolColorArray( 1, 1, 1, 0, 0.596078, 0.564706, 0.941176, 0.45098, 1, 1, 1, 0 )
 
 [sub_resource type="RectangleShape2D" id=10]
 extents = Vector2( 12, 12 )
@@ -2185,6 +2193,18 @@ texture = ExtResource( 5 )
 offset = Vector2( 3.632, -11.37 )
 region_enabled = true
 region_rect = Rect2( 34.7594, 4.00152, 20.7087, 33.8674 )
+
+[node name="Trail" type="CPUParticles2D" parent="Torso"]
+position = Vector2( 3.11187, -22.0013 )
+scale = Vector2( 1.03729, 1.10006 )
+amount = 4
+lifetime = 0.5
+local_coords = false
+texture = ExtResource( 6 )
+gravity = Vector2( 0, 0 )
+scale_amount = 0.4
+scale_amount_curve = SubResource( 11 )
+color_ramp = SubResource( 12 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 0, 7 )

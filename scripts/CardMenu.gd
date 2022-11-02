@@ -4,7 +4,7 @@ export var cards_to_spawn = 3
 export var cards_to_pick = 2
 var cards_picked = 0
 var card_list = ["c_star", "c_sun", "c_fool", "c_chariot", "c_devil", "c_priestess", 
-"c_emperor", "c_empress", "c_wof", "c_magician", "c_tower", "c_lovers"]
+"c_emperor", "c_empress", "c_wof", "c_magician", "c_tower", "c_lovers", "c_hierophant"]
 
 var card
 onready var container = $CenterContainer/HBoxContainer
