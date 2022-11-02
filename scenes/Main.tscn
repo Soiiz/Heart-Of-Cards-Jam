@@ -5,7 +5,7 @@
 [ext_resource path="res://arts/shaders/vignette.shader" type="Shader" id=3]
 [ext_resource path="res://arts/shaders/vignette.png" type="Texture" id=4]
 [ext_resource path="res://scripts/CardMenu.gd" type="Script" id=5]
-[ext_resource path="res://Player.tscn" type="PackedScene" id=6]
+[ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=6]
 [ext_resource path="res://arts/shaders/screen_blur.tres" type="Shader" id=7]
 [ext_resource path="res://arts/shaders/water_shader.tres" type="Shader" id=8]
 [ext_resource path="res://arts/ui/heart.png" type="Texture" id=9]
@@ -327,8 +327,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = -118.0
 margin_top = 838.0
-margin_right = 2036.0
-margin_bottom = 838.0
+margin_right = 116.0
+margin_bottom = -242.0
 mouse_filter = 2
 
 [node name="CenterContainer" type="CenterContainer" parent="CanvasLayer/Control/CardMenu"]
@@ -356,8 +356,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = -118.0
 margin_top = 838.0
-margin_right = 2036.0
-margin_bottom = 838.0
+margin_right = 116.0
+margin_bottom = -242.0
 mouse_filter = 2
 
 [node name="CanvasLayer3" type="CanvasLayer" parent="."]
