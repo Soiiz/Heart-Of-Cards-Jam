@@ -15,7 +15,7 @@
 [ext_resource path="res://arts/ui/Ball.png" type="Texture" id=13]
 [ext_resource path="res://arts/ui/Clouds.png" type="Texture" id=14]
 [ext_resource path="res://arts/shaders/Voronoi.png" type="Texture" id=15]
-[ext_resource path="res://arts/ui/Hand (1).png" type="Texture" id=16]
+[ext_resource path="res://arts/ui/Hand.png" type="Texture" id=16]
 [ext_resource path="res://arts/ui/head.png" type="Texture" id=17]
 
 [sub_resource type="RectangleShape2D" id=1]
