@@ -1030,8 +1030,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = -118.0
 margin_top = 838.0
-margin_right = 116.0
-margin_bottom = -242.0
+margin_right = 2036.0
+margin_bottom = 838.0
 mouse_filter = 2
 
 [node name="Head" type="TextureRect" parent="CanvasLayer/Control/CardMenu"]
@@ -1078,8 +1078,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = -118.0
 margin_top = 838.0
-margin_right = 116.0
-margin_bottom = -242.0
+margin_right = 2036.0
+margin_bottom = 838.0
 mouse_filter = 2
 
 [node name="Hand" type="TextureRect" parent="CanvasLayer2/Control"]
@@ -1088,8 +1088,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 1348.0
 margin_top = 44.0
-margin_right = -89.9996
-margin_bottom = -85.9999
+margin_right = 1830.0
+margin_bottom = 994.0
 rect_pivot_offset = Vector2( 285, 277 )
 mouse_filter = 2
 texture = ExtResource( 16 )
@@ -1100,8 +1100,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 80.0
 margin_top = 44.0
-margin_right = -1358.0
-margin_bottom = -85.994
+margin_right = 562.0
+margin_bottom = 994.006
 rect_pivot_offset = Vector2( 285, 277 )
 mouse_filter = 2
 texture = ExtResource( 16 )

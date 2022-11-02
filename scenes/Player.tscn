@@ -1,6 +1,7 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://scripts/Player.gd" type="Script" id=1]
+[ext_resource path="res://arts/light.png" type="Texture" id=2]
 [ext_resource path="res://arts/character/bunny_front_parts.png" type="Texture" id=3]
 [ext_resource path="res://arts/character/bunny_side_parts.png" type="Texture" id=4]
 [ext_resource path="res://arts/character/bunny_back_parts.png" type="Texture" id=5]
@@ -2086,6 +2087,7 @@ speed = 400
 dash_delay = 1.5
 
 [node name="Torso" type="Sprite" parent="."]
+light_mask = 2
 position = Vector2( 0, 1 )
 scale = Vector2( 0.964052, 0.909039 )
 z_index = 5
@@ -2094,6 +2096,7 @@ region_enabled = true
 region_rect = Rect2( 84.7574, 16.2002, 18.6223, 21.5627 )
 
 [node name="Cape" type="Sprite" parent="Torso"]
+light_mask = 2
 position = Vector2( 0, -6 )
 z_index = -1
 texture = ExtResource( 3 )
@@ -2103,6 +2106,7 @@ region_enabled = true
 region_rect = Rect2( 69.935, 67.5235, 45.2947, 32.1889 )
 
 [node name="RightHand" type="Sprite" parent="Torso"]
+light_mask = 2
 position = Vector2( 7, -4 )
 texture = ExtResource( 3 )
 offset = Vector2( 2.736, 4.471 )
@@ -2110,6 +2114,7 @@ region_enabled = true
 region_rect = Rect2( 102.012, 19.9422, 12.785, 15.3032 )
 
 [node name="LeftHand" type="Sprite" parent="Torso"]
+light_mask = 2
 position = Vector2( -7, -4 )
 z_index = -1
 texture = ExtResource( 3 )
@@ -2119,6 +2124,7 @@ region_enabled = true
 region_rect = Rect2( 102.012, 19.9422, 12.785, 15.3032 )
 
 [node name="LeftLeg" type="Sprite" parent="Torso"]
+light_mask = 2
 position = Vector2( -4, 1 )
 z_index = -1
 texture = ExtResource( 3 )
@@ -2128,6 +2134,7 @@ region_enabled = true
 region_rect = Rect2( 97.8322, 43.4997, 10.8575, 24.1074 )
 
 [node name="RightLeg" type="Sprite" parent="Torso"]
+light_mask = 2
 position = Vector2( 4, 2 )
 z_index = -1
 texture = ExtResource( 3 )
@@ -2136,6 +2143,7 @@ region_enabled = true
 region_rect = Rect2( 97.8322, 43.4997, 10.8575, 24.1074 )
 
 [node name="Cape2" type="Sprite" parent="Torso"]
+light_mask = 2
 position = Vector2( 0, -11 )
 z_index = -2
 texture = ExtResource( 3 )
@@ -2144,6 +2152,7 @@ region_enabled = true
 region_rect = Rect2( 16.8278, 79.1666, 28.1566, 17.5992 )
 
 [node name="Face" type="Sprite" parent="Torso"]
+light_mask = 2
 position = Vector2( 0, -6.43571 )
 texture = ExtResource( 3 )
 offset = Vector2( 0, -17.584 )
@@ -2151,6 +2160,7 @@ region_enabled = true
 region_rect = Rect2( 5.28081, 37.2782, 50.1213, 40.6326 )
 
 [node name="Eyes" type="Sprite" parent="Torso/Face"]
+light_mask = 2
 position = Vector2( 0, -14 )
 texture = ExtResource( 3 )
 flip_h = true
@@ -2158,6 +2168,7 @@ region_enabled = true
 region_rect = Rect2( 75.2065, 2.84414, 32.8872, 15.0605 )
 
 [node name="LeftEar" type="Sprite" parent="Torso/Face"]
+light_mask = 2
 position = Vector2( -12, -39.5 )
 z_index = -1
 texture = ExtResource( 5 )
@@ -2167,6 +2178,7 @@ region_enabled = true
 region_rect = Rect2( 34.7594, 4.00152, 20.7087, 33.8674 )
 
 [node name="RightEar" type="Sprite" parent="Torso/Face"]
+light_mask = 2
 position = Vector2( 15, -38.5 )
 z_index = -1
 texture = ExtResource( 5 )
@@ -2190,5 +2202,10 @@ anims/run_down = SubResource( 9 )
 anims/run_left = SubResource( 5 )
 anims/run_right = SubResource( 7 )
 anims/run_up = SubResource( 8 )
+
+[node name="Light2D" type="Light2D" parent="."]
+texture = ExtResource( 2 )
+color = Color( 0.596078, 0.564706, 0.941176, 1 )
+energy = 0.5
 
 [connection signal="timeout" from="IframeTimer" to="." method="_on_IframeTimer_timeout"]
