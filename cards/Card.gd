@@ -41,6 +41,7 @@ func _process(delta):
 
 func _pressed():
 	print("click!")
+	SoundPlayer.play_positional("Water3", get_position())
 	activate()
 
 func initialize(pos):

@@ -17,6 +17,7 @@ run/main_scene="res://scenes/Main.tscn"
 
 Global="*res://scripts/Global.gd"
 MusicPlayer="*res://scripts/MusicPlayer.gd"
+SoundPlayer="*res://scripts/SoundPlayer.gd"
 
 [display]
 

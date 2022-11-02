@@ -1,4 +1,4 @@
-[gd_scene load_steps=74 format=2]
+[gd_scene load_steps=73 format=2]
 
 [ext_resource path="res://scripts/Console.gd" type="Script" id=1]
 [ext_resource path="res://arts/background.png" type="Texture" id=2]
@@ -10,7 +10,6 @@
 [ext_resource path="res://arts/shaders/water_shader.tres" type="Shader" id=8]
 [ext_resource path="res://arts/ui/heart.png" type="Texture" id=9]
 [ext_resource path="res://sounds/water.wav" type="AudioStream" id=10]
-[ext_resource path="res://sounds/water3.wav" type="AudioStream" id=11]
 [ext_resource path="res://sounds/water2.wav" type="AudioStream" id=12]
 [ext_resource path="res://arts/ui/Ball.png" type="Texture" id=13]
 [ext_resource path="res://arts/ui/Clouds.png" type="Texture" id=14]
@@ -1147,10 +1146,6 @@ bus = "Sound"
 
 [node name="Water2" type="AudioStreamPlayer" parent="Sounds"]
 stream = ExtResource( 12 )
-bus = "Sound"
-
-[node name="Water3" type="AudioStreamPlayer" parent="Sounds"]
-stream = ExtResource( 11 )
 bus = "Sound"
 
 [node name="UIAnim" type="AnimationPlayer" parent="."]
