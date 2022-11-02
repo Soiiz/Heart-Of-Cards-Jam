@@ -6,7 +6,7 @@ signal health_updated
 export var speed = 200
 var dash_speed = 0
 export var max_dash_speed = 1200
-export var acceleration = 600
+export var acceleration = 450
 var dash = false;
 var destination = Vector2()
 var dash_movement = Vector2()
@@ -16,7 +16,7 @@ var slow = false
 var accelerate = false
 var bigger = false
 var smaller = false
-
+var hurt = false
 onready var collision = get_node("CollisionShape2D")
 
 export var dash_delay: float = 2
@@ -53,6 +53,11 @@ func _physics_process(delta: float) -> void:
 			move_and_slide(movement_direction * speed)
 	
 	dash(delta)
+	
+	if dash == true:
+		modulate.a = 0.5
+	elif dash == false && hurt == false:
+		modulate.a = 1
 
 	# change in scale
 	if (bigger == false):
@@ -91,6 +96,7 @@ func dash(delta):
 		dash_speed = 0
 	else:
 		dash_speed -= acceleration * delta
+		print(dash_speed)
 		if dash_speed <= 0:
 			dash_speed = 0
 			dash = false
@@ -101,10 +107,14 @@ func dash(delta):
 		dash = false
 		
 func take_damage(damage):
-	health -= damage
-	emit_signal("health_updated", health)
-	
-	print("yeowch")
+	if hurt == false && dash == false:
+		modulate.a = 0.5
+		$IframeTimer.start()
+		print("Before: " + str(health))
+		hurt = true
+		health -= damage
+		print("After: " + str(health))
+		emit_signal("health_updated", health)
 	if health <= 0:
 		print("game over!")
 
@@ -123,3 +133,7 @@ func bigger(b):
 	
 func smaller(b):
 	smaller = b
+
+func _on_IframeTimer_timeout():
+	hurt = false;
+	modulate.a = 1
