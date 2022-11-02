@@ -2205,7 +2205,7 @@ anims/run_up = SubResource( 8 )
 
 [node name="Light2D" type="Light2D" parent="."]
 texture = ExtResource( 2 )
-color = Color( 0.596078, 0.564706, 0.941176, 1 )
-energy = 0.5
+energy = 2.0
+range_height = 50.0
 
 [connection signal="timeout" from="IframeTimer" to="." method="_on_IframeTimer_timeout"]
