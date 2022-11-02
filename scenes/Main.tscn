@@ -23,7 +23,7 @@ extents = Vector2( 807.75, 49 )
 
 [sub_resource type="ShaderMaterial" id=3]
 shader = ExtResource( 7 )
-shader_param/lod = 4.554
+shader_param/lod = 2.0
 
 [sub_resource type="ShaderMaterial" id=4]
 shader = ExtResource( 8 )
@@ -596,7 +596,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 0.5 ),
 "transitions": PoolRealArray( -2, 1 ),
 "update": 0,
-"values": [ Color( 0.568627, 0.568627, 0.568627, 0 ), Color( 0.262745, 0.113725, 0.0980392, 1 ) ]
+"values": [ Color( 0.568627, 0.568627, 0.568627, 0 ), Color( 0.105882, 0.054902, 0.0509804, 1 ) ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("CanvasLayer/Control/CardMenu/Water2:rect_position")
@@ -1017,7 +1017,7 @@ mouse_filter = 2
 script = ExtResource( 5 )
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer/Control/CardMenu"]
-modulate = Color( 0.262745, 0.113725, 0.0980392, 1 )
+modulate = Color( 0.105882, 0.054902, 0.0509804, 1 )
 material = SubResource( 3 )
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -1088,8 +1088,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 1348.0
 margin_top = 44.0
-margin_right = -89.9995
-margin_bottom = -85.9998
+margin_right = -89.9996
+margin_bottom = -85.9999
 rect_pivot_offset = Vector2( 285, 277 )
 mouse_filter = 2
 texture = ExtResource( 16 )
@@ -1101,7 +1101,7 @@ anchor_bottom = 1.0
 margin_left = 80.0
 margin_top = 44.0
 margin_right = -1358.0
-margin_bottom = -85.9941
+margin_bottom = -85.994
 rect_pivot_offset = Vector2( 285, 277 )
 mouse_filter = 2
 texture = ExtResource( 16 )
