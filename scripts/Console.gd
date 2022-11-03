@@ -38,12 +38,19 @@ func _on_CardMenu_selection_completed():
 	
 	emit_signal("round_started")
 	
+	Engine.set_time_scale(0.1)
+	var tween = create_tween()
+	tween.tween_property(Engine, "time_scale", 1.0, 0.5)
+	
 	yield($"../UIAnim", "animation_finished")
 	# hide the ui and the effects
 	$"../CanvasLayer/Control/CardMenu".hide()
 	$"../CanvasLayer2".hide()
 	
 	
+
+func game_over():
+	get_tree().set_paused(true)
 
 
 func _on_health_updated(new_health):

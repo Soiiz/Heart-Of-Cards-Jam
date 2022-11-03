@@ -149,8 +149,10 @@ func take_damage(damage, source = "Unknown"):
 		emit_signal("health_updated", health)
 		
 		Global.camera.shake()
+	
 	if health <= 0:
 		print("game over!")
+		Global.console.game_over()
 
 func gain_hp(hp):
 	health += hp
