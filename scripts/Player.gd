@@ -88,7 +88,7 @@ func _physics_process(delta: float) -> void:
 
 	
 	# change animations
-	if not $AnimationPlayer.is_playing():
+	if not $AnimationPlayer.get_current_animation() == "dash":
 		if abs(movement_direction.y) == 0:
 			if movement_direction.x == 0:
 				$AnimationPlayer.play("idle")
