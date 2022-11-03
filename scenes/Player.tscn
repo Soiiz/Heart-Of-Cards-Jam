@@ -433,7 +433,6 @@ tracks/33/keys = {
 [sub_resource type="Animation" id=13]
 resource_name = "dash"
 length = 0.5
-loop = true
 step = 0.05
 tracks/0/type = "value"
 tracks/0/path = NodePath("Torso:scale")
