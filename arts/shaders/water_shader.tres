@@ -5,7 +5,7 @@
 [ext_resource path="res://arts/shaders/waterGradient.png" type="Texture" id=3]
 [ext_resource path="res://arts/shaders/Star.jpg" type="Texture" id=4]
 [ext_resource path="res://arts/shaders/Gradient.png" type="Texture" id=5]
-[ext_resource path="res://arts/ui/Illustration2.png" type="Texture" id=6]
+[ext_resource path="res://arts/shaders/Illustration2.png" type="Texture" id=6]
 
 [sub_resource type="VisualShaderNodeScalarOp" id=1]
 operator = 3
@@ -46,7 +46,7 @@ output_port_for_preview = 0
 function = 31
 
 [sub_resource type="VisualShaderNodeColorOp" id=105]
-operator = 4
+operator = 3
 
 [sub_resource type="VisualShaderNodeTexture" id=106]
 texture = ExtResource( 6 )
@@ -518,34 +518,7 @@ void fragment() {
 	}
 
 // ColorOp:113
-	vec3 n_out113p0;
-	{
-		float base = n_out114p0.x;
-		float blend = n_out4p0.x;
-		if (base < 0.5) {
-			n_out113p0.x = 2.0 * base * blend;
-		} else {
-			n_out113p0.x = 1.0 - 2.0 * (1.0 - blend) * (1.0 - base);
-		}
-	}
-	{
-		float base = n_out114p0.y;
-		float blend = n_out4p0.y;
-		if (base < 0.5) {
-			n_out113p0.y = 2.0 * base * blend;
-		} else {
-			n_out113p0.y = 1.0 - 2.0 * (1.0 - blend) * (1.0 - base);
-		}
-	}
-	{
-		float base = n_out114p0.z;
-		float blend = n_out4p0.z;
-		if (base < 0.5) {
-			n_out113p0.z = 2.0 * base * blend;
-		} else {
-			n_out113p0.z = 1.0 - 2.0 * (1.0 - blend) * (1.0 - base);
-		}
-	}
+	vec3 n_out113p0 = max(n_out114p0, n_out4p0);
 
 // Input:85
 	vec3 n_out85p0 = vec3(SCREEN_UV, 0.0);
@@ -665,7 +638,7 @@ void light() {
 
 }
 "
-graph_offset = Vector2( -189.655, 102.887 )
+graph_offset = Vector2( -146, 62 )
 mode = 1
 flags/light_only = false
 nodes/fragment/0/position = Vector2( 2600, 380 )

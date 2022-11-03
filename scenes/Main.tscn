@@ -1481,8 +1481,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = -118.0
 margin_top = 838.0
-margin_right = 2036.0
-margin_bottom = 838.0
+margin_right = 116.0
+margin_bottom = -242.0
 mouse_filter = 2
 
 [node name="Head" type="TextureRect" parent="CanvasLayer/Control/CardMenu"]
@@ -1529,8 +1529,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = -118.0
 margin_top = 838.0
-margin_right = 2036.0
-margin_bottom = 838.0
+margin_right = 116.0
+margin_bottom = -242.0
 mouse_filter = 2
 
 [node name="Black" type="ColorRect" parent="CanvasLayer2/Control"]
@@ -1570,8 +1570,6 @@ flip_h = true
 material = SubResource( 30 )
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_right = 1920.0
-margin_bottom = 1080.0
 mouse_filter = 2
 texture = ExtResource( 14 )
 stretch_mode = 3
