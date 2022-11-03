@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://scripts/Player.gd" type="Script" id=1]
 [ext_resource path="res://arts/light.png" type="Texture" id=2]
@@ -6,6 +6,8 @@
 [ext_resource path="res://arts/character/bunny_side_parts.png" type="Texture" id=4]
 [ext_resource path="res://arts/character/bunny_back_parts.png" type="Texture" id=5]
 [ext_resource path="res://arts/character/outline_front.png" type="Texture" id=6]
+[ext_resource path="res://arts/vfx/wave_ring.tscn" type="PackedScene" id=7]
+[ext_resource path="res://arts/vfx/wave_ring_round.png" type="Texture" id=8]
 
 [sub_resource type="Curve" id=11]
 _data = [ Vector2( 0, 1 ), 0.0, 1.21149, 0, 0, Vector2( 1, 1 ), 0.0148098, 0.0, 0, 0 ]
@@ -2228,5 +2230,13 @@ anims/run_up = SubResource( 8 )
 texture = ExtResource( 2 )
 energy = 2.0
 range_height = 50.0
+
+[node name="WaveRing" parent="." instance=ExtResource( 7 )]
+light_mask = 2
+position = Vector2( 0, 18 )
+amount = 4
+lifetime = 1.0
+texture = ExtResource( 8 )
+scale_amount = 0.5
 
 [connection signal="timeout" from="IframeTimer" to="." method="_on_IframeTimer_timeout"]
