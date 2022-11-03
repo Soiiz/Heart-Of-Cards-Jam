@@ -38,7 +38,7 @@ func _on_CardMenu_selection_completed():
 	
 	emit_signal("round_started")
 	
-	Engine.set_time_scale(0.1)
+	Engine.set_time_scale(0.2)
 	var tween = create_tween()
 	tween.tween_property(Engine, "time_scale", 1.0, 0.5)
 	
