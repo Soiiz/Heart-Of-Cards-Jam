@@ -31,3 +31,7 @@ func activate():
 func _pressed():
 	print("this is the high priestess!")
 	._pressed()
+
+func deactivate():
+	emit_signal("card_decayed", "c_priestess")
+	.deactivate()

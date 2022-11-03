@@ -5,7 +5,7 @@ export var cards_to_pick = 2
 var cards_picked = 0
 var card_list = ["c_star", "c_sun", "c_fool", "c_chariot", "c_devil", "c_priestess", 
 "c_emperor", "c_empress", "c_wof", "c_magician", "c_tower", "c_lovers", "c_hierophant", "c_temperance", "c_moon"]
-
+var active_list = []
 var card
 onready var container = $CenterContainer/HBoxContainer
 signal selection_completed
@@ -23,16 +23,21 @@ func _process(delta):
 
 func spawn_card(card_name):
 	card = load("res://cards/" + card_name + "/" + card_name + ".tscn")
-	print("spawned" + card_name)
+	print("spawned " + card_name)
+	active_list.append(card_name)
 	var instance = card.instance()
 	container.add_child(instance)
 	return instance
 	
 func spawn_card_array():
 	for i in range(0, cards_to_spawn):
-		var card_name = card_list[(randi() % card_list.size())]
+		var next_index = randi() % card_list.size()
+		while (active_list.has(card_list[next_index])):
+			next_index = randi() % card_list.size()
+		var card_name = card_list[next_index]
 		var c = spawn_card(card_name)
 		c.connect("card_picked", self, "_on_card_picked")
+		c.connect("card_decayed", self, "_on_card_decayed")
 
 func _on_card_picked():
 	cards_picked += 1
@@ -41,6 +46,8 @@ func _on_card_picked():
 		
 		emit_signal("selection_completed")
 
+func _on_card_decayed(source = "Unknown"):
+	active_list.erase(source)
 
 func _on_Console_round_ended():
 	cards_picked = 0

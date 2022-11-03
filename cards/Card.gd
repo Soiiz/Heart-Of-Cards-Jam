@@ -10,6 +10,7 @@ var console = Global.console
 var round_lifetime = 0
 var active = false
 signal card_picked
+signal card_decayed(source)
 
 var wave_vfx_scene = preload("res://arts/vfx/wave_ring.tscn")
 var wave_vfx

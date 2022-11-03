@@ -31,3 +31,7 @@ func fire(pos, heading, speed):
 	proj.init(pos, heading, speed)
 	proj.source = "The Magician"
 	console.get_center().add_child(proj)
+
+func deactivate():
+	emit_signal("card_decayed", "c_magician")
+	.deactivate()

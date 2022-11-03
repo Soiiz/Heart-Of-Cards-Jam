@@ -8,6 +8,7 @@ func activate():
 	
 func deactivate():
 	player.smaller(false)
+	emit_signal("card_decayed", "c_empress")
 	.deactivate()
 
 func _pressed():

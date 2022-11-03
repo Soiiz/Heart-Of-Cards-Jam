@@ -27,12 +27,12 @@ func _pressed():
 	print("this is the tower!")
 	._pressed()
 
-func activate():
-	.activate()
-	
-
 func fire(pos, heading, speed):
 	var proj = proj_scene.instance()
 	proj.init(pos, heading, speed)
 	proj.source = "The Tower"
 	console.get_center().add_child(proj)
+
+func deactivate():
+	emit_signal("card_decayed", "c_tower")
+	.deactivate()
