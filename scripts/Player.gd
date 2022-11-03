@@ -41,6 +41,7 @@ func _unhandled_input(event):
 		dash_time = 0.0
 		print("pressed")
 		
+		$AnimationPlayer.play("dash")
 		$Torso/Trail.set_emitting(true)
 
 func _process(delta):
@@ -87,18 +88,20 @@ func _physics_process(delta: float) -> void:
 
 	
 	# change animations
-	if abs(movement_direction.y) == 0:
-		if movement_direction.x == 0:
-			$AnimationPlayer.play("idle")
-		elif movement_direction.x > 0:
-			$AnimationPlayer.play("run_right")
+	if not $AnimationPlayer.is_playing():
+		if abs(movement_direction.y) == 0:
+			if movement_direction.x == 0:
+				$AnimationPlayer.play("idle")
+			elif movement_direction.x > 0:
+				$AnimationPlayer.play("run_right")
+			else:
+				$AnimationPlayer.play("run_left")
 		else:
-			$AnimationPlayer.play("run_left")
-	else:
-		if movement_direction.y > 0:
-			$AnimationPlayer.play("run_down")
-		else:
-			$AnimationPlayer.play("run_up")
+			if movement_direction.y > 0:
+				$AnimationPlayer.play("run_down")
+			else:
+				$AnimationPlayer.play("run_up")
+
 
 func dash(delta):
 	if dash == false:
@@ -174,4 +177,8 @@ func _on_IframeTimer_timeout():
 func _on_round_started():
 	iframe = true
 	$IframeTimer.start()
-	
+
+
+func _on_AnimationPlayer_animation_finished(anim_name):
+	if "dash" in anim_name:
+		$AnimationPlayer.play("idle")
