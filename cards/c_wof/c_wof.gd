@@ -38,4 +38,5 @@ func _pressed():
 func deactivate():
 	if (rotater):
 		rotater.queue_free()
+	emit_signal("card_decayed", "c_wof")
 	.deactivate()

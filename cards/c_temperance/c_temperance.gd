@@ -6,4 +6,5 @@ func activate():
 	
 func deactivate():
 	console.dizzy(false)
+	emit_signal("card_decayed", "c_temperance")
 	.deactivate()

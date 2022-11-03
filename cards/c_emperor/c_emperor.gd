@@ -8,6 +8,7 @@ func activate():
 	
 func deactivate():
 	player.bigger(false)
+	emit_signal("card_decayed", "c_emperor")
 	.deactivate()
 
 func _pressed():
