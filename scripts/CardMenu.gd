@@ -34,6 +34,8 @@ func spawn_card_array():
 		var next_index = randi() % card_list.size()
 		while (active_list.has(card_list[next_index])):
 			next_index = randi() % card_list.size()
+			if (card_list.size() - active_list.size() < cards_to_spawn):
+				break
 		var card_name = card_list[next_index]
 		var c = spawn_card(card_name)
 		c.connect("card_picked", self, "_on_card_picked")

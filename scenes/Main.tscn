@@ -1398,9 +1398,6 @@ position = Vector2( -555, 115 )
 
 [node name="Magician_Spawns" type="Node" parent="Node2D"]
 
-[node name="Node2D" type="Node2D" parent="Node2D/Magician_Spawns"]
-position = Vector2( 0, -576 )
-
 [node name="Node2D2" type="Node2D" parent="Node2D/Magician_Spawns"]
 position = Vector2( 0, 576 )
 
@@ -1542,8 +1539,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 1348.0
 margin_top = 44.0
-margin_right = 32550.0
-margin_bottom = 18274.0
+margin_right = 34470.0
+margin_bottom = 19354.0
 rect_scale = Vector2( 0.2, 0.2 )
 rect_pivot_offset = Vector2( 285, 277 )
 mouse_filter = 2
@@ -1555,8 +1552,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 80.0
 margin_top = 44.0
-margin_right = 31282.0
-margin_bottom = 18274.0
+margin_right = 33202.0
+margin_bottom = 19354.0
 rect_pivot_offset = Vector2( 285, 277 )
 mouse_filter = 2
 texture = ExtResource( 16 )

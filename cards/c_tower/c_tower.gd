@@ -1,6 +1,7 @@
 extends "res://cards/Card.gd"
 
 export(PackedScene) var proj_scene
+export(PackedScene) var tower_scene
 var fire_time = 0
 var time = 0
 var startup_time = 2
@@ -9,6 +10,7 @@ export var fire_rate = 0.15
 export var proj_count = 5
 export var proj_speed = 450
 var phi = 2 * PI / proj_count
+var tower
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -33,6 +35,13 @@ func fire(pos, heading, speed):
 	proj.source = "The Tower"
 	console.get_center().add_child(proj)
 
+func activate():
+	tower = tower_scene.instance()
+	center.add_child(tower)
+	.activate()
+
 func deactivate():
+	if (tower):
+		tower.queue_free()
 	emit_signal("card_decayed", "c_tower")
 	.deactivate()
