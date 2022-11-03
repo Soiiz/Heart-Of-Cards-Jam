@@ -11,7 +11,7 @@ var dash = false;
 var destination = Vector2()
 var dash_movement = Vector2()
 var dash_cooldown = 2
-var test = 2
+var dash_time = 2
 var dashing_length = 1
 export var health = 3
 var slow = false
@@ -38,14 +38,14 @@ func _unhandled_input(event):
 		destination = get_global_mouse_position()
 
 		dash_cooldown = 0.0
-		test = 0.0
+		dash_time = 0.0
 		print("pressed")
 		
 		$Torso/Trail.set_emitting(true)
 
 func _process(delta):
 	dash_cooldown += delta
-	test += delta
+	dash_time += delta
 	#print(test)
 
 func _physics_process(delta: float) -> void:
@@ -109,11 +109,21 @@ func dash(delta):
 		if dash_speed >= 500:
 			dash_speed = 500
 			dash = true
-	dash_movement = position.direction_to(destination) * dash_speed
+			
+	if accelerate == true:
+		dash_movement = position.direction_to(destination) * dash_speed * 2
+		dashing_length = 0.5
+	elif slow == true:
+		dash_movement = position.direction_to(destination) * dash_speed * 0.7
+		dashing_length = 1.5
+	else:
+		dash_movement = position.direction_to(destination) * dash_speed
+		dashing_length = 1
+		
 	if position.distance_to(destination) > 5:
-		if(test <= dashing_length):
+		if(dash_time <= dashing_length):
 			dash_movement = move_and_slide(dash_movement)
-		elif (test >= dashing_length):
+		elif (dash_time >= dashing_length):
 			dash_speed = 0
 			dash = false
 	else:
