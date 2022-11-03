@@ -1331,16 +1331,16 @@ current = true
 [node name="Player" parent="Node2D" instance=ExtResource( 6 )]
 position = Vector2( -52, -27 )
 
-[node name="Left_Spawns" type="Node" parent="Node2D"]
+[node name="Lower_Spawns" type="Node" parent="Node2D"]
 
-[node name="Node2D" type="Node2D" parent="Node2D/Left_Spawns"]
-position = Vector2( -960, -256 )
+[node name="Node2D" type="Node2D" parent="Node2D/Lower_Spawns"]
+position = Vector2( -512, 544 )
 
-[node name="Node2D2" type="Node2D" parent="Node2D/Left_Spawns"]
-position = Vector2( -960, 0 )
+[node name="Node2D2" type="Node2D" parent="Node2D/Lower_Spawns"]
+position = Vector2( 0, 544 )
 
-[node name="Node2D3" type="Node2D" parent="Node2D/Left_Spawns"]
-position = Vector2( -960, 256 )
+[node name="Node2D3" type="Node2D" parent="Node2D/Lower_Spawns"]
+position = Vector2( 512, 544 )
 
 [node name="Upper_Spawns" type="Node" parent="Node2D"]
 
@@ -1454,8 +1454,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = -118.0
 margin_top = 838.0
-margin_right = 2036.0
-margin_bottom = 838.0
+margin_right = 116.0
+margin_bottom = -242.0
 mouse_filter = 2
 
 [node name="Head" type="TextureRect" parent="CanvasLayer/Control/CardMenu"]
@@ -1502,8 +1502,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = -118.0
 margin_top = 838.0
-margin_right = 2036.0
-margin_bottom = 838.0
+margin_right = 116.0
+margin_bottom = -242.0
 mouse_filter = 2
 
 [node name="Black" type="ColorRect" parent="CanvasLayer2/Control"]
@@ -1519,8 +1519,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 1348.0
 margin_top = 44.0
-margin_right = 26790.0
-margin_bottom = 15034.0
+margin_right = 24870.0
+margin_bottom = 13954.0
 rect_scale = Vector2( 0.2, 0.2 )
 rect_pivot_offset = Vector2( 285, 277 )
 mouse_filter = 2
@@ -1532,8 +1532,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 80.0
 margin_top = 44.0
-margin_right = 25522.0
-margin_bottom = 15034.0
+margin_right = 23602.0
+margin_bottom = 13954.0
 rect_pivot_offset = Vector2( 285, 277 )
 mouse_filter = 2
 texture = ExtResource( 16 )
@@ -1543,8 +1543,6 @@ flip_h = true
 material = SubResource( 30 )
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_right = 1920.0
-margin_bottom = 1080.0
 mouse_filter = 2
 texture = ExtResource( 14 )
 stretch_mode = 3
