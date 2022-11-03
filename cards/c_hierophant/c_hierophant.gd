@@ -16,6 +16,6 @@ func deactivate():
 	emit_signal("card_decayed", "c_hierophant")
 	.deactivate()
 	
-func pressed():
+func _pressed():
 	print("this is the hierophant!")
-	.pressed()
+	._pressed()
