@@ -2195,9 +2195,9 @@ region_enabled = true
 region_rect = Rect2( 34.7594, 4.00152, 20.7087, 33.8674 )
 
 [node name="Trail" type="CPUParticles2D" parent="Torso"]
-visible = false
 position = Vector2( 3.11187, -22.0013 )
 scale = Vector2( 1.03729, 1.10006 )
+emitting = false
 amount = 4
 lifetime = 0.5
 local_coords = false
