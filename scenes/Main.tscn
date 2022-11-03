@@ -1352,16 +1352,16 @@ current = true
 [node name="Player" parent="Node2D" instance=ExtResource( 6 )]
 position = Vector2( -52, -27 )
 
-[node name="Lower_Spawns" type="Node" parent="Node2D"]
+[node name="Left_Spawns" type="Node" parent="Node2D"]
 
-[node name="Node2D" type="Node2D" parent="Node2D/Lower_Spawns"]
-position = Vector2( -512, 544 )
+[node name="Node2D" type="Node2D" parent="Node2D/Left_Spawns"]
+position = Vector2( -960, -224 )
 
-[node name="Node2D2" type="Node2D" parent="Node2D/Lower_Spawns"]
-position = Vector2( 0, 544 )
+[node name="Node2D2" type="Node2D" parent="Node2D/Left_Spawns"]
+position = Vector2( -960, 0 )
 
-[node name="Node2D3" type="Node2D" parent="Node2D/Lower_Spawns"]
-position = Vector2( 512, 544 )
+[node name="Node2D3" type="Node2D" parent="Node2D/Left_Spawns"]
+position = Vector2( -960, 224 )
 
 [node name="Upper_Spawns" type="Node" parent="Node2D"]
 
@@ -1475,8 +1475,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = -118.0
 margin_top = 838.0
-margin_right = 2036.0
-margin_bottom = 838.0
+margin_right = 116.0
+margin_bottom = -242.0
 mouse_filter = 2
 
 [node name="Head" type="TextureRect" parent="CanvasLayer/Control/CardMenu"]
@@ -1523,8 +1523,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = -118.0
 margin_top = 838.0
-margin_right = 2036.0
-margin_bottom = 838.0
+margin_right = 116.0
+margin_bottom = -242.0
 mouse_filter = 2
 
 [node name="Black" type="ColorRect" parent="CanvasLayer2/Control"]
@@ -1564,8 +1564,6 @@ flip_h = true
 material = SubResource( 30 )
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_right = 1920.0
-margin_bottom = 1080.0
 mouse_filter = 2
 texture = ExtResource( 14 )
 stretch_mode = 3
