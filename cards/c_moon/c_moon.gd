@@ -6,7 +6,7 @@ var rotate = false
 var h_spawn_array = console.get_upper_spawns().get_children()
 var v_spawn_array = console.get_left_spawns().get_children()
 export var radius = 150
-export var fire_rate = 3
+export var fire_rate = 3.0
 var fire_time = 0
 
 func _process(delta):

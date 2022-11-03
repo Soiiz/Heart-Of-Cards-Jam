@@ -8,4 +8,4 @@
 script = ExtResource( 2 )
 proj_scene = ExtResource( 3 )
 radius = 150
-fire_rate = 3
+fire_rate = 3.0
