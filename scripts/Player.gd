@@ -54,12 +54,12 @@ func _physics_process(delta: float) -> void:
 		Input.get_action_strength("down") - Input.get_action_strength("up")).normalized()
 		
 	if dash == false:
-		if slow == true:
+		if (slow == true and accelerate == true) or (slow == false and accelerate == false):
+			move_and_slide(movement_direction * speed)
+		elif slow == true:
 			move_and_slide(movement_direction * speed * 0.7)
 		elif accelerate == true:
 			move_and_slide(movement_direction * speed * 2)
-		else:
-			move_and_slide(movement_direction * speed)
 	
 	dash(delta)
 	
@@ -110,15 +110,15 @@ func dash(delta):
 			dash_speed = 500
 			dash = true
 			
-	if accelerate == true:
+	if (slow == true and accelerate == true) or (slow == false and accelerate == false):
+		dash_movement = position.direction_to(destination) * dash_speed
+		dashing_length = 1
+	elif accelerate == true:
 		dash_movement = position.direction_to(destination) * dash_speed * 2
 		dashing_length = 0.5
 	elif slow == true:
 		dash_movement = position.direction_to(destination) * dash_speed * 0.7
 		dashing_length = 1.5
-	else:
-		dash_movement = position.direction_to(destination) * dash_speed
-		dashing_length = 1
 		
 	if position.distance_to(destination) > 5:
 		if(dash_time <= dashing_length):
