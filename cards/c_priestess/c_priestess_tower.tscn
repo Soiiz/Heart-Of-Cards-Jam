@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://cards/c_priestess/c_priestess_tower.gd" type="Script" id=1]
 [ext_resource path="res://arts/enviorment/healing_pillar.png" type="Texture" id=2]
 [ext_resource path="res://cards/c_priestess/matrix1.png" type="Texture" id=3]
+[ext_resource path="res://arts/enviorment/healing_pillar_n.png" type="Texture" id=4]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 269.225
@@ -20,6 +21,7 @@ texture = ExtResource( 3 )
 position = Vector2( 2.38419e-07, -370.333 )
 scale = Vector2( 0.834667, 0.834667 )
 texture = ExtResource( 2 )
+normal_map = ExtResource( 4 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 scale = Vector2( 2.508, 1.04 )
