@@ -1,4 +1,4 @@
-[gd_scene load_steps=77 format=2]
+[gd_scene load_steps=78 format=2]
 
 [ext_resource path="res://scripts/Console.gd" type="Script" id=1]
 [ext_resource path="res://arts/enviorment/Level.png" type="Texture" id=2]
@@ -18,6 +18,7 @@
 [ext_resource path="res://arts/ui/Hand.png" type="Texture" id=16]
 [ext_resource path="res://arts/ui/head.png" type="Texture" id=17]
 [ext_resource path="res://arts/ui/Hand_gradient.png" type="Texture" id=18]
+[ext_resource path="res://scripts/CameraShake.gd" type="Script" id=19]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 807.75, 49 )
@@ -1348,6 +1349,7 @@ shape = SubResource( 1 )
 
 [node name="Camera2D" type="Camera2D" parent="Node2D"]
 current = true
+script = ExtResource( 19 )
 
 [node name="Player" parent="Node2D" instance=ExtResource( 6 )]
 position = Vector2( -52, -27 )
@@ -1475,8 +1477,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = -118.0
 margin_top = 838.0
-margin_right = 116.0
-margin_bottom = -242.0
+margin_right = 2036.0
+margin_bottom = 838.0
 mouse_filter = 2
 
 [node name="Head" type="TextureRect" parent="CanvasLayer/Control/CardMenu"]
@@ -1523,8 +1525,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = -118.0
 margin_top = 838.0
-margin_right = 116.0
-margin_bottom = -242.0
+margin_right = 2036.0
+margin_bottom = 838.0
 mouse_filter = 2
 
 [node name="Black" type="ColorRect" parent="CanvasLayer2/Control"]
@@ -1540,8 +1542,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 1348.0
 margin_top = 44.0
-margin_right = 26790.0
-margin_bottom = 15034.0
+margin_right = 28710.0
+margin_bottom = 16114.0
 rect_scale = Vector2( 0.2, 0.2 )
 rect_pivot_offset = Vector2( 285, 277 )
 mouse_filter = 2
@@ -1553,8 +1555,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 80.0
 margin_top = 44.0
-margin_right = 25522.0
-margin_bottom = 15034.0
+margin_right = 27442.0
+margin_bottom = 16114.0
 rect_pivot_offset = Vector2( 285, 277 )
 mouse_filter = 2
 texture = ExtResource( 16 )
@@ -1564,6 +1566,8 @@ flip_h = true
 material = SubResource( 30 )
 anchor_right = 1.0
 anchor_bottom = 1.0
+margin_right = 1920.0
+margin_bottom = 1080.0
 mouse_filter = 2
 texture = ExtResource( 14 )
 stretch_mode = 3

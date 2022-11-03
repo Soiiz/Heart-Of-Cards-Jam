@@ -124,6 +124,8 @@ func take_damage(damage, source = "Unknown"):
 		health -= damage
 		print("After: " + str(health))
 		emit_signal("health_updated", health)
+		
+		Global.camera.shake()
 	if health <= 0:
 		print("game over!")
 
