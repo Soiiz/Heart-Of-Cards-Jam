@@ -62,8 +62,8 @@ func get_center():
 func get_upper_spawns():
 	return get_node("../Node2D/Upper_Spawns")
 
-func get_lower_spawns():
-	return get_node("../Node2D/Lower_Spawns")
+func get_left_spawns():
+	return get_node("../Node2D/Left_Spawns")
 	
 func get_magician_spawns():
 	return get_node("../Node2D/Magician_Spawns")
@@ -77,6 +77,8 @@ func get_devil_spawn():
 func get_priestess_spawns():
 	return get_node("../Node2D/Priestess_Spawns")
 
+func dizzy(on):
+	get_node("../CanvasLayer3/Control/Dizzy").set_visible(on)
 
 func _on_UIAnim_animation_finished(anim_name):
 	$"../UIAnim".play("idle")

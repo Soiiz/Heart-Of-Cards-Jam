@@ -20,6 +20,7 @@ func activate():
 	orb = proj_scene.instance()
 	rotater.add_child(orb)
 	orb.init(Vector2(radius, 0), Vector2(proj_scale, proj_scale))
+	orb.source = "The Wheel of Fortune"
 
 func _process(delta):
 	if (active):

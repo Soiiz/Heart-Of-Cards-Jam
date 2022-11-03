@@ -4,7 +4,8 @@ extends Area2D
 # Declare member variables here. Examples:
 var velocity = Vector2(0, 0)
 var slow = false
-export var slow_fac = 0.7
+var source = "The Star"
+export var slow_fac = 0.5
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
@@ -26,5 +27,5 @@ func _on_VisibilityNotifier2D_viewport_exited(viewport):
 
 func _on_projectile_body_entered(body):
 	if body.is_in_group("player"):
-		body.take_damage(1)
+		body.take_damage(1, source)
 		queue_free()

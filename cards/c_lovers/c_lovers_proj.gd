@@ -1,10 +1,11 @@
 extends Area2D
 
+var source = "The Lovers"
 var orbit = 300
 export var proj_speed = 2.0
 var invert = false
 var slow = false
-export var slow_fac = 0.7
+export var slow_fac = 0.5
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
@@ -25,4 +26,4 @@ func invert(on):
 
 func _on_Area2D_body_entered(body):
 	if body.is_in_group("player") && invert:
-		body.take_damage(1)
+		body.take_damage(1, source)

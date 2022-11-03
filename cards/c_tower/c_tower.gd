@@ -34,4 +34,5 @@ func activate():
 func fire(pos, heading, speed):
 	var proj = proj_scene.instance()
 	proj.init(pos, heading, speed)
+	proj.source = "The Tower"
 	console.get_center().add_child(proj)

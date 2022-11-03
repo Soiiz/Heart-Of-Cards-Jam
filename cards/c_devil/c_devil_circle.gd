@@ -1,6 +1,7 @@
 extends Area2D
 var console = Global.console
 
+var source = "The Devil"
 var player = console.get_player()
 var inside = false
 var inside_time = 0
@@ -22,7 +23,7 @@ func _process(delta):
 	else:
 		inside_time = 0
 	if inside_time >= damage_time:
-		player.take_damage(1)
+		player.take_damage(1, source)
 		inside_time = 0
 
 func _on_Area2D_body_entered(body):

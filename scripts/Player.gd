@@ -115,7 +115,7 @@ func dash(delta):
 		
 		
 		
-func take_damage(damage):
+func take_damage(damage, source = "Unknown"):
 	if hurt == false && dash == false && iframe == false:
 		modulate.a = 0.5
 		$IframeTimer.start()

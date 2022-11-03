@@ -1,7 +1,11 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://cards/Card.tscn" type="PackedScene" id=1]
 [ext_resource path="res://cards/c_moon/c_moon.gd" type="Script" id=2]
+[ext_resource path="res://cards/c_sun/c_sun_proj.tscn" type="PackedScene" id=3]
 
 [node name="TextureButton" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
+proj_scene = ExtResource( 3 )
+radius = 150
+fire_rate = 3

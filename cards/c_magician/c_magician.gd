@@ -29,4 +29,5 @@ func _pressed():
 func fire(pos, heading, speed):
 	var proj = proj_scene.instance()
 	proj.init(pos, heading, speed)
+	proj.source = "The Magician"
 	console.get_center().add_child(proj)

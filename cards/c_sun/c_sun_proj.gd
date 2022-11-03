@@ -4,6 +4,7 @@ extends Area2D
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
+var source = "The Sun"
 var console = Global.console
 var target_scale
 export var first_active_time = 1
@@ -43,7 +44,7 @@ func _physics_process(delta):
 			s.x = lerp(s.x, 0, 0.2)
 			
 		if touching_player && !hit_player:
-			console.get_player().take_damage(1)
+			console.get_player().take_damage(1, source)
 			hit_player = true
 		
 		
