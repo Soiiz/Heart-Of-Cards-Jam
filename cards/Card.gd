@@ -14,6 +14,7 @@ signal card_decayed(source)
 
 var wave_vfx_scene = preload("res://arts/vfx/wave_ring.tscn")
 var wave_vfx
+var wave_vfx_pos
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -27,18 +28,23 @@ func _ready():
 	wave_vfx = wave_vfx_scene.instance()
 	add_child(wave_vfx)
 	wave_vfx.set_emitting(true)
+	wave_vfx.set_position(Vector2(230, 450))
+	wave_vfx.set_z_index(12)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if (is_hovered() && !active):
+		wave_vfx.set_emitting(false)
 		anchor_bottom = lerp(anchor_bottom, float_height, float_easing)
 	elif !active:
+		wave_vfx.set_emitting(true)
 		anchor_top = lerp(anchor_top, 0, float_easing)
 	if (active):
 		if (round_lifetime >= round_duration):
 			deactivate()
 		else:
 			anchor_bottom = lerp(anchor_bottom, -3, 0.1)
+
 
 func _pressed():
 	print("click!")
