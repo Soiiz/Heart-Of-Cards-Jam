@@ -4,6 +4,7 @@ extends Node
 var sounds = {
 	"Water3": "res://sounds/water3.wav",
 	"Laser": "res://sounds/Lazer.wav",
+	"Dash": "res://sounds/dash.wav",
 }
 
 

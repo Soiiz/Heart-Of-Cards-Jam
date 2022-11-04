@@ -43,6 +43,8 @@ func _unhandled_input(event):
 		
 		$AnimationPlayer.play("dash")
 		$Torso/Trail.set_emitting(true)
+		
+		SoundPlayer.play_positional("Dash", get_global_position())
 
 func _process(delta):
 	dash_cooldown += delta
