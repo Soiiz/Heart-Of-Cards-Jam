@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://cards/c_priestess/c_priestess_tower.gd" type="Script" id=1]
 [ext_resource path="res://arts/enviorment/healing_pillar.png" type="Texture" id=2]
 [ext_resource path="res://cards/c_priestess/matrix1.png" type="Texture" id=3]
 [ext_resource path="res://arts/enviorment/healing_pillar_n.png" type="Texture" id=4]
+[ext_resource path="res://arts/light.png" type="Texture" id=5]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 269.225
@@ -11,6 +12,10 @@ radius = 269.225
 [node name="Area2D" type="Area2D"]
 pause_mode = 1
 script = ExtResource( 1 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2( 2.508, 1.726 )
+shape = SubResource( 1 )
 
 [node name="Sprite2" type="Sprite" parent="."]
 scale = Vector2( 3.93785, 2.77944 )
@@ -22,9 +27,11 @@ scale = Vector2( 0.834667, 0.834667 )
 texture = ExtResource( 2 )
 normal_map = ExtResource( 4 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-scale = Vector2( 2.508, 1.726 )
-shape = SubResource( 1 )
+[node name="Light2D" type="Light2D" parent="."]
+texture = ExtResource( 5 )
+texture_scale = 3.94
+color = Color( 0.870588, 0.929412, 1, 1 )
+range_height = 50.0
 
 [connection signal="body_entered" from="." to="." method="_on_Area2D_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_Area2D_body_exited"]
