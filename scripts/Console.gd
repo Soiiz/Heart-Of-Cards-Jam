@@ -9,6 +9,7 @@ var waves = 0
 
 var heart_red = preload("res://arts/ui/red_heart.png")
 var heart_gold = preload("res://arts/ui/gold_heart.png")
+var heart_empty = preload("res://arts/ui/empty_heart.png")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -82,12 +83,10 @@ func game_over(source = "Unknown"):
 func _on_health_updated(new_health):
 	for i in range(3):
 		var heart = get_node("../CanvasLayer/Control/CenterContainer/HBoxContainer/Heart%d" % [i + 1])
-		if i < new_health:
+		if i <= new_health - 1:
 			heart.set_texture(heart_red)
-		elif i > new_health:
-			heart.set_texture(heart_gold)
 		else:
-			heart.set_texture(heart_gold)
+			heart.set_texture(heart_empty)
 
 
 func get_center():

@@ -2663,6 +2663,7 @@ range_height = 50.0
 [node name="WaveRing" parent="." instance=ExtResource( 7 )]
 light_mask = 2
 position = Vector2( 0, 18 )
+emitting = true
 amount = 4
 lifetime = 1.0
 texture = ExtResource( 8 )
