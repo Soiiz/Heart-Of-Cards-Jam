@@ -7,6 +7,9 @@ signal round_ended
 signal round_started
 var waves = 0
 
+var heart_red = preload("res://arts/ui/red_heart.png")
+var heart_gold = preload("res://arts/ui/gold_heart.png")
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	Global.console = self
@@ -80,11 +83,12 @@ func _on_health_updated(new_health):
 	for i in range(3):
 		var heart = get_node("../CanvasLayer/Control/CenterContainer/HBoxContainer/Heart%d" % [i + 1])
 		if i < new_health:
-			heart.set_modulate(Color.red)
+			heart.set_texture(heart_red)
 		elif i > new_health:
-			heart.set_modulate(Color.green)
+			heart.set_texture(heart_gold)
 		else:
-			heart.set_modulate(Color.white)
+			heart.set_texture(heart_gold)
+
 
 func get_center():
 	return get_node("../Node2D")
