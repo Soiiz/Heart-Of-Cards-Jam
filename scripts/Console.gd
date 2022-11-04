@@ -46,11 +46,20 @@ func _on_CardMenu_selection_completed():
 	# hide the ui and the effects
 	$"../CanvasLayer/Control/CardMenu".hide()
 	$"../CanvasLayer2".hide()
-	
-	
+
 
 func game_over():
-	get_tree().set_paused(true)
+	get_tree().set_pause(true)
+	
+	MusicPlayer.fade_out()
+	$"../Sounds/Water".play()
+	$"../UIAnim".play("game_over")
+	
+	# hide the ui and the effects
+	$"../CanvasLayer/Control/CardMenu".show()
+	$"../CanvasLayer2".show()
+	$"../CanvasLayer/Control/CenterContainer2".show()
+	
 
 
 func _on_health_updated(new_health):

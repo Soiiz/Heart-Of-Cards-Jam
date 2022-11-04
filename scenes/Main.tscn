@@ -1,4 +1,4 @@
-[gd_scene load_steps=78 format=2]
+[gd_scene load_steps=82 format=2]
 
 [ext_resource path="res://scripts/Console.gd" type="Script" id=1]
 [ext_resource path="res://arts/enviorment/Level.png" type="Texture" id=2]
@@ -19,6 +19,8 @@
 [ext_resource path="res://arts/ui/head.png" type="Texture" id=17]
 [ext_resource path="res://arts/ui/Hand_gradient.png" type="Texture" id=18]
 [ext_resource path="res://scripts/CameraShake.gd" type="Script" id=19]
+[ext_resource path="res://arts/ui/Death.png" type="Texture" id=20]
+[ext_resource path="res://arts/ui/aAsianHiro.ttf" type="DynamicFontData" id=21]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 807.75, 49 )
@@ -38,6 +40,12 @@ shader_param/Blur_Amount = 1.377
 shader_param/Star_Speed = 0.02
 shader_param/Water_Speed = 0.05
 shader_param/Surface_Light = 0.197
+
+[sub_resource type="DynamicFont" id=62]
+size = 50
+outline_color = Color( 0.705882, 0.607843, 0.45098, 1 )
+use_filter = true
+font_data = ExtResource( 21 )
 
 [sub_resource type="ShaderMaterial" id=5]
 shader = ExtResource( 8 )
@@ -704,6 +712,30 @@ tracks/13/keys = {
 "update": 0,
 "values": [ Vector2( 0, 0 ) ]
 }
+tracks/14/type = "value"
+tracks/14/path = NodePath("CanvasLayer/Control/CardMenu/Death:rect_position")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 627, 1198 ) ]
+}
+tracks/15/type = "value"
+tracks/15/path = NodePath("CanvasLayer/Control/CardMenu/Death:rect_rotation")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
 
 [sub_resource type="Animation" id=7]
 resource_name = "fade_in"
@@ -960,6 +992,310 @@ tracks/20/keys = {
 "transitions": PoolRealArray( 0.5, 1 ),
 "update": 0,
 "values": [ Vector2( -118, 0 ), Vector2( 0, 0 ) ]
+}
+
+[sub_resource type="Animation" id=61]
+resource_name = "game_over"
+step = 0.01
+tracks/0/type = "value"
+tracks/0/path = NodePath("CanvasLayer/Control/CardMenu/ColorRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( -2, 1 ),
+"update": 0,
+"values": [ Color( 0.568627, 0.568627, 0.568627, 0 ), Color( 0.105882, 0.054902, 0.0509804, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("CanvasLayer/Control/CardMenu/Water2:rect_position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.2, 1 ),
+"transitions": PoolRealArray( 1, 0.5, 1 ),
+"update": 0,
+"values": [ Vector2( -118, 838 ), Vector2( -118, 838 ), Vector2( -118, 722 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("CanvasLayer/Control/CardMenu/Water2:rect_size")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.2, 1 ),
+"transitions": PoolRealArray( 1, 0.5, 1 ),
+"update": 0,
+"values": [ Vector2( 2154, 0 ), Vector2( 2154, 0 ), Vector2( 2154, 116 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("CanvasLayer2/Control/Water:rect_size")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.19, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 2154, 0 ), Vector2( 2154, 275 ), Vector2( 2154, 242 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("CanvasLayer2/Control/Water:rect_position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 0.19, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( -118, 1080 ), Vector2( -118, 838 ), Vector2( -118, 838 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("CanvasLayer/Control/CardMenu/ColorRect:rect_size")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1920, 1080 ), Vector2( 1920, 722 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("CanvasLayer/Control/CardMenu/Circle:modulate")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 0.5, 0.5 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 0 ), Color( 0, 0, 0, 0 ) ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("CanvasLayer/Control/CardMenu/Circle:rect_scale")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 0.5, 0.5 ),
+"update": 0,
+"values": [ Vector2( 0.5, 0.5 ), Vector2( 0.5, 0.5 ) ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("CanvasLayer/Control/CardMenu/Circle:rect_position")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 0.5, 0.5 ),
+"update": 0,
+"values": [ Vector2( 300, -200 ), Vector2( 300, -200 ) ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("CanvasLayer2/Control/Cloud:modulate")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0, 0.78 ),
+"transitions": PoolRealArray( 0.5, 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/10/type = "value"
+tracks/10/path = NodePath("CanvasLayer2/Control/Hand:modulate")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"times": PoolRealArray( 0, 0.55 ),
+"transitions": PoolRealArray( 0.5, 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/11/type = "value"
+tracks/11/path = NodePath("CanvasLayer2/Control/Hand2:modulate")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/keys = {
+"times": PoolRealArray( 0, 0.55 ),
+"transitions": PoolRealArray( 0.5, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/12/type = "value"
+tracks/12/path = NodePath("CanvasLayer2/Control/Hand2:rect_scale")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/keys = {
+"times": PoolRealArray( 0, 0.69 ),
+"transitions": PoolRealArray( 0.5, 1 ),
+"update": 0,
+"values": [ Vector2( 1.2, 1.2 ), Vector2( 1, 1 ) ]
+}
+tracks/13/type = "value"
+tracks/13/path = NodePath("CanvasLayer2/Control/Hand:rect_scale")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/keys = {
+"times": PoolRealArray( 0, 0.09, 0.78 ),
+"transitions": PoolRealArray( 0.5, 0.5, 1 ),
+"update": 0,
+"values": [ Vector2( 1.2, 1.2 ), Vector2( 1.2, 1.2 ), Vector2( 1, 1 ) ]
+}
+tracks/14/type = "value"
+tracks/14/path = NodePath("CanvasLayer2/Control/Hand2:rect_position")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/keys = {
+"times": PoolRealArray( 0, 0.69 ),
+"transitions": PoolRealArray( 0.5, 1 ),
+"update": 0,
+"values": [ Vector2( -118, -66 ), Vector2( 80, 44 ) ]
+}
+tracks/15/type = "value"
+tracks/15/path = NodePath("CanvasLayer2/Control/Hand:rect_position")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/keys = {
+"times": PoolRealArray( 0, 0.09, 0.78 ),
+"transitions": PoolRealArray( 0.5, 0.5, 1 ),
+"update": 0,
+"values": [ Vector2( 1651, -214 ), Vector2( 1651, -214 ), Vector2( 1348, 44 ) ]
+}
+tracks/16/type = "value"
+tracks/16/path = NodePath("CanvasLayer/Control/CardMenu/Head:rect_position")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 0.5, 1 ),
+"update": 0,
+"values": [ Vector2( 681, -412 ), Vector2( 681, 0 ) ]
+}
+tracks/17/type = "value"
+tracks/17/path = NodePath("CanvasLayer/Control/CardMenu/Head:rect_scale")
+tracks/17/interp = 1
+tracks/17/loop_wrap = true
+tracks/17/imported = false
+tracks/17/enabled = true
+tracks/17/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 0.5, 1 ),
+"update": 0,
+"values": [ Vector2( 1.51902, 1.51902 ), Vector2( 1, 1 ) ]
+}
+tracks/18/type = "value"
+tracks/18/path = NodePath("CanvasLayer/Control/CardMenu/Head:modulate")
+tracks/18/interp = 1
+tracks/18/loop_wrap = true
+tracks/18/imported = false
+tracks/18/enabled = true
+tracks/18/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/19/type = "value"
+tracks/19/path = NodePath("CanvasLayer2/Control/Cloud:rect_scale")
+tracks/19/interp = 1
+tracks/19/loop_wrap = true
+tracks/19/imported = false
+tracks/19/enabled = true
+tracks/19/keys = {
+"times": PoolRealArray( 0, 0.78 ),
+"transitions": PoolRealArray( 0.5, 1 ),
+"update": 0,
+"values": [ Vector2( 1.11009, 1 ), Vector2( 1, 1 ) ]
+}
+tracks/20/type = "value"
+tracks/20/path = NodePath("CanvasLayer2/Control/Cloud:rect_position")
+tracks/20/interp = 1
+tracks/20/loop_wrap = true
+tracks/20/imported = false
+tracks/20/enabled = true
+tracks/20/keys = {
+"times": PoolRealArray( 0, 0.78 ),
+"transitions": PoolRealArray( 0.5, 1 ),
+"update": 0,
+"values": [ Vector2( -118, 0 ), Vector2( 0, 0 ) ]
+}
+tracks/21/type = "value"
+tracks/21/path = NodePath("CanvasLayer/Control/CardMenu/Death:modulate")
+tracks/21/interp = 1
+tracks/21/loop_wrap = true
+tracks/21/imported = false
+tracks/21/enabled = true
+tracks/21/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 0.5, 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 1 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/22/type = "value"
+tracks/22/path = NodePath("CanvasLayer/Control/CardMenu/Death:rect_position")
+tracks/22/interp = 1
+tracks/22/loop_wrap = true
+tracks/22/imported = false
+tracks/22/enabled = true
+tracks/22/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 0.5, 1 ),
+"update": 0,
+"values": [ Vector2( 582, 1131 ), Vector2( 572, 576 ) ]
+}
+tracks/23/type = "value"
+tracks/23/path = NodePath("CanvasLayer/Control/CardMenu/Death:rect_rotation")
+tracks/23/interp = 1
+tracks/23/loop_wrap = true
+tracks/23/imported = false
+tracks/23/enabled = true
+tracks/23/keys = {
+"times": PoolRealArray( 0, 0.999999 ),
+"transitions": PoolRealArray( 0.5, 1 ),
+"update": 0,
+"values": [ -30.0, 0.0 ]
+}
+tracks/24/type = "value"
+tracks/24/path = NodePath("CanvasLayer/Control/CenterContainer2:modulate")
+tracks/24/interp = 1
+tracks/24/loop_wrap = true
+tracks/24/imported = false
+tracks/24/enabled = true
+tracks/24/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 0 ), Color( 1, 1, 1, 1 ) ]
 }
 
 [sub_resource type="Animation" id=8]
@@ -1468,11 +1804,10 @@ mouse_filter = 2
 script = ExtResource( 5 )
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer/Control/CardMenu"]
-modulate = Color( 0.105882, 0.054902, 0.0509804, 1 )
+modulate = Color( 0.568627, 0.568627, 0.568627, 0 )
 material = SubResource( 3 )
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_bottom = -358.0
 mouse_filter = 2
 
 [node name="Water2" type="ColorRect" parent="CanvasLayer/Control/CardMenu"]
@@ -1486,6 +1821,7 @@ margin_bottom = -242.0
 mouse_filter = 2
 
 [node name="Head" type="TextureRect" parent="CanvasLayer/Control/CardMenu"]
+modulate = Color( 0, 0, 0, 0 )
 margin_left = 681.0
 margin_right = 1251.0
 margin_bottom = 377.0
@@ -1494,15 +1830,27 @@ rect_pivot_offset = Vector2( 275, 129 )
 texture = ExtResource( 17 )
 
 [node name="Circle" type="TextureRect" parent="CanvasLayer/Control/CardMenu"]
+modulate = Color( 0, 0, 0, 0 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 300.0
+margin_top = -200.0
 margin_right = -6.0
-margin_bottom = -224.0
+margin_bottom = -424.0
+rect_scale = Vector2( 0.5, 0.5 )
 rect_pivot_offset = Vector2( 653, 320 )
 mouse_filter = 2
 texture = ExtResource( 13 )
 stretch_mode = 3
+
+[node name="Death" type="TextureRect" parent="CanvasLayer/Control/CardMenu"]
+modulate = Color( 0, 0, 0, 1 )
+margin_left = 627.0
+margin_top = 1198.0
+margin_right = 1404.0
+margin_bottom = 1502.0
+rect_pivot_offset = Vector2( 388.5, 152 )
+texture = ExtResource( 20 )
 
 [node name="CenterContainer" type="CenterContainer" parent="CanvasLayer/Control/CardMenu"]
 anchor_right = 1.0
@@ -1514,6 +1862,26 @@ margin_left = 960.0
 margin_top = 372.0
 margin_right = 960.0
 margin_bottom = 372.0
+
+[node name="CenterContainer2" type="CenterContainer" parent="CanvasLayer/Control"]
+visible = false
+modulate = Color( 0, 0, 0, 0 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_bottom = -504.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/Control/CenterContainer2"]
+margin_left = 710.0
+margin_top = 210.0
+margin_right = 1210.0
+margin_bottom = 366.0
+rect_min_size = Vector2( 500, 0 )
+custom_colors/default_color = Color( 0.929412, 0.92549, 0.905882, 1 )
+custom_fonts/normal_font = SubResource( 62 )
+text = "Score: 320
+Love
+Points"
+fit_content_height = true
 
 [node name="CanvasLayer2" type="CanvasLayer" parent="."]
 layer = 2
@@ -1528,9 +1896,8 @@ material = SubResource( 5 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = -118.0
-margin_top = 838.0
+margin_top = 1080.0
 margin_right = 116.0
-margin_bottom = -242.0
 mouse_filter = 2
 
 [node name="Black" type="ColorRect" parent="CanvasLayer2/Control"]
@@ -1541,32 +1908,36 @@ mouse_filter = 2
 color = Color( 0, 0, 0, 1 )
 
 [node name="Hand" type="TextureRect" parent="CanvasLayer2/Control"]
+modulate = Color( 0, 0, 0, 0 )
 material = SubResource( 47 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 1348.0
 margin_top = 44.0
-margin_right = 40230.0
-margin_bottom = 22594.0
+margin_right = 42150.0
+margin_bottom = 23674.0
 rect_scale = Vector2( 0.2, 0.2 )
 rect_pivot_offset = Vector2( 285, 277 )
 mouse_filter = 2
 texture = ExtResource( 16 )
 
 [node name="Hand2" type="TextureRect" parent="CanvasLayer2/Control"]
+modulate = Color( 1, 1, 1, 0 )
 material = SubResource( 38 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 80.0
 margin_top = 44.0
-margin_right = 38962.0
-margin_bottom = 22594.0
+margin_right = 40882.0
+margin_bottom = 23674.0
+rect_scale = Vector2( 1.2, 1.2 )
 rect_pivot_offset = Vector2( 285, 277 )
 mouse_filter = 2
 texture = ExtResource( 16 )
 flip_h = true
 
 [node name="Cloud" type="TextureRect" parent="CanvasLayer2/Control"]
+modulate = Color( 0, 0, 0, 0 )
 material = SubResource( 30 )
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -1623,6 +1994,7 @@ autoplay = "intro"
 playback_default_blend_time = 1.0
 anims/RESET = SubResource( 6 )
 anims/fade_in = SubResource( 7 )
+anims/game_over = SubResource( 61 )
 anims/idle = SubResource( 8 )
 anims/intro = SubResource( 56 )
 

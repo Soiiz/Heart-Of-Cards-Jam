@@ -681,10 +681,10 @@ tracks/20/loop_wrap = true
 tracks/20/imported = false
 tracks/20/enabled = true
 tracks/20/keys = {
-"times": PoolRealArray( 0, 0.15 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PoolRealArray( 0, 0.15, 0.5 ),
+"transitions": PoolRealArray( 0.5, 2, 1 ),
 "update": 0,
-"values": [ 0.0, 0.0 ]
+"values": [ 0.0, -64.1757, 0.0 ]
 }
 tracks/21/type = "value"
 tracks/21/path = NodePath("Torso/Face/RightEar:rotation_degrees")
@@ -693,10 +693,10 @@ tracks/21/loop_wrap = true
 tracks/21/imported = false
 tracks/21/enabled = true
 tracks/21/keys = {
-"times": PoolRealArray( 0, 0.15 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PoolRealArray( 0, 0.15, 0.5 ),
+"transitions": PoolRealArray( 0.5, 2, 1 ),
 "update": 0,
-"values": [ 0.0, 0.0 ]
+"values": [ 0.0, -64.1757, 0.0 ]
 }
 tracks/22/type = "value"
 tracks/22/path = NodePath("Torso/Cape:z_index")
@@ -793,6 +793,30 @@ tracks/29/keys = {
 "transitions": PoolRealArray( 0.5, 1 ),
 "update": 0,
 "values": [ 0.0, 360.0 ]
+}
+tracks/30/type = "value"
+tracks/30/path = NodePath("Torso/Cape2:rotation_degrees")
+tracks/30/interp = 1
+tracks/30/loop_wrap = true
+tracks/30/imported = false
+tracks/30/enabled = true
+tracks/30/keys = {
+"times": PoolRealArray( 0, 0.15, 0.5 ),
+"transitions": PoolRealArray( 0.5, 2, 1 ),
+"update": 0,
+"values": [ 0.0, -25.9444, 0.0 ]
+}
+tracks/31/type = "value"
+tracks/31/path = NodePath("Torso/Cape:rotation_degrees")
+tracks/31/interp = 1
+tracks/31/loop_wrap = true
+tracks/31/imported = false
+tracks/31/enabled = true
+tracks/31/keys = {
+"times": PoolRealArray( 0, 0.15, 0.5 ),
+"transitions": PoolRealArray( 0.5, 2, 1 ),
+"update": 0,
+"values": [ 0.0, -70.4763, 0.0 ]
 }
 
 [sub_resource type="Animation" id=3]
