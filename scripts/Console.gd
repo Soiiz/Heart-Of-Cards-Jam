@@ -83,10 +83,17 @@ func game_over(source = "Unknown"):
 func _on_health_updated(new_health):
 	for i in range(3):
 		var heart = get_node("../CanvasLayer/Control/CenterContainer/HBoxContainer/Heart%d" % [i + 1])
-		if i <= new_health - 1:
-			heart.set_texture(heart_red)
+		
+		if new_health > 3:
+			if i <= new_health - 4:
+				heart.set_texture(heart_gold)
+			else:
+				heart.set_texture(heart_red)
 		else:
-			heart.set_texture(heart_empty)
+			if i <= new_health - 1:
+				heart.set_texture(heart_red)
+			else:
+				heart.set_texture(heart_empty)
 
 
 func get_center():
