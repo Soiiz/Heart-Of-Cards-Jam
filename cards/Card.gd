@@ -12,6 +12,7 @@ var active = false
 signal card_picked
 signal card_decayed(source)
 
+var glow_shader = preload("res://arts/shaders/glow.tres")
 var wave_vfx_scene = preload("res://arts/vfx/wave_ring.tscn")
 var wave_vfx
 var wave_vfx_pos
@@ -30,14 +31,30 @@ func _ready():
 	wave_vfx.set_emitting(true)
 	wave_vfx.set_position(Vector2(230, 450))
 	wave_vfx.set_z_index(12)
+	
+	# set selected shader
+	var shadermat = ShaderMaterial.new()
+	shadermat.set_shader(glow_shader)
+	set_material(shadermat)
+	shadermat.set_shader_param("width", 0.0)
+	shadermat.set_shader_param("outline_color", Color("d2d35a"))
+	shadermat.set_shader_param("pixel_size", 2)
+	shadermat.set_shader_param("width_speed", 0.0)
+
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if (is_hovered() && !active):
-		wave_vfx.set_emitting(false)
+		if wave_vfx.emitting == true:
+			wave_vfx.set_emitting(false)
+			get_material().set_shader_param("width", 40.0)
+			get_material().set_shader_param("width_speed", 5.0)
 		anchor_bottom = lerp(anchor_bottom, float_height, float_easing)
 	elif !active:
-		wave_vfx.set_emitting(true)
+		if wave_vfx.emitting == false:
+			wave_vfx.set_emitting(true)
+			get_material().set_shader_param("width", 0.0)
+			get_material().set_shader_param("width_speed", 0.0)
 		anchor_top = lerp(anchor_top, 0, float_easing)
 	if (active):
 		if (round_lifetime >= round_duration):
