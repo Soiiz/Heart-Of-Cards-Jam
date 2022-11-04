@@ -2,7 +2,7 @@ extends Node
 
 # use for scene dependent logics
 var ticks = 0
-var round_timer = 4
+var round_timer = 10
 signal round_ended
 signal round_started
 var waves = 0
