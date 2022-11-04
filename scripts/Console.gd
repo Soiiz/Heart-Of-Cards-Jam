@@ -52,6 +52,10 @@ func _on_CardMenu_selection_completed():
 
 
 func game_over(source = "Unknown"):
+	Engine.set_time_scale(0.1)
+	yield(get_tree().create_timer(0.2), "timeout")
+	Engine.set_time_scale(1)
+	
 	get_tree().set_pause(true)
 	
 	MusicPlayer.fade_out()
