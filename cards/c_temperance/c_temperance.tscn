@@ -1,8 +1,13 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://cards/Card.tscn" type="PackedScene" id=1]
 [ext_resource path="res://cards/c_temperance/c_temperance.gd" type="Script" id=2]
+[ext_resource path="res://arts/cards/CardTemperenacesmol.png" type="Texture" id=3]
 
 [node name="TextureButton" instance=ExtResource( 1 )]
-modulate = Color( 0.878431, 0.992157, 0.211765, 1 )
+texture_normal = ExtResource( 3 )
+texture_pressed = ExtResource( 3 )
+texture_hover = ExtResource( 3 )
+texture_disabled = ExtResource( 3 )
+texture_focused = ExtResource( 3 )
 script = ExtResource( 2 )
