@@ -5,6 +5,7 @@ var ticks = 0
 var round_timer = 10
 signal round_ended
 signal round_started
+var waves = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -18,6 +19,8 @@ func _process(delta):
 	if (ticks >= round_timer):
 		ticks = 0
 		print("thats a round!")
+		
+		waves += 1
 		
 		MusicPlayer.fade_out()
 		$"../Sounds/Water".play()
@@ -48,12 +51,19 @@ func _on_CardMenu_selection_completed():
 	$"../CanvasLayer2".hide()
 
 
-func game_over():
+func game_over(source = "Unknown"):
 	get_tree().set_pause(true)
 	
 	MusicPlayer.fade_out()
 	$"../Sounds/Water".play()
 	$"../UIAnim".play("game_over")
+	
+	var results = """
+	[center]Survived %d waves[/center]
+	[center]Cause of death: %s[/center]
+	""" % [waves, source]
+	
+	$"../CanvasLayer/Control/CenterContainer2/GameOverResult".set_bbcode(results)
 	
 	# hide the ui and the effects
 	$"../CanvasLayer/Control/CardMenu".show()

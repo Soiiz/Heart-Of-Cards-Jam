@@ -993,6 +993,18 @@ tracks/20/keys = {
 "update": 0,
 "values": [ Vector2( -118, 0 ), Vector2( 0, 0 ) ]
 }
+tracks/21/type = "value"
+tracks/21/path = NodePath("CanvasLayer/Control/CenterContainer:modulate")
+tracks/21/interp = 1
+tracks/21/loop_wrap = true
+tracks/21/imported = false
+tracks/21/enabled = true
+tracks/21/keys = {
+"times": PoolRealArray( 0, 0.49 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 0, 0, 0, 0 ) ]
+}
 
 [sub_resource type="Animation" id=61]
 resource_name = "game_over"
@@ -1643,6 +1655,18 @@ tracks/23/keys = {
 "update": 0,
 "values": [ Vector2( -118, 0 ), Vector2( 0, 0 ) ]
 }
+tracks/24/type = "value"
+tracks/24/path = NodePath("CanvasLayer/Control/CenterContainer:modulate")
+tracks/24/interp = 1
+tracks/24/loop_wrap = true
+tracks/24/imported = false
+tracks/24/enabled = true
+tracks/24/keys = {
+"times": PoolRealArray( 0.02, 3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 0 ), Color( 0, 0, 0, 0 ) ]
+}
 
 [node name="Main" type="Node"]
 
@@ -1770,6 +1794,7 @@ anchor_bottom = 1.0
 mouse_filter = 2
 
 [node name="CenterContainer" type="CenterContainer" parent="CanvasLayer/Control"]
+modulate = Color( 0, 0, 0, 0 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_top = 980.0
@@ -1804,10 +1829,11 @@ mouse_filter = 2
 script = ExtResource( 5 )
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer/Control/CardMenu"]
-modulate = Color( 0.568627, 0.568627, 0.568627, 0 )
+modulate = Color( 0.105882, 0.054902, 0.0509804, 1 )
 material = SubResource( 3 )
 anchor_right = 1.0
 anchor_bottom = 1.0
+margin_bottom = -358.0
 mouse_filter = 2
 
 [node name="Water2" type="ColorRect" parent="CanvasLayer/Control/CardMenu"]
@@ -1816,12 +1842,11 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = -118.0
 margin_top = 838.0
-margin_right = 2036.0
-margin_bottom = 838.0
+margin_right = 116.0
+margin_bottom = -242.0
 mouse_filter = 2
 
 [node name="Head" type="TextureRect" parent="CanvasLayer/Control/CardMenu"]
-modulate = Color( 0, 0, 0, 0 )
 margin_left = 681.0
 margin_right = 1251.0
 margin_bottom = 377.0
@@ -1830,14 +1855,11 @@ rect_pivot_offset = Vector2( 275, 129 )
 texture = ExtResource( 17 )
 
 [node name="Circle" type="TextureRect" parent="CanvasLayer/Control/CardMenu"]
-modulate = Color( 0, 0, 0, 0 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 300.0
-margin_top = -200.0
 margin_right = -6.0
-margin_bottom = -424.0
-rect_scale = Vector2( 0.5, 0.5 )
+margin_bottom = -224.0
 rect_pivot_offset = Vector2( 653, 320 )
 mouse_filter = 2
 texture = ExtResource( 13 )
@@ -1872,15 +1894,13 @@ margin_bottom = -504.0
 
 [node name="GameOverResult" type="RichTextLabel" parent="CanvasLayer/Control/CenterContainer2"]
 margin_left = 710.0
-margin_top = 210.0
+margin_top = 262.0
 margin_right = 1210.0
-margin_bottom = 366.0
-rect_min_size = Vector2( 500, 0 )
+margin_bottom = 314.0
+rect_min_size = Vector2( 800, 0 )
 custom_colors/default_color = Color( 0.929412, 0.92549, 0.905882, 1 )
 custom_fonts/normal_font = SubResource( 62 )
-text = "Score: 320
-Love
-Points"
+bbcode_enabled = true
 fit_content_height = true
 
 [node name="CanvasLayer2" type="CanvasLayer" parent="."]
@@ -1896,9 +1916,9 @@ material = SubResource( 5 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = -118.0
-margin_top = 1080.0
-margin_right = 2036.0
-margin_bottom = 1080.0
+margin_top = 838.0
+margin_right = 116.0
+margin_bottom = -242.0
 mouse_filter = 2
 
 [node name="Black" type="ColorRect" parent="CanvasLayer2/Control"]
@@ -1909,7 +1929,6 @@ mouse_filter = 2
 color = Color( 0, 0, 0, 1 )
 
 [node name="Hand" type="TextureRect" parent="CanvasLayer2/Control"]
-modulate = Color( 0, 0, 0, 0 )
 material = SubResource( 47 )
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -1923,7 +1942,6 @@ mouse_filter = 2
 texture = ExtResource( 16 )
 
 [node name="Hand2" type="TextureRect" parent="CanvasLayer2/Control"]
-modulate = Color( 1, 1, 1, 0 )
 material = SubResource( 38 )
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -1931,19 +1949,15 @@ margin_left = 80.0
 margin_top = 44.0
 margin_right = 42802.0
 margin_bottom = 24754.0
-rect_scale = Vector2( 1.2, 1.2 )
 rect_pivot_offset = Vector2( 285, 277 )
 mouse_filter = 2
 texture = ExtResource( 16 )
 flip_h = true
 
 [node name="Cloud" type="TextureRect" parent="CanvasLayer2/Control"]
-modulate = Color( 0, 0, 0, 0 )
 material = SubResource( 30 )
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_right = 1920.0
-margin_bottom = 1080.0
 mouse_filter = 2
 texture = ExtResource( 14 )
 stretch_mode = 3

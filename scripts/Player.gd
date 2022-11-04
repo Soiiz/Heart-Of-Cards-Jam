@@ -152,7 +152,7 @@ func take_damage(damage, source = "Unknown"):
 	
 	if health <= 0:
 		print("game over!")
-		Global.console.game_over()
+		Global.console.game_over(source)
 
 func gain_hp(hp):
 	health += hp
