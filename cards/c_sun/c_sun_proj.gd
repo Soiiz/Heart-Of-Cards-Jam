@@ -45,7 +45,7 @@ func _physics_process(delta):
 			
 		if touching_player && !hit_player:
 			console.get_player().take_damage(1, source)
-			SoundPlayer.play_positional("Laser", get_global_position())
+
 			hit_player = true
 		
 		

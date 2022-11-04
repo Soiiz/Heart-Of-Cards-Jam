@@ -149,7 +149,8 @@ func take_damage(damage, source = "Unknown"):
 		emit_signal("health_updated", health)
 		
 		Global.camera.shake()
-	
+		SoundPlayer.play_positional("Laser", get_global_position())
+		
 	if health <= 0:
 		print("game over!")
 		Global.console.game_over(source)

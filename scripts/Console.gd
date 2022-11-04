@@ -2,22 +2,20 @@ extends Node
 
 # use for scene dependent logics
 var ticks = 0
-var round_timer = 10
+var round_timer = 4
 signal round_ended
 signal round_started
 var waves = 0
-
+var gameover = false
 var heart_red = preload("res://arts/ui/red_heart.png")
 var heart_gold = preload("res://arts/ui/gold_heart.png")
 var heart_empty = preload("res://arts/ui/empty_heart.png")
 
-# Called when the node enters the scene tree for the first time.
 func _ready():
 	Global.console = self
 	get_tree().paused = true
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	ticks += delta
 	if (ticks >= round_timer):
@@ -71,13 +69,14 @@ func game_over(source = "Unknown"):
 	[center]Cause of death: %s[/center]
 	""" % [waves, source]
 	
-	$"../CanvasLayer/Control/CenterContainer2/GameOverResult".set_bbcode(results)
+	$"../CanvasLayer/Control/CenterContainer2/VBoxContainer/GameOverResult".set_bbcode(results)
 	
 	# hide the ui and the effects
 	$"../CanvasLayer/Control/CardMenu".show()
 	$"../CanvasLayer2".show()
 	$"../CanvasLayer/Control/CenterContainer2".show()
 	
+	gameover = true
 
 
 func _on_health_updated(new_health):
@@ -122,3 +121,7 @@ func dizzy(on):
 
 func _on_UIAnim_animation_finished(anim_name):
 	$"../UIAnim".play("idle")
+
+
+func _on_Restart_pressed():
+	get_tree().reload_current_scene()
