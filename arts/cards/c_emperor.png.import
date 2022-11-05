@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/CardFoolsmol.png-69d89b699fd1efd63e5043a3fa8e6587.stex"
+path="res://.import/c_emperor.png-b70d7a26f7f7939b9249b0f285d1a431.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://arts/cards/CardFoolsmol.png"
-dest_files=[ "res://.import/CardFoolsmol.png-69d89b699fd1efd63e5043a3fa8e6587.stex" ]
+source_file="res://arts/cards/c_emperor.png"
+dest_files=[ "res://.import/c_emperor.png-b70d7a26f7f7939b9249b0f285d1a431.stex" ]
 
 [params]
 

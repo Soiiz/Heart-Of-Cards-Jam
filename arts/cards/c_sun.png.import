@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/CardChariotsmol.png-2f36bdd3bce1c24a9fc38a6fdd4783ae.stex"
+path="res://.import/c_sun.png-e51b22d32c1aaaf92136437b4b90bf1f.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://arts/cards/CardChariotsmol.png"
-dest_files=[ "res://.import/CardChariotsmol.png-2f36bdd3bce1c24a9fc38a6fdd4783ae.stex" ]
+source_file="res://arts/cards/c_sun.png"
+dest_files=[ "res://.import/c_sun.png-e51b22d32c1aaaf92136437b4b90bf1f.stex" ]
 
 [params]
 

@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/CardLoverssmol.png-736d6862bcbfc2a8da3e6723f25c8653.stex"
+path="res://.import/c_tower.png-815e3f37af0033c9a44556b9a0969f13.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://arts/cards/CardLoverssmol.png"
-dest_files=[ "res://.import/CardLoverssmol.png-736d6862bcbfc2a8da3e6723f25c8653.stex" ]
+source_file="res://arts/cards/c_tower.png"
+dest_files=[ "res://.import/c_tower.png-815e3f37af0033c9a44556b9a0969f13.stex" ]
 
 [params]
 

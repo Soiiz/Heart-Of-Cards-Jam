@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://cards/Card.tscn" type="PackedScene" id=1]
-[ext_resource path="res://arts/cards/CardFoolsmol.png" type="Texture" id=2]
+[ext_resource path="res://arts/cards/c_fool.png" type="Texture" id=2]
 [ext_resource path="res://cards/c_fool/c_fool.gd" type="Script" id=3]
 
 [node name="TextureButton" instance=ExtResource( 1 )]

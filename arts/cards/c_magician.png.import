@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/CardWheelsmol.png-ffe938acfd6ef041e9e7afc20fd13ad1.stex"
+path="res://.import/c_magician.png-99c931dec3ae5e056382ba08c6cfc462.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://arts/cards/CardWheelsmol.png"
-dest_files=[ "res://.import/CardWheelsmol.png-ffe938acfd6ef041e9e7afc20fd13ad1.stex" ]
+source_file="res://arts/cards/c_magician.png"
+dest_files=[ "res://.import/c_magician.png-99c931dec3ae5e056382ba08c6cfc462.stex" ]
 
 [params]
 

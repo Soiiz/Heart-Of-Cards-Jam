@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Card2smol.png-aa82b6033c6a31fcb30523803a9df21d.stex"
+path="res://.import/c_moon.png-61aae078ec54f0b4b81c685d9f01c25a.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://arts/cards/Card2smol.png"
-dest_files=[ "res://.import/Card2smol.png-aa82b6033c6a31fcb30523803a9df21d.stex" ]
+source_file="res://arts/cards/c_moon.png"
+dest_files=[ "res://.import/c_moon.png-61aae078ec54f0b4b81c685d9f01c25a.stex" ]
 
 [params]
 

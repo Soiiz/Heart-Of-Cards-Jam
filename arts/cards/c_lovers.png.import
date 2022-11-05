@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/CardEmpresssmol.png-5715212351e4f7ae1daf24990d6104e6.stex"
+path="res://.import/c_lovers.png-f38ad6ff3541a63752b4f7fcd9d66c10.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://arts/cards/CardEmpresssmol.png"
-dest_files=[ "res://.import/CardEmpresssmol.png-5715212351e4f7ae1daf24990d6104e6.stex" ]
+source_file="res://arts/cards/c_lovers.png"
+dest_files=[ "res://.import/c_lovers.png-f38ad6ff3541a63752b4f7fcd9d66c10.stex" ]
 
 [params]
 

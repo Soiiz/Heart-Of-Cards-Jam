@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/CardTemperenacesmol.png-744832edb9a8c11acf90a741d226acb0.stex"
+path="res://.import/c_chariot.png-c1ff5c0c15bc67e53bb8d2bbb846eca2.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://arts/cards/CardTemperenacesmol.png"
-dest_files=[ "res://.import/CardTemperenacesmol.png-744832edb9a8c11acf90a741d226acb0.stex" ]
+source_file="res://arts/cards/c_chariot.png"
+dest_files=[ "res://.import/c_chariot.png-c1ff5c0c15bc67e53bb8d2bbb846eca2.stex" ]
 
 [params]
 

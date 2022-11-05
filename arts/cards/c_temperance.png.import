@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/CardHierosmol.png-a8526592d14c2a26a03bc01abf046954.stex"
+path="res://.import/c_temperance.png-aedb21edf4443dfb1e209d3390e929e6.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://arts/cards/CardHierosmol.png"
-dest_files=[ "res://.import/CardHierosmol.png-a8526592d14c2a26a03bc01abf046954.stex" ]
+source_file="res://arts/cards/c_temperance.png"
+dest_files=[ "res://.import/c_temperance.png-aedb21edf4443dfb1e209d3390e929e6.stex" ]
 
 [params]
 

@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Card19smol.png-b65012158ae4a72499acc34a89560a63.stex"
+path="res://.import/c_fool.png-346396684c362ae2b7061795675fd8c3.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://arts/cards/Card19smol.png"
-dest_files=[ "res://.import/Card19smol.png-b65012158ae4a72499acc34a89560a63.stex" ]
+source_file="res://arts/cards/c_fool.png"
+dest_files=[ "res://.import/c_fool.png-346396684c362ae2b7061795675fd8c3.stex" ]
 
 [params]
 

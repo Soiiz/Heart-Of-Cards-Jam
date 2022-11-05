@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/CardStarSmol.png-83ab702a6d0076d547c631dbf422d83d.stex"
+path="res://.import/c_devil.png-3e784f6fab9607e483313d3e11253172.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://arts/cards/CardStarSmol.png"
-dest_files=[ "res://.import/CardStarSmol.png-83ab702a6d0076d547c631dbf422d83d.stex" ]
+source_file="res://arts/cards/c_devil.png"
+dest_files=[ "res://.import/c_devil.png-3e784f6fab9607e483313d3e11253172.stex" ]
 
 [params]
 

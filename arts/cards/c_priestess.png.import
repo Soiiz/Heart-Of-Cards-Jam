@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/CardMagicianSmol.png-58b56e6badf727d8fad3a5986e0686ff.stex"
+path="res://.import/c_priestess.png-57f5c1658f922b0b46e9f6afa5128984.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://arts/cards/CardMagicianSmol.png"
-dest_files=[ "res://.import/CardMagicianSmol.png-58b56e6badf727d8fad3a5986e0686ff.stex" ]
+source_file="res://arts/cards/c_priestess.png"
+dest_files=[ "res://.import/c_priestess.png-57f5c1658f922b0b46e9f6afa5128984.stex" ]
 
 [params]
 
