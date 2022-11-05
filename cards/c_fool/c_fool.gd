@@ -8,7 +8,6 @@ func activate():
 	
 func deactivate():
 	player.slow(false)
-	emit_signal("card_decayed", "c_fool")
 	.deactivate()
 
 

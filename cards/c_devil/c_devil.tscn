@@ -13,5 +13,6 @@ texture_disabled = ExtResource( 1 )
 texture_focused = ExtResource( 1 )
 script = ExtResource( 3 )
 round_duration = 1
+card_name = "c_devil"
 last_time = 10
 circle_scene = ExtResource( 4 )

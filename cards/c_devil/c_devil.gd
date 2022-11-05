@@ -40,6 +40,3 @@ func activate():
 		var spawn_point = spawn_array[(randi() % spawn_array.size())]
 		spawn_circle(spawn_point.position)
 		
-func deactivate():
-	emit_signal("card_decayed", "c_devil")
-	.deactivate()

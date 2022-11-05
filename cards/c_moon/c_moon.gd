@@ -35,7 +35,3 @@ func fire(pos, scale, rot, startup):
 	proj.init(pos, scale, rot, startup)
 	proj.source = "The Moon"
 	console.get_center().add_child(proj)
-
-func deactivate():
-	emit_signal("card_decayed", "c_moon")
-	.deactivate()

@@ -9,7 +9,8 @@ export var float_easing = .05
 var console = Global.console
 var round_lifetime = 0
 var active = false
-signal card_picked
+export(String) var card_name
+signal card_picked(source)
 signal card_decayed(source)
 
 var glow_shader = preload("res://arts/shaders/glow.tres")
@@ -75,9 +76,10 @@ func activate():
 	if (!active):
 		active = true
 		disabled = true
-		emit_signal("card_picked")
+		emit_signal("card_picked", card_name)
 
 func deactivate():
+	emit_signal("card_decayed", card_name)
 	queue_free()
 	
 func _on_round_ended():

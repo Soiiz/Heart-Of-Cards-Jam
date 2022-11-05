@@ -41,6 +41,5 @@ func fire(pos, scale, rot, startup):
 func deactivate():
 	if (rotater):
 		rotater.queue_free()
-	emit_signal("card_decayed", "c_sun")
 	.deactivate()
 	

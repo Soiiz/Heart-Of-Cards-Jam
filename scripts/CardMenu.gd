@@ -41,7 +41,8 @@ func spawn_card_array():
 		c.connect("card_picked", self, "_on_card_picked")
 		c.connect("card_decayed", self, "_on_card_decayed")
 
-func _on_card_picked():
+func _on_card_picked(source = "Unknown"):
+	print(source)
 	cards_picked += 1
 	if (cards_picked >= cards_to_pick):
 		get_tree().paused = false

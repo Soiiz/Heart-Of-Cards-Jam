@@ -12,6 +12,7 @@ texture_hover = ExtResource( 4 )
 texture_disabled = ExtResource( 4 )
 texture_focused = ExtResource( 4 )
 script = ExtResource( 2 )
+card_name = "c_wof"
 proj_scene = ExtResource( 3 )
 slow_fac = 0.7
 speed = 2.22

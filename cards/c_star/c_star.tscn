@@ -12,6 +12,7 @@ texture_hover = ExtResource( 4 )
 texture_disabled = ExtResource( 4 )
 texture_focused = ExtResource( 4 )
 script = ExtResource( 2 )
+card_name = "c_star"
 proj_scene = ExtResource( 3 )
 fire_rate = 0.427
 proj_speed = 550

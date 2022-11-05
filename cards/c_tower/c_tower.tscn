@@ -13,6 +13,7 @@ texture_hover = ExtResource( 5 )
 texture_disabled = ExtResource( 5 )
 texture_focused = ExtResource( 5 )
 script = ExtResource( 2 )
+card_name = "c_tower"
 proj_scene = ExtResource( 3 )
 tower_scene = ExtResource( 4 )
 fire_rate = 0.65

@@ -12,4 +12,5 @@ texture_hover = ExtResource( 4 )
 texture_disabled = ExtResource( 4 )
 texture_focused = ExtResource( 4 )
 script = ExtResource( 2 )
+card_name = "c_hierophant"
 field = ExtResource( 3 )

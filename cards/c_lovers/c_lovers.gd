@@ -56,5 +56,4 @@ func _process(delta):
 func deactivate():
 	if (anchor):
 		anchor.queue_free()
-	emit_signal("card_decayed", "c_lovers")
 	.deactivate()

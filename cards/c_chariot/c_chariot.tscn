@@ -13,3 +13,4 @@ texture_hover = ExtResource( 2 )
 texture_disabled = ExtResource( 2 )
 texture_focused = ExtResource( 2 )
 script = ExtResource( 3 )
+card_name = "c_chariot"

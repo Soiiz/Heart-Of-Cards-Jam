@@ -1,6 +1,5 @@
 extends "res://cards/Card.gd"
 
-
 export(PackedScene) var proj_scene
 var player = console.get_player()
 var rotater
@@ -38,5 +37,4 @@ func _pressed():
 func deactivate():
 	if (rotater):
 		rotater.queue_free()
-	emit_signal("card_decayed", "c_wof")
 	.deactivate()
