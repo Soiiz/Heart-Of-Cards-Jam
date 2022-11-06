@@ -54,7 +54,8 @@ bg_color = Color( 0.552941, 0.305882, 0.282353, 0.317647 )
 [sub_resource type="StyleBoxFlat" id=64]
 bg_color = Color( 0.552941, 0.305882, 0.282353, 0.784314 )
 
-[sub_resource type="StyleBoxEmpty" id=65]
+[sub_resource type="StyleBoxFlat" id=65]
+bg_color = Color( 0.85098, 0.541176, 0.45098, 0.0627451 )
 
 [sub_resource type="ShaderMaterial" id=5]
 shader = ExtResource( 8 )
@@ -1652,8 +1653,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = -118.0
 margin_top = 838.0
-margin_right = 2036.0
-margin_bottom = 838.0
+margin_right = 116.0
+margin_bottom = -242.0
 mouse_filter = 2
 
 [node name="Head" type="TextureRect" parent="CanvasLayer/Control/CardMenu"]
@@ -1728,7 +1729,7 @@ custom_styles/hover = SubResource( 63 )
 custom_styles/pressed = SubResource( 64 )
 custom_styles/normal = SubResource( 65 )
 enabled_focus_mode = 0
-text = "Restart"
+text = "Restart?"
 
 [node name="CanvasLayer2" type="CanvasLayer" parent="."]
 layer = 2
@@ -1744,8 +1745,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = -118.0
 margin_top = 838.0
-margin_right = 2036.0
-margin_bottom = 838.0
+margin_right = 116.0
+margin_bottom = -242.0
 mouse_filter = 2
 
 [node name="Black" type="ColorRect" parent="CanvasLayer2/Control"]
@@ -1785,8 +1786,6 @@ flip_h = true
 material = SubResource( 30 )
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_right = 1920.0
-margin_bottom = 1080.0
 mouse_filter = 2
 texture = ExtResource( 14 )
 stretch_mode = 3
