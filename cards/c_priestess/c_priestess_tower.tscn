@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://cards/c_priestess/c_priestess_tower.gd" type="Script" id=1]
 [ext_resource path="res://arts/enviorment/healing_pillar.png" type="Texture" id=2]
 [ext_resource path="res://cards/c_priestess/matrix1.png" type="Texture" id=3]
 [ext_resource path="res://arts/enviorment/healing_pillar_n.png" type="Texture" id=4]
 [ext_resource path="res://arts/light.png" type="Texture" id=5]
+[ext_resource path="res://arts/vfx/CardHint.tscn" type="PackedScene" id=6]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 269.225
@@ -32,6 +33,8 @@ texture = ExtResource( 5 )
 texture_scale = 3.94
 color = Color( 0.870588, 0.929412, 1, 1 )
 range_height = 50.0
+
+[node name="CardHint" parent="." instance=ExtResource( 6 )]
 
 [connection signal="body_entered" from="." to="." method="_on_Area2D_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_Area2D_body_exited"]

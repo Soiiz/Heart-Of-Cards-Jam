@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://arts/enviorment/healing_pillar.png" type="Texture" id=1]
 [ext_resource path="res://arts/light.png" type="Texture" id=2]
 [ext_resource path="res://arts/enviorment/healing_pillar_n.png" type="Texture" id=3]
+[ext_resource path="res://arts/vfx/CardHint.tscn" type="PackedScene" id=4]
 
 [node name="Sprite" type="Sprite"]
 modulate = Color( 0.396078, 0.160784, 0.215686, 1 )
@@ -18,3 +19,5 @@ texture_scale = 6.0
 color = Color( 1, 0.470588, 0.737255, 1 )
 energy = 2.0
 range_height = 50.0
+
+[node name="CardHint" parent="." instance=ExtResource( 4 )]

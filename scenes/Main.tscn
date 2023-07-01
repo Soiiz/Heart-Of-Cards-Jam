@@ -244,14 +244,14 @@ void light() {
 
 }
 "
-graph_offset = Vector2( -364.781, 95.8086 )
+graph_offset = Vector2( -791.194, -219.775 )
 mode = 1
 flags/light_only = false
 nodes/fragment/0/position = Vector2( 1400, 80 )
 nodes/fragment/2/node = SubResource( 31 )
 nodes/fragment/2/position = Vector2( 1020, -40 )
 nodes/fragment/3/node = SubResource( 32 )
-nodes/fragment/3/position = Vector2( -360, 240 )
+nodes/fragment/3/position = Vector2( -720, 360 )
 nodes/fragment/4/node = SubResource( 33 )
 nodes/fragment/4/position = Vector2( -2100, 80 )
 nodes/fragment/5/node = SubResource( 34 )
@@ -259,7 +259,7 @@ nodes/fragment/5/position = Vector2( -1900, 80 )
 nodes/fragment/6/node = SubResource( 35 )
 nodes/fragment/6/position = Vector2( -1320, 80 )
 nodes/fragment/7/node = SubResource( 36 )
-nodes/fragment/7/position = Vector2( -80, 60 )
+nodes/fragment/7/position = Vector2( -440, 180 )
 nodes/fragment/8/node = SubResource( 40 )
 nodes/fragment/8/position = Vector2( -1580, -20 )
 nodes/fragment/9/node = SubResource( 41 )
@@ -1604,7 +1604,6 @@ anchor_bottom = 1.0
 mouse_filter = 2
 
 [node name="CenterContainer" type="CenterContainer" parent="CanvasLayer/Control"]
-modulate = Color( 0, 0, 0, 0 )
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -1640,11 +1639,10 @@ mouse_filter = 2
 script = ExtResource( 5 )
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer/Control/CardMenu"]
-modulate = Color( 0.105882, 0.054902, 0.0509804, 1 )
+modulate = Color( 0.568627, 0.568627, 0.568627, 0 )
 material = SubResource( 3 )
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_bottom = -358.0
 mouse_filter = 2
 
 [node name="Water2" type="ColorRect" parent="CanvasLayer/Control/CardMenu"]
@@ -1658,6 +1656,7 @@ margin_bottom = -242.0
 mouse_filter = 2
 
 [node name="Head" type="TextureRect" parent="CanvasLayer/Control/CardMenu"]
+modulate = Color( 0, 0, 0, 0 )
 margin_left = 681.0
 margin_right = 1251.0
 margin_bottom = 377.0
@@ -1666,11 +1665,14 @@ rect_pivot_offset = Vector2( 275, 129 )
 texture = ExtResource( 17 )
 
 [node name="Circle" type="TextureRect" parent="CanvasLayer/Control/CardMenu"]
+modulate = Color( 0, 0, 0, 0 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 300.0
+margin_top = -200.0
 margin_right = -6.0
-margin_bottom = -224.0
+margin_bottom = -424.0
+rect_scale = Vector2( 0.5, 0.5 )
 rect_pivot_offset = Vector2( 653, 320 )
 mouse_filter = 2
 texture = ExtResource( 13 )
@@ -1698,7 +1700,7 @@ margin_bottom = 372.0
 
 [node name="CenterContainer2" type="CenterContainer" parent="CanvasLayer/Control"]
 visible = false
-modulate = Color( 1, 1, 1, 0 )
+modulate = Color( 0, 0, 0, 0 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_bottom = -504.0
@@ -1744,9 +1746,8 @@ material = SubResource( 5 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = -118.0
-margin_top = 838.0
+margin_top = 1080.0
 margin_right = 116.0
-margin_bottom = -242.0
 mouse_filter = 2
 
 [node name="Black" type="ColorRect" parent="CanvasLayer2/Control"]
@@ -1757,32 +1758,36 @@ mouse_filter = 2
 color = Color( 0, 0, 0, 1 )
 
 [node name="Hand" type="TextureRect" parent="CanvasLayer2/Control"]
+modulate = Color( 0, 0, 0, 0 )
 material = SubResource( 47 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 1348.0
 margin_top = 44.0
-margin_right = 57510.0
-margin_bottom = 32314.0
+margin_right = 59430.0
+margin_bottom = 33394.0
 rect_scale = Vector2( 0.2, 0.2 )
 rect_pivot_offset = Vector2( 285, 277 )
 mouse_filter = 2
 texture = ExtResource( 16 )
 
 [node name="Hand2" type="TextureRect" parent="CanvasLayer2/Control"]
+modulate = Color( 1, 1, 1, 0 )
 material = SubResource( 38 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 80.0
 margin_top = 44.0
-margin_right = 56242.0
-margin_bottom = 32314.0
+margin_right = 58162.0
+margin_bottom = 33394.0
+rect_scale = Vector2( 1.2, 1.2 )
 rect_pivot_offset = Vector2( 285, 277 )
 mouse_filter = 2
 texture = ExtResource( 16 )
 flip_h = true
 
 [node name="Cloud" type="TextureRect" parent="CanvasLayer2/Control"]
+modulate = Color( 0, 0, 0, 0 )
 material = SubResource( 30 )
 anchor_right = 1.0
 anchor_bottom = 1.0

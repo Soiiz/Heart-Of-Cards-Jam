@@ -1,7 +1,9 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://cards/c_lovers/c_lovers_proj.gd" type="Script" id=1]
 [ext_resource path="res://arts/bullets/orb.png" type="Texture" id=2]
+[ext_resource path="res://arts/vfx/CardHint.tscn" type="PackedScene" id=3]
+[ext_resource path="res://arts/cards/c_lovers.png" type="Texture" id=4]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 12.0
@@ -17,5 +19,8 @@ texture = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )
+
+[node name="CardHint" parent="." instance=ExtResource( 3 )]
+texture = ExtResource( 4 )
 
 [connection signal="body_entered" from="." to="." method="_on_Area2D_body_entered"]
