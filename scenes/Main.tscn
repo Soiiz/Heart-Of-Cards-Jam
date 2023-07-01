@@ -1,4 +1,4 @@
-[gd_scene load_steps=65 format=2]
+[gd_scene load_steps=67 format=2]
 
 [ext_resource path="res://scripts/Console.gd" type="Script" id=1]
 [ext_resource path="res://arts/enviorment/Level.png" type="Texture" id=2]
@@ -56,6 +56,12 @@ bg_color = Color( 0.552941, 0.305882, 0.282353, 0.784314 )
 
 [sub_resource type="StyleBoxFlat" id=65]
 bg_color = Color( 0.85098, 0.541176, 0.45098, 0.0627451 )
+
+[sub_resource type="StyleBoxFlat" id=66]
+bg_color = Color( 1, 0.945098, 0.635294, 0.901961 )
+
+[sub_resource type="StyleBoxFlat" id=67]
+bg_color = Color( 0.0705882, 0.0745098, 0.0705882, 0.878431 )
 
 [sub_resource type="ShaderMaterial" id=5]
 shader = ExtResource( 8 )
@@ -1651,8 +1657,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = -118.0
 margin_top = 838.0
-margin_right = 116.0
-margin_bottom = -242.0
+margin_right = 2036.0
+margin_bottom = 838.0
 mouse_filter = 2
 
 [node name="Head" type="TextureRect" parent="CanvasLayer/Control/CardMenu"]
@@ -1733,6 +1739,17 @@ custom_styles/normal = SubResource( 65 )
 enabled_focus_mode = 0
 text = "Restart?"
 
+[node name="ProgressBar" type="ProgressBar" parent="CanvasLayer/Control"]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = -10.0
+custom_styles/fg = SubResource( 66 )
+custom_styles/bg = SubResource( 67 )
+max_value = 1.0
+step = 0.001
+percent_visible = false
+
 [node name="CanvasLayer2" type="CanvasLayer" parent="."]
 layer = 2
 
@@ -1747,7 +1764,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = -118.0
 margin_top = 1080.0
-margin_right = 116.0
+margin_right = 2036.0
+margin_bottom = 1080.0
 mouse_filter = 2
 
 [node name="Black" type="ColorRect" parent="CanvasLayer2/Control"]
@@ -1764,8 +1782,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 1348.0
 margin_top = 44.0
-margin_right = 59430.0
-margin_bottom = 33394.0
+margin_right = 63270.0
+margin_bottom = 35554.0
 rect_scale = Vector2( 0.2, 0.2 )
 rect_pivot_offset = Vector2( 285, 277 )
 mouse_filter = 2
@@ -1778,8 +1796,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 80.0
 margin_top = 44.0
-margin_right = 58162.0
-margin_bottom = 33394.0
+margin_right = 62002.0
+margin_bottom = 35554.0
 rect_scale = Vector2( 1.2, 1.2 )
 rect_pivot_offset = Vector2( 285, 277 )
 mouse_filter = 2
@@ -1791,6 +1809,8 @@ modulate = Color( 0, 0, 0, 0 )
 material = SubResource( 30 )
 anchor_right = 1.0
 anchor_bottom = 1.0
+margin_right = 1920.0
+margin_bottom = 1080.0
 mouse_filter = 2
 texture = ExtResource( 14 )
 stretch_mode = 3

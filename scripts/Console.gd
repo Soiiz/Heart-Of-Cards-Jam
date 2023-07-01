@@ -1,8 +1,8 @@
 extends Node
 
 # use for scene dependent logics
-var ticks = 0
-var round_timer = 10
+var ticks = 0.0
+var round_timer = 10.0
 signal round_ended
 signal round_started
 var waves = 0
@@ -18,6 +18,9 @@ func _ready():
 
 func _process(delta):
 	ticks += delta
+	
+	$"../CanvasLayer/Control/ProgressBar".set_value(ticks/round_timer)
+	
 	if (ticks >= round_timer):
 		ticks = 0
 		print("thats a round!")

@@ -4,13 +4,14 @@
 [ext_resource path="res://arts/vfx/CardHint.gd" type="Script" id=2]
 
 [sub_resource type="Curve" id=1]
-_data = [ Vector2( 0, 0 ), 0.0, 6.86086, 0, 0, Vector2( 0.183168, 0.779545 ), -0.00441433, -0.00441433, 0, 0, Vector2( 1, 1 ), 0.953497, 0.0, 0, 0 ]
+_data = [ Vector2( 0, 0 ), 0.0, 6.86086, 0, 0, Vector2( 0.183168, 0.779545 ), -0.00441433, -0.00441433, 0, 0, Vector2( 0.727723, 0.772727 ), 0.0, 0.0, 0, 0, Vector2( 1, 1 ), 0.953497, 0.0, 0, 0 ]
 
 [sub_resource type="Gradient" id=2]
 offsets = PoolRealArray( 0, 0.335196, 0.782123, 1 )
 colors = PoolColorArray( 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0 )
 
 [node name="CardHint" type="CPUParticles2D"]
+pause_mode = 2
 modulate = Color( 1, 1, 1, 0.752941 )
 emitting = false
 amount = 1
