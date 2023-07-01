@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://arts/enviorment/healing_pillar.png" type="Texture" id=1]
 [ext_resource path="res://arts/light.png" type="Texture" id=2]
 [ext_resource path="res://arts/enviorment/healing_pillar_n.png" type="Texture" id=3]
 [ext_resource path="res://arts/vfx/CardHint.tscn" type="PackedScene" id=4]
+[ext_resource path="res://cards/c_tower/c_tower_tower.gd" type="Script" id=5]
 
 [node name="Sprite" type="Sprite"]
 modulate = Color( 0.396078, 0.160784, 0.215686, 1 )
@@ -12,6 +13,7 @@ position = Vector2( 5.96046e-08, -1.19209e-07 )
 scale = Vector2( 0.148, 0.148 )
 texture = ExtResource( 1 )
 normal_map = ExtResource( 3 )
+script = ExtResource( 5 )
 
 [node name="Light2D" type="Light2D" parent="."]
 texture = ExtResource( 2 )

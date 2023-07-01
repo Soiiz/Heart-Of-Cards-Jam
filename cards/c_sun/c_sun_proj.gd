@@ -60,6 +60,9 @@ func _physics_process(delta):
 		scale = s
 		if (startup_time >= startup):
 			ready = true
+			
+			# change alpha color
+			$Sprite.set_modulate(Color("FFFFFF"))
 
 func _on_Area2D_body_entered(body):
 	if body.is_in_group("player"):
