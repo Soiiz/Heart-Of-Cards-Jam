@@ -63,6 +63,8 @@ func _physics_process(delta):
 			
 			# change alpha color
 			$Sprite.set_modulate(Color("FFFFFF"))
+			
+			$AudioStreamPlayer2D.play()
 
 func _on_Area2D_body_entered(body):
 	if body.is_in_group("player"):

@@ -9,6 +9,9 @@ export var slow_fac = 0.5
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	set_physics_process(false)
+	
+	print(source)
+	print(source.rsplit(" ")[1].to_lower())
 
 # pos (Vector2): Initial spawn position of the projectile.
 # heading (Vector2): Vector representing the direction the projectile will fly. Should be normalized.

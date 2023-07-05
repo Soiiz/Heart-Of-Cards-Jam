@@ -50,6 +50,7 @@ func _process(delta):
 			wave_vfx.set_emitting(false)
 			get_material().set_shader_param("width", 40.0)
 			get_material().set_shader_param("width_speed", 5.0)
+			SoundPlayer.play_positional("CardFlip", get_global_position())
 		anchor_bottom = lerp(anchor_bottom, float_height, float_easing)
 	elif !active:
 		if wave_vfx.emitting == false:
@@ -66,7 +67,8 @@ func _process(delta):
 
 func _pressed():
 	print("click!")
-	SoundPlayer.play_positional("Water3", get_position())
+	SoundPlayer.play_positional("Water3", get_global_position())
+	SoundPlayer.play_positional("CardSend", get_global_position())
 	activate()
 
 func initialize(pos):

@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=2]
+[gd_scene load_steps=24 format=2]
 
 [ext_resource path="res://scripts/Player.gd" type="Script" id=1]
 [ext_resource path="res://arts/light.png" type="Texture" id=2]
@@ -10,6 +10,8 @@
 [ext_resource path="res://arts/vfx/wave_ring_round.png" type="Texture" id=8]
 [ext_resource path="res://arts/character/whitehsadow.png" type="Texture" id=9]
 [ext_resource path="res://arts/shaders/full_screen_distortion.tres" type="Shader" id=10]
+[ext_resource path="res://sounds/Footstep.wav" type="AudioStream" id=11]
+[ext_resource path="res://scripts/AudioRandomizer.gd" type="Script" id=12]
 
 [sub_resource type="Curve" id=11]
 _data = [ Vector2( 0, 1 ), 0.0, 1.21149, 0, 0, Vector2( 1, 1 ), 0.0148098, 0.0, 0, 0 ]
@@ -1518,6 +1520,23 @@ tracks/29/keys = {
 "update": 0,
 "values": [ Vector2( 1, 1 ), Vector2( 1.00687, 0.948911 ), Vector2( 1, 1 ), Vector2( 1.07804, 1.35282 ), Vector2( 1, 1 ) ]
 }
+tracks/30/type = "method"
+tracks/30/path = NodePath(".")
+tracks/30/interp = 1
+tracks/30/loop_wrap = true
+tracks/30/imported = false
+tracks/30/enabled = true
+tracks/30/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"values": [ {
+"args": [  ],
+"method": "play_footstep"
+}, {
+"args": [  ],
+"method": "play_footstep"
+} ]
+}
 
 [sub_resource type="Animation" id=5]
 resource_name = "run_left"
@@ -1847,6 +1866,23 @@ tracks/26/keys = {
 "transitions": PoolRealArray( 1 ),
 "update": 0,
 "values": [ Vector2( 4, 1 ) ]
+}
+tracks/27/type = "method"
+tracks/27/path = NodePath(".")
+tracks/27/interp = 1
+tracks/27/loop_wrap = true
+tracks/27/imported = false
+tracks/27/enabled = true
+tracks/27/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"values": [ {
+"args": [  ],
+"method": "play_footstep"
+}, {
+"args": [  ],
+"method": "play_footstep"
+} ]
 }
 
 [sub_resource type="Animation" id=7]
@@ -2178,6 +2214,23 @@ tracks/26/keys = {
 "update": 0,
 "values": [ Vector2( 4, 1 ) ]
 }
+tracks/27/type = "method"
+tracks/27/path = NodePath(".")
+tracks/27/interp = 1
+tracks/27/loop_wrap = true
+tracks/27/imported = false
+tracks/27/enabled = true
+tracks/27/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"values": [ {
+"args": [  ],
+"method": "play_footstep"
+}, {
+"args": [  ],
+"method": "play_footstep"
+} ]
+}
 
 [sub_resource type="Animation" id=8]
 resource_name = "run_up"
@@ -2508,6 +2561,23 @@ tracks/26/keys = {
 "update": 1,
 "values": [ -2 ]
 }
+tracks/27/type = "method"
+tracks/27/path = NodePath(".")
+tracks/27/interp = 1
+tracks/27/loop_wrap = true
+tracks/27/imported = false
+tracks/27/enabled = true
+tracks/27/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"values": [ {
+"args": [  ],
+"method": "play_footstep"
+}, {
+"args": [  ],
+"method": "play_footstep"
+} ]
+}
 
 [node name="Player" type="KinematicBody2D" groups=["player"]]
 collision_layer = 2
@@ -2644,6 +2714,13 @@ shape = SubResource( 10 )
 [node name="IframeTimer" type="Timer" parent="."]
 wait_time = 1.5
 one_shot = true
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 11 )
+bus = "Sound"
+script = ExtResource( 12 )
+volume_low = -0.583
+base_volume = -5.0
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "idle"

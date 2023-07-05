@@ -12,8 +12,8 @@ func _ready():
 	
 	#special case star [TODO]
 	if card_name == "c_star":
-		card_name = get_parent().source
-		card_name = "c_star"
+		card_name = get_parent().source.rsplit(" ")[1]
+		card_name = "c_" + card_name.to_lower()
 	
 	print("res://arts/cards/%s.png" % card_name)
 	set_texture(load("res://arts/cards/%s.png" % card_name))

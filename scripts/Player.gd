@@ -151,7 +151,7 @@ func take_damage(damage, source = "Unknown"):
 		emit_signal("health_updated", health)
 		
 		Global.camera.shake()
-		SoundPlayer.play_positional("Laser", get_global_position())
+		SoundPlayer.play_positional("Damage", get_global_position())
 		
 	if health <= 0:
 		print("game over!")
@@ -187,3 +187,7 @@ func _on_round_started():
 func _on_AnimationPlayer_animation_finished(anim_name):
 	if "dash" in anim_name:
 		$AnimationPlayer.play("idle")
+
+
+func play_footstep():
+	$AudioStreamPlayer2D.play()

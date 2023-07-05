@@ -5,6 +5,9 @@ var sounds = {
 	"Water3": "res://sounds/water3.wav",
 	"Laser": "res://sounds/Lazer.wav",
 	"Dash": "res://sounds/dash.wav",
+	"Damage": "res://sounds/Rabbit.wav",
+	"CardSend": "res://sounds/CardSend.wav",
+	"CardFlip": "res://sounds/CardFlip.wav",
 }
 
 
